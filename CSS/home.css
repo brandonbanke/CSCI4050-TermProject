@@ -87,3 +87,29 @@ h2 {
 form{
 	padding-left:45%;
 }
+
+.trailer {
+	display:flex;
+	justify-content: space-evenly;
+	flex-wrap:wrap;
+	text-align:center;
+	align-items: center;
+}
+
+.bookMovie {
+	background-color: #B7B7B7;
+}
+
+.bookMovie:hover {
+	background-color: #c3c9e9;
+}
+
+
+.adminButtons{
+	display: flex;
+	flex-direction:column;
+}
+
+.container {
+	display:flex;
+}
