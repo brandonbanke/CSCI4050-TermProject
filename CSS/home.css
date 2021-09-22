@@ -76,6 +76,14 @@ header #search-form {
 	border-radius: 20px;
 }
 
+main {
+	padding-top:20%;
+}
+
 h2 {
 	color: white;
+}
+
+form{
+	padding-left:45%;
 }
