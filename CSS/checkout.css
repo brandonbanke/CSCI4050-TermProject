@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+    background-color: #24272B;
+}
+main {
+	padding: 1rem 3%;
+}
+
+h1 {
+    color: #d6d5d6;
+	margin-top: 1rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50pt;
+    text-align: center;
+}
+
+
+main h2 {
+	color: #d6d5d6;
+	margin-top: 1rem;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 30pt;
+}
+
+h4 {
+    color: #d6d5d6;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancelButton {
+    background-color: #B7B7B7;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#btn {
+    margin: 1rem;
+    text-align: center;
+}
+
+
+
+.purchaseButton {
+    background-color: #B7B7B7;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    
+}
+
+
+

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+    background-color: #24272B;
+}
+main {
+	padding: 1rem 3%;
+}
+
+h1 {
+    color: #d6d5d6;
+	margin-top: 1rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50pt;
+    text-align: center;
+}
+
+h2 {
+    font-size: 30pt;
+    color: #24272B;
+    border: 2px solid #d6d5d6;
+    background-color: #d6d5d6;
+    text-align: center;
+}
+
+
+.content {
+    text-align: center;
+}
+
+.viewTicket {
+    background-color: #B7B7B7;
+	text-align: center;
+	padding: .5rem 1rem;
+	margin-top: .5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	border-radius: 2rem;
+	box-shadow: .5px .5px 3px .5px #0d0e0f;
+}
+
+.viewTicket:hover {
+    background-color: #c3c9e9;
+}

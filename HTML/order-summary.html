@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Cinema E Booking Website! </title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../CSS/nav-bar.css">
+    <link rel="stylesheet" href="../CSS/order-summary.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Booking Website!</h1>
+    </header>
+    <main>
+        <div id="nav-menu">
+            <ul class="one">
+                <li class="active"><a href="home.html"> Home </a></li>
+                <li><a href="select-movie.html"> Find Movie </a></li>
+                <li><a href="login.html"> Login </a></li>
+                <li><a href="edit-profile.html"> Edit Profile </a></li>
+            </ul>
+            <form id="search-form" action="search.php" method="GET">
+                <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
+            </form>
+        </div>
+        <div class="content">
+            <h1>Tickets</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Movie</td>
+                        <td><a href="select-movie.html"><button type="button" name="edit"
+                                    class="editbtn">Edit</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>Showtime</td>
+                        <td><a href="select-showtime.html"><button type="button" name="edit"
+                                    class="editbtn">Edit</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Seat</p>
+                        </td>
+                        <td><a href="select-seat.html"><button type="button" name="edit"
+                                    class="editbtn">Edit</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Convenience Fees</p>
+                        </td>
+                        <td>
+                            <p>$</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Taxes</p>
+                        </td>
+                        <td>
+                            <p>$</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Total</p>
+                        </td>
+                        <td>
+                            <p>$</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="continue">
+                <a href="checkout.html"><button type="button" class="continueButton">Continue</button></a>
+            </div>
+        </div>
+
+</body>
+
+</html>
