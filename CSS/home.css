@@ -5,14 +5,12 @@
 }
 
 main {
-	padding-top: 5%;
+	padding: 1rem 3%;
 }
 
 header {
-	padding: 1rem;
-    
-	position: fixed;
 	width: 100%;
+	margin-top: 1rem;
 }
 
 main h2 {
@@ -22,7 +20,7 @@ main h2 {
 
 .title {
 	color: #d6d5d6;	
-	padding: .5rem;
+	text-align: center;
 }
 
 header #search-form {
@@ -30,7 +28,6 @@ header #search-form {
 	margin-top: -2.1em;
 	margin-left: 30%;
 }
-
 
 #nav-menu ul {
 	list-style-type: none;
