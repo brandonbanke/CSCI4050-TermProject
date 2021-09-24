@@ -25,7 +25,7 @@ header {
 }
 
 #nav-menu ul li.active a {
-    background-color: rgb(240, 239, 239);
+    background-color: rgb(240, 230, 230);
     color: lightslategray;
 }
 #nav-menu ul li a:hover {
