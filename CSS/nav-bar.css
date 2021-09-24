@@ -24,8 +24,9 @@ header {
 	padding: 1rem;
 }
 
-#nav-menu ul li a.current {
-	color: white;
+#nav-menu ul li.active a {
+    background-color: rgb(240, 239, 239);
+    color: lightslategray;
 }
 #nav-menu ul li a:hover {
 	background-color: rgb(240, 239, 239);
