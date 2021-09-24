@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+    background-color: #24272B;
+}
+main {
+	padding: 1rem 3%;
+}
+main h2 {
+	color: #d6d5d6;;
+	margin-top: 1rem;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 30pt;
+}
+
+.loginForm{
+	padding-left: 45%;
+}
+
+label, input {
+    font-family: 'Roboto', sans-serif;
+    color:  #d6d5d6;
+}
