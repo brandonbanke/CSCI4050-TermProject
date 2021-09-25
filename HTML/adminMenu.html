@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Cinema E Booking Website! </title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../CSS/adminMenu.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">Admin Menu</h1>
+    </header>
+    <br>
+    <main>
+       <!-- <div style="width: 100%;"> -->
+            <div class="adminTab">
+                <div class="userName">
+                    <h3>Welcome back</h3>
+                    <p>[name]</p>
+                </div>
+
+                <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen">Manage Movies</button>
+                <button class="adminButton" onclick="openTab(event, 'managePromotions')">Manage Promotions</button>
+            </div>
+           <!-- <div class="content"> 
+            </div> -->
+        </div>
+
+        <div id="manageMovies" class="content">
+            <h2 style="padding-left: 10px;">Manage Movies</h2>    
+            <br>
+            <form id="search-form" action="search.php" method="GET">
+                <input type="search" id="search-bar" name="searchTerm" placeholder="Seach movie">
+            </form> 
+
+            <section class="movies">
+            
+                
+                <div class="movie">
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+
+                <div class="movie"> 
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                   
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+            
+                <div class="movie">        
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <br>
+                <button class="manageButton" type='button'>Book Movie</button>
+                </div>
+            </section> 
+            
+        </div>
+
+        <div id="managePromotions" class="content">
+            <h2>Manage Promotions</h2>
+            <p>Manage promotions</p>    
+        </div>
+  <!-- </div> -->
+ </main>
+
+<script>
+function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="adminButton" and remove the class "active"
+    tablinks = document.getElementsByClassName("adminButton");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  document.getElementById("defaultOpen").click();
+  </script>
+</body>
+</html>
