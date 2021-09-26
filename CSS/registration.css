@@ -40,7 +40,7 @@ input {
     border: 2px solid #B7B7B7;
 }
 
-.button{
+.bookMovie {
 	background-color: #B7B7B7;
 	text-align: center;
 	padding: .5rem 1rem;
@@ -51,9 +51,10 @@ input {
 	box-shadow: .5px .5px 3px .5px #0d0e0f;
 }
 
-.button:hover {
+.bookMovie:hover {
 	background-color: #c3c9e9;
 }
+
 .registration {
     font-family: 'Bebas Neue', cursive;
     color: #B7B7B7;
