@@ -6,7 +6,25 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/select-showtime.css">
     <link rel="stylesheet" href="../CSS/nav-bar.css">
-    
+    <script>
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1
+        d = n.getDate();
+        var weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+        var gd = weekday[n.getDay()];
+        var tmr = new Date(n);
+        tmr.setDate(tmr.getDate() + 1)
+        var tmr2 = new Date(n);
+        tmr2.setDate(tmr2.getDate() + 2)
+    </script>
 </head>
 <body>
     <header> 
@@ -17,7 +35,7 @@
             <ul class="one">
                 <li><a href="home.html"> Home </a></li>
                 <li class="active"><a href="select-movie.html"> Find Movie </a></li>
-                <li ><a href="login.html"> Login </a></li>
+                <li><a href="login.html"> Login </a></li>
                 <li><a href="edit-profile.html"> Edit Profile </a></li>
             </ul>
             <form id="search-form" action="search.php" method="GET">
@@ -25,7 +43,28 @@
             </form>  
         </div>
         <h1> SELECT SHOWTIME</h1>
-        <p> date:</p>
+        <div class="button-section">
+            <button type='button' class="dateButtons" id="date"><script>
+                document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+                document.write("<h4>Today</h4>");
+            </script></button>
+            <button type='button' class="dateButtons" id="things"><script>
+                document.getElementById("things").innerHTML =  m + "/" + tmr.getDate() + "/" + y + "<br>" + gd;
+            </script></button>
+            <button type='button' class="dateButtons" id="things2"><script>
+                document.getElementById("things2").innerHTML =  m + "/" + tmr2.getDate() + "/" + y + "<br>" + gd;
+            </script></button>
+        </div>
+        <div class="showtimes">
+            <ul>
+                <li><a href="select-seat.html" class="time">10:00am</a></li>
+                <li><a href="select-seat.html" class="time">11:00am</a></li>
+                <li><a href="select-seat.html" class="time">12:00am</a></li>
+                <li><a href="select-seat.html" class="time">1:00am</a></li>
+                <li><a href="select-seat.html" class="time">2:00am</a></li>
+            </ul>
+        </div>
+
     </main>
 
 </body>

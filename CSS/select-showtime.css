@@ -9,13 +9,45 @@ main {
 }
 
 main h1 {
-     color: #d6d5d6;
+    color: #d6d5d6;
 	margin-top: 1rem;
     font-family: 'Bebas Neue', cursive;
     font-size: 50pt;
     text-align: center;
 }
-
-p {
+.showtimes a {
+    display: flex;
+    padding: 1rem 2rem;
+    margin-top: 2.5rem;
+    background-color: #D0CDD7;
+    width: 78px;
+    justify-content: center;
+    border-radius: 20px;
     color: white;
+}
+
+.showtimes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.dateButtons {
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.button-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+a:link {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
 }
