@@ -28,13 +28,16 @@
         <!-- insert arrays of seats   -->
     <script>
             function seats() {
-                for(i=0; i < 198; i++) {
+                for(i=0; i < 16; i++) {
+                    for (n=0; n < 16; n++) {
                     let btn = document.createElement("button");
                     btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
+                    btn.style.border = "none";
                     btn.onclick = function () {
                         alert("Button is clicked");
                     };
                     document.body.appendChild(btn);
+                    }
                 }
             }       
     </script>
