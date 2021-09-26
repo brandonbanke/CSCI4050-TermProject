@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../CSS/select-seat.css">
 </head>
 
-<body>
+<body onload="seats();">
     <header> 
         <h1 class = "title">Booking Website!</h1>
     </header>
@@ -25,12 +25,21 @@
             </form>  
         </div>
         <h1>Select Seats Now</h1>
-        <!-- insert arrays of seats -->
+        <!-- insert arrays of seats   -->
+    <script>
+            function seats() {
+                for(i=0; i < 198; i++) {
+                    let btn = document.createElement("button");
+                    btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
+                    btn.onclick = function () {
+                        alert("Button is clicked");
+                    };
+                    document.body.appendChild(btn);
+                }
+            }       
+    </script>
 
-        <button onclick="JavaScript:alert('This seat is avalible')" style="border: none;">
-            <img src = "../Assets/Avalible-Seat.png" alt="Avalible-Seat">
-        </button>
-        
+
     </main>
 
 </body>
