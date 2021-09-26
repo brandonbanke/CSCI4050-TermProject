@@ -9,90 +9,152 @@
 </head>
 <body>
     <header>
-        <h1 class="title">Admin Menu</h1>
+        <h1 class="title" style="padding-top: 10px;">Admin Menu</h1>
+        <li><a href="admin-home.html">
+            <button class="manageButton">Go back</button>
+        </a>
+        </li>
     </header>
     <br>
+    
     <main>
-       <!-- <div style="width: 100%;"> -->
+
             <div class="adminTab">
                 <div class="userName">
-                    <h3>Welcome back</h3>
-                    <p>[name]</p>
+                    <h3 style="padding-left: 5px;">Welcome back</h3>
+                    <p style="padding-left: 5px;">[name]</p>
                 </div>
 
-                <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen">Manage Movies</button>
-                <button class="adminButton" onclick="openTab(event, 'managePromotions')">Manage Promotions</button>
+                <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen" style="padding-left: 5px;">Manage Movies</button>
+                <button class="adminButton" onclick="openTab(event, 'managePromotions')" style="padding-left: 5px;">Manage Promotions</button>
             </div>
-           <!-- <div class="content"> 
-            </div> -->
+           
         </div>
 
         <div id="manageMovies" class="content">
+            <br>
             <h2 style="padding-left: 10px;">Manage Movies</h2>    
             <br>
             <form id="search-form" action="search.php" method="GET">
                 <input type="search" id="search-bar" name="searchTerm" placeholder="Seach movie">
             </form> 
-
+            <br>
             <section class="movies">
             
                 
                 <div class="movie">
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
 
                 <div class="movie"> 
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                   
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                   
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
 
                 <div class="movie">        
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
 
                 <div class="movie">        
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
             
                 <div class="movie">        
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
 
                 <div class="movie">        
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
 
                 <div class="movie">        
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
 
                 <div class="movie">        
-                <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/best-movie-posters-2016/large/moonlight-ver2-xlg.jpg?1384968217">                
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
                 <br>
-                <button class="manageButton" type='button'>Book Movie</button>
+                <button class="manageButton" type='button'>Edit</button>
                 </div>
+
+                <div class="movie">        
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
+                <br>
+                <button class="manageButton" type='button'>Edit</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
+                <br>
+                <button class="manageButton" type='button'>Edit</button>
+                </div>
+
+
+                <div class="movie">        
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
+                <br>
+                <button class="manageButton" type='button'>Edit</button>
+                </div>
+
+                <div class="movie">        
+                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
+                <br>
+                <button class="manageButton" type='button'>Edit</button>
+                </div>
+
+                <div class="movie">        
+                    <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
+                    <br>
+                    <button class="manageButton" type='button'>Edit</button>
+                    </div>
             </section> 
             
         </div>
 
         <div id="managePromotions" class="content">
-            <h2>Manage Promotions</h2>
-            <p>Manage promotions</p>    
+            <br>
+            <h2 style="padding-left: 10px;">Manage Promotions</h2>
+            <br>
+            <p style="padding-left: 10px;">Select promotion:</p>    
+            <br>
+            <p style="padding-left: 10px; display: inline-block;">1. Buy 2 get one free</p>
+            <button class="manageButton" >Change</button>
+            <br>
+            <p style="padding-left: 10px; display: inline-block;">2. Test promotion</p>
+            <button class="manageButton" >Change</button>
+            <br>
+            <p style="padding-left: 10px; display: inline-block;">3. Another promotion</p>
+            <button class="manageButton" onclick="showWindow()">Change</button>
         </div>
-  <!-- </div> -->
+
+
+
+        <!--popup window to manage movies-->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg" style="display: inline-flex;">
+              <p>Change name:</p>
+            </div>
+          
+          </div>
+
+
  </main>
 
 <script>
@@ -118,6 +180,32 @@ function openTab(evt, tabName) {
   }
 
   document.getElementById("defaultOpen").click();
-  </script>
+
+
+</script>
+
+<!--
+<script>
+var Alert = new showWindow();
+
+function showWindow() {
+    this.show = function() {
+    let popupBox = document.getElementById("myModal");
+    popupBox.style.display = "block"; 
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    function closeWindow() {
+        popupBox.style.display = "none";
+    }
+}
+
+</script>
+-->
 </body>
 </html>

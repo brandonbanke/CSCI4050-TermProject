@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
     background-color: #24272B;
     color: black;
+    font-family: 'Bebas Neue', cursive;
+
 }
 * p{
     background-color: inherit;
@@ -10,6 +14,8 @@
 
 * h2 {
     background-color: inherit;
+    font-family: 'Bebas Neue', cursive;
+
    
 }
 
@@ -35,6 +41,7 @@ h1{
     height: 10%;
     padding-bottom: 45px;
     border: 1px gray;
+    
     
 }
 
@@ -78,7 +85,7 @@ h1{
     border-left: none;
     margin-left: 10%;
     height: 80%;
-    min-height: 600px;
+    min-height: 400px;
 }
 
 figure {
@@ -86,33 +93,38 @@ figure {
 }
 
 img{
-    width: 10%;
+    width: 50%;
     height: auto;
     background-color: inherit;
 }
 
 .manageButton{
-    background-color: inherit;
-    text-align: center;
-    
+    background-color: #B7B7B7;
+	text-align: center;
+	padding: .5rem 1rem;
+	margin-top: .5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	border-radius: 2rem;
+	
 }
+
 
 .movie{
     padding: 10px;
     background-color: inherit;
+    display: inline-block;
     
 }
 
-.movies {
-	
-	text-align: center;
-	align-items: center;
-	overflow-x:auto;
-    overflow-y:visible;
-    overflow-wrap:break-word;
-    background-color: inherit;
 
+.movies {
+	text-align: center;
+	padding-left: 30px;
+    background-color: inherit;
+    overflow-y: auto;
 }
+
 
 #search-bar{
     width: 20%;
@@ -131,3 +143,41 @@ img{
     background-color: inherit;
     padding-left: 10px;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
