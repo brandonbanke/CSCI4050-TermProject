@@ -24,11 +24,18 @@ main h2 {
 	font-size: 30pt;
 }
 
+p{
+    font-size: 20pt;
+}
+
+
 .editbtn {
-    background-color: #B7B7B7;
-    color: black;
+    /* background-color: #B7B7B7; */
+    color: #B7B7B7;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    
+    font-size: 12pt;
 
 }
 
@@ -43,6 +50,7 @@ table {
     
 }
 
+
 td {
   padding-left: 2em;
 }
@@ -52,9 +60,12 @@ td {
 }
 
 .continueButton {
-    background-color: #B7B7B7;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    
+        color: white;
+        text-decoration: none;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 20pt;
+        width: auto;
+        background-color: #D0CDD7;
+        border-radius: 25px;
+        padding: .75rem 1.5rem;  
 }

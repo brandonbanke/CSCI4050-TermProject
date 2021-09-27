@@ -8,6 +8,7 @@ main {
 	padding: 1rem 3%;
 }
 
+
 h1 {
     color: #d6d5d6;
 	margin-top: 1rem;
@@ -24,20 +25,28 @@ h2 {
     text-align: center;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+}
 
 .content {
     text-align: center;
+
 }
 
-.viewTicket {
-    background-color: #B7B7B7;
-	text-align: center;
-	padding: .5rem 1rem;
-	margin-top: .5rem;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
-	border-radius: 2rem;
-	box-shadow: .5px .5px 3px .5px #0d0e0f;
+.backHome {
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem;
 }
 
 .viewTicket:hover {

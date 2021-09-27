@@ -28,7 +28,14 @@ h4 {
     color: #d6d5d6;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    font-size: 18pt;
+    font-family: 'Bebas Neue', cursive;
 }
+
+input {
+    font-size: 15pt;
+}
+
 
 .main-container {
     display: flex;
@@ -37,10 +44,14 @@ h4 {
 }
 
 .cancelButton {
-    background-color: #B7B7B7;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem;
 }
 
 #btn {
@@ -51,10 +62,14 @@ h4 {
 
 
 .purchaseButton {
-    background-color: #B7B7B7;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem;
     
 }
 
