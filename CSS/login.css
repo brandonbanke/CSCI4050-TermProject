@@ -17,8 +17,10 @@ main h2 {
 	padding-left: 45%;
 }
 label, input {
+	margin-bottom: .5rem;
     font-family: 'Roboto', sans-serif;
-    color:  #d6d5d6;
+	color:  #d6d5d6;
+	font-size: 20px;
 }
 
 .loginButton {
@@ -27,11 +29,10 @@ label, input {
 	padding: .5rem 1rem;
 	margin-top: .5rem;
 	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
+	font-size: 14px;
 	border-radius: 2rem;
 	box-shadow: .5px .5px 3px .5px #0d0e0f;
 	color: black;
-	font-size: 10px;
 }
 
 .loginButton:hover {
