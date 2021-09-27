@@ -16,3 +16,14 @@ main h1 {
     font-size: 50pt;
     text-align: center;
 }
+
+.continue {
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem;
+}

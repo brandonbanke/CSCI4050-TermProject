@@ -33,17 +33,13 @@
                     let btn = document.createElement("button");
                     btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
                     btn.style.border = "none";
-                    btn.onclick = function () {
-                        alert("Button is clicked");
-                    };
+                    btn.onclick = "window.location.href = \"order-summary.html\";"
                     document.body.appendChild(btn);
                     }
                 }
             }       
     </script>
-
-
+    <input class="continue" type="button" onclick="window.location.href='../HTML/order-summary.html';" value="Continue">
     </main>
-
 </body>
 </html>
