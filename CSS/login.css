@@ -38,3 +38,17 @@ label, input {
 .loginButton:hover {
 	background-color: #c3c9e9;
 }
+
+footer a {
+    color: white;
+    text-decoration: none;
+    float: right;
+    margin-top: 12rem;
+    margin-right: 3rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem;
+}
