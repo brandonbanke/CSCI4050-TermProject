@@ -24,6 +24,10 @@ main h2 {
 	font-size: 30pt;
 }
 
+select {
+    color: #d6d5d6;
+}
+
 h4 {
     color: #d6d5d6;
     margin-bottom: 1rem;
