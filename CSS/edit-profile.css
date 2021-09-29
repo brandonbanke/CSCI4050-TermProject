@@ -14,21 +14,21 @@ main legend {
 	font-size: 30pt;
 }
 
-form {
+.form {
     text-align: center;
 }
 
 fieldset {
     border: 0.75px solid #d6d5d6;
     padding: 1%;
-    text-align: center;
+    text-align: right;
 }
 
 label {
     font-family: 'Roboto', sans-serif;
     color:#d6d5d6;
     text-align: right;
-    float:center;
+    float: center;
     width: 7em;
     text-align: right;
     margin-left: -1em;
