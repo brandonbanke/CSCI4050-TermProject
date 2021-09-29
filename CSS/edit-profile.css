@@ -14,14 +14,14 @@ main legend {
 	font-size: 30pt;
 }
 
-.form {
+form {
     text-align: center;
 }
 
 fieldset {
     border: 0.75px solid #d6d5d6;
     padding: 1%;
-    text-align: right;
+    text-align: center;
 }
 
 label {
