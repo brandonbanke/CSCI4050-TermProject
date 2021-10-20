@@ -27,7 +27,9 @@ CREATE TABLE `payment_card` (
   `expirationDate` varchar(255) DEFAULT NULL,
   `cardNumber` varchar(255) NOT NULL,
   `cvv` int NOT NULL,
-  `fullName` varchar(255) NOT NULL
+  `fullName` varchar(255) NOT NULL,
+  `cardId` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`cardId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-19 22:47:06
+-- Dump completed on 2021-10-20 13:43:58
