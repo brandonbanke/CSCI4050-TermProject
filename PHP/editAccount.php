@@ -1,31 +1,44 @@
 <?php 
     require("../PHP/database.php");
-    require("../HTML/edit-profile.php");
-    $oldpass = filter_input(INPUT_POST, 'old_password');
+    
 
-    $changequery = "SELECT pass FROM user
+    $changequery = "SELECT firstName FROM user
                         WHERE active = 1
-                        AND pass = :p_word
                         ";
     $changestatement = $db->prepare($changequery);
-    $changestatement->bindValue(':p_word', $oldpass);
     $changestatement->execute();
     $rowcount = $changestatement->rowCount();
 
-    $pass = filter_input(INPUT_POST, 'new_password');
-    $confirmpass = filter_input(INPUT_POST, 'confirm_new_pw');
-    $issue = true;
+    $fName = filter_input(INPUT_POST, 'new_firstName');
+    $changeFirstName = "UPDATE user
+    SET firstName = '$fName' WHERE active=1";
+    $db->exec($changeFirstName);
 
-    if ($rowcount == 0 || $rowcount > 1) {
-        echo "<h5> Wrong Password Entered! </h5>";
-    } else if ($pass != $confirmpass) {
-        echo "<h5> The New Passwords Do Not Match! </h5>";
-    } else {
-        $issue = false;
-        $changepass = "UPDATE user
-        SET pass = '$pass' WHERE active=1";
-        $db->exec($changepass);
-        echo "<h1> Password Successfully Reset! </h1>";
-    }
-    include("../HTML/edit-profile.php");
+
+    $changequery2 = "SELECT lastName FROM user
+                        WHERE active = 1
+                        ";
+    $changestatement2 = $db->prepare($changequery2);
+    $changestatement2->execute();
+    $rowcount2 = $changestatement2->rowCount();
+
+    $lName = filter_input(INPUT_POST, 'new_lastName');
+    $changeLastName = "UPDATE user
+    SET lastName = '$lName' WHERE active=1";
+    $db->exec($changeLastName);
+
+
+    $changequery3 = "SELECT userId FROM user
+                        WHERE active = 1
+                        ";
+    $changestatement3 = $db->prepare($changequery3);
+    $changestatement3->execute();
+    $rowcount3 = $changestatement3->rowCount();
+
+    $uName = filter_input(INPUT_POST, 'new_userId');
+    $changeuserId = "UPDATE user
+    SET userId = '$uName' WHERE active=1";
+    $db->exec($changeuserId);
+
+    include("../HTML/home.html");
 ?>

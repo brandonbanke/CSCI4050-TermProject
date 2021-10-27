@@ -29,22 +29,22 @@
             </form>  
         </div>
         <?php foreach ($userInfs as $userInf) : ?>
-            <form class = "registrationForm"> 
+            <form class = "registrationForm" action = "../PHP/editAccount.php" method = "POST"> 
                 <fieldset>
                     <legend>Edit Profile</legend>
                     <label>First name:</label>
-                    <input type="text" value = <?php echo $userInf['firstName']; ?>><br><br><br>
+                    <input type="text" name = "new_firstName" value = <?php echo $userInf['firstName']; ?>><br><br><br>
                     <label>Last name:</label>
-                    <input type="text" value = <?php echo $userInf['lastName']; ?>><br><br><br>
+                    <input type="text" name = "new_lastName" value = <?php echo $userInf['lastName']; ?>><br><br><br>
                     <label>Email:</label>
                     <input type="text" value = <?php echo $userInf['email']; ?> disabled ><br><br><br>
                     <label>Username:</label>
-                    <input type="text" value = <?php echo $userInf['userId']; ?>><br><br><br>
+                    <input type="text" name = "new_userId" value = <?php echo $userInf['userId']; ?>><br><br><br>
                     <input class = "bookMovie" type="submit" value="Submit">
             </fieldset>
             </form>
 
-            <form class = "registrationForm" action = "../PHP/editAccount.php" method = "POST"> 
+            <form class = "registrationForm" action = "../PHP/editPassword.php" method = "POST"> 
                 <fieldset>
                 <legend>Reset Password</legend>
                 <label>Current Password:</label>
