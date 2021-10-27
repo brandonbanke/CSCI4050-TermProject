@@ -41,6 +41,8 @@
             <input type="text" name='uPassword'><br><br><br>
             <label>Confirm Password:</label>
             <input type="text"><br><br><br>
+            <input type="checkbox" name="uPromo" value="1">
+            <label for="uPromo"> Recieve Promotions? </label><br><br><br>
             <a href="registration-confirmation.html"><input type='submit' class='bookMovie' type='submit' value='Create Account'> </input></a>
         </fieldset>
         </form>
