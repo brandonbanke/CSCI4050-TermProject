@@ -24,7 +24,6 @@ DROP TABLE IF EXISTS `customer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
   `userId` varchar(255) DEFAULT NULL,
-  `state` enum('active','inactive') DEFAULT NULL,
   `cardId` int NOT NULL,
   KEY `userId` (`userId`),
   KEY `cardId` (`cardId`),
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-26 20:49:05
+-- Dump completed on 2021-10-26 21:45:07
