@@ -6,7 +6,7 @@ $query0 = "USE cinema_booking";
 $db->exec($query0);
 
 
-$query1 = "CREATE TABLE IF NOT EXISTS userInfo
+$query1 = "CREATE TABLE IF NOT EXISTS user
 (
 userId VARCHAR(255) NOT NULL PRIMARY KEY,
 firstName VARCHAR(255) NOT NULL,
@@ -27,7 +27,7 @@ $lName = filter_input(INPUT_POST, 'uLastName');
 $active = 0;
 $promoCheck = filter_input(INPUT_POST, 'uPromo');
 
-$querycheck = "SELECT * FROM userInfo WHERE email = :uEmail";
+$querycheck = "SELECT * FROM user WHERE email = :uEmail";
 $emailcheckstatement = $db->prepare($querycheck);
 $emailcheckstatement->bindValue(':uEmail', $userEmail);
 $emailcheckstatement->execute();
@@ -41,7 +41,7 @@ exit();
 }
 
 
-$query2 = "INSERT INTO userInfo
+$query2 = "INSERT INTO user
 (userId, firstName, lastName, email, pass, active, receiveProm)
 VALUE
 (:user_iden, :first_name, :last_name, :e_mail, :p_word, :active, :receive_Prom)

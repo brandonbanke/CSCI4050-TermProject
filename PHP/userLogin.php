@@ -7,7 +7,7 @@
     $uId = filter_input(INPUT_POST, 'userIdent');
     $password = filter_input(INPUT_POST, 'uPasswor');
 
-    $loginquery = "SELECT pass FROM userInfo
+    $loginquery = "SELECT pass FROM user
                     WHERE userId = :user_iden
                     AND pass = :p_word
                     ";
@@ -20,13 +20,14 @@
 
     if ($rowcount == 1) {
         include("../HTML/home.html");
-        $setactive = "UPDATE userInfo
+        $setactive = "UPDATE user
                         SET active=1
                         WHERE userId=:user_iden;";
         $loginstatement2 = $db->prepare($setactive);
         $loginstatement2->bindValue(':user_iden', $uId);
         $loginstatement2->execute();
     } else {
+        include("../HTML/login.php");
         echo "<h5>Invalid credentials<h5> ";
     }
 
