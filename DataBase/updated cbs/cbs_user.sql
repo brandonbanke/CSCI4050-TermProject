@@ -29,6 +29,7 @@ CREATE TABLE `user` (
   `lastName` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
+  `receiveProm` tinyint(1) NOT NULL,
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-26 21:45:06
+-- Dump completed on 2021-10-26 21:49:46
