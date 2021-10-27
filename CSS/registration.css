@@ -32,12 +32,14 @@ label {
     width: 7em;
     text-align: right;
     margin-left: -1em;
+    
 }
 
 input {
     width: 15em;
     margin-left: 0.75em;
     border: 2px solid #B7B7B7;
+    background-color: white;
 }
 
 .bookMovie {
