@@ -19,6 +19,7 @@
     $rowcount = $loginstatement->rowCount();
 
     if ($rowcount == 1) {
+        include("../HTML/home.html");
         $setactive = "UPDATE userInfo
                         SET active=1
                         WHERE userId=:user_iden;";
