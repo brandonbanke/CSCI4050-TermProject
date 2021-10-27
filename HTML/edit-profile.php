@@ -37,22 +37,22 @@
                     <label>Last name:</label>
                     <input type="text" value = <?php echo $userInf['lastName']; ?>><br><br><br>
                     <label>Email:</label>
-                    <input type="text" value = <?php echo $userInf['email']; ?>><br><br><br>
+                    <input type="text" value = <?php echo $userInf['email']; ?> disabled ><br><br><br>
                     <label>Username:</label>
                     <input type="text" value = <?php echo $userInf['userId']; ?>><br><br><br>
                     <input class = "bookMovie" type="submit" value="Submit">
             </fieldset>
             </form>
 
-            <form class = "registrationForm"> 
+            <form class = "registrationForm" action = "../PHP/editAccount.php" method = "POST"> 
                 <fieldset>
                 <legend>Reset Password</legend>
                 <label>Current Password:</label>
-                <input type="text" style="-webkit-text-security: circle;"><br><br><br>
+                <input type="text" style="-webkit-text-security: circle;" name = "old_password"><br><br><br>
                 <label>New Password:</label>
-                <input type="text" style="-webkit-text-security: circle;"><br><br><br>
+                <input type="text" style="-webkit-text-security: circle;" name = "new_password"><br><br><br>
                 <label>Confirm Password:</label>
-                <input type="text" style="-webkit-text-security: circle;"><br><br><br>
+                <input type="text" style="-webkit-text-security: circle;" name = "confirm_new_pw"><br><br><br>
                 <input class = "bookMovie" type="submit" value="Submit">
             </fieldset>
             </form>
