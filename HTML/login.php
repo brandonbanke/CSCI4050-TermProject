@@ -24,13 +24,13 @@
             <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
         </form>  
     </div>
-        <form class = "loginForm"> 
+    <form action='../PHP/userLogin.php' method='POST' class = "loginForm"> 
             <h2> Login </h2>
             <label>Username:</label><br>
-            <input type="text"><br>
+            <input type="text" name='userIdent'><br><br>
             <label>Password:</label><br>
-            <input type="text"><br><br>
-            <input class = "loginButton" type="submit" value="Submit">
+            <input type="text" name='uPasswor'><br><br>
+            <a href="../HTML/home.html"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.html';" value="Create Account">
         </form>
     </main>

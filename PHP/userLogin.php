@@ -1,26 +1,29 @@
 <?php 
     require("database.php");
 
-    $usere = filter_input(INPUT_POST, 'email');
-    $passw = filter_input(INPUT_POST, 'password');
+    $query0 = "USE cinema_booking";
+    $db->exec($query0);
+    
+    $uId = filter_input(INPUT_POST, 'userIdent');
+    $password = filter_input(INPUT_POST, 'uPasswor');
 
-    $loginquery = "SELECT pass FROM user
-                    WHERE email = :e_mail
-                    AND pass = :pass_word
+    $loginquery = "SELECT pass FROM userInfo
+                    WHERE userId = :user_iden
+                    AND pass = :p_word
                     ";
 
     $loginstatement = $db->prepare($loginquery);
-    $loginstatement->bindValue(':e_mail', $usere);
-    $loginstatement->bindValue(':pass_word', $passw);
+    $loginstatement->bindValue(':user_iden', $uId);
+    $loginstatement->bindValue(':p_word', $password);
     $loginstatement->execute();
     $rowcount = $loginstatement->rowCount();
 
     if ($rowcount == 1) {
-        $setactive = "UPDATE userinfo
+        $setactive = "UPDATE userInfo
                         SET active=1
-                        WHERE email=:e_mail;";
+                        WHERE userId=:user_iden;";
         $loginstatement2 = $db->prepare($setactive);
-        $loginstatement2->bindValue(':e_mail', $usere);
+        $loginstatement2->bindValue(':user_iden', $uId);
         $loginstatement2->execute();
     } else {
         echo "<h5>Invalid credentials<h5> ";
