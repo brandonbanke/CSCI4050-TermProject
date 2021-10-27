@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/nav-bar.css">
 </head>
 
+
 <body>
     <header> 
         <h1 class = "title">Booking Website!</h1>
@@ -25,22 +26,22 @@
             </form>  
         </div>
 
-        <form class = "registrationForm"> 
+        <form action='../PHP/userInformation.php' method='POST' class = "registrationForm"> 
             <fieldset>
             <legend>Register Your Account</legend>
             <label>First name:</label>
-            <input type="text"><br><br><br>
+            <input type="text" name='uFirstName'><br><br><br>
             <label>Last name:</label>
-            <input type="text"><br><br><br>
+            <input type="text" name='uLastName'><br><br><br>
             <label>Email:</label>
-            <input type="text"><br><br><br>
+            <input type="text" name='uEmail'><br><br><br>
             <label>Username:</label>
-            <input type="text"><br><br><br>
+            <input type="text" name='userIden'><br><br><br>
             <label>Password:</label>
-            <input type="text"><br><br><br>
+            <input type="text" name='uPassword'><br><br><br>
             <label>Confirm Password:</label>
             <input type="text"><br><br><br>
-            <a href="registration-confirmation.html"><button class='bookMovie' type='button'>Create Account </button></a>
+            <a href="registration-confirmation.html"><input type='submit' class='bookMovie' type='submit' value='Create Account'> </input></a>
         </fieldset>
         </form>
     </main>
