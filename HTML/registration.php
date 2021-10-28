@@ -16,10 +16,9 @@
     <main>
         <div id="nav-menu">
             <ul class="one">
-                <li><a href="home.html"> Home </a></li>
-                <li><a href="select-movie.html"> Find Movie </a></li>
-                <li><a href="login.php"> Login </a></li>
-                <li class="active"><a href="edit-profile.html"> Edit Profile </a></li>
+                <li><a href="../HTML/home.html"> Home </a></li>
+                <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
+                <li class="active"><a href="../HTML/account.php"> Account </a></li>
             </ul>
             <form id="search-form" action="search.php" method="GET">
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">

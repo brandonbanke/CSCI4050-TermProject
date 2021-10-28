@@ -13,18 +13,22 @@
 </head>
 
 <body>
-        <?php foreach ($userInfs as $userInf) : ?>
-            <?php 
-            $isActive = $userInf['active'];
-            if ($isActive == 1) {
-                include("../HTML/edit-profile.php");
-            } else {
-                include("../HTML/login.php");
-            }
-            
-            ?>
-        <?php endforeach; ?>
 
+
+        <?php 
+        if (count($userInfs) == 0) {
+            include("../HTML/login.php");
+        } else {
+            foreach ($userInfs as $userInf) {
+                $isActive = $userInf['active'];
+                if ($isActive == 1) {
+                    include("../HTML/edit-profile.php");
+                } else {
+                    include("../HTML/login.php");
+                }
+            }
+        }
+        ?>
     </main>
 
 </body>

@@ -21,8 +21,7 @@
             <ul class="one">
                 <li><a href="../HTML/home.html"> Home </a></li>
                 <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
-                <li><a href="../HTML/login.php"> Login </a></li>
-                <li class="active"><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
+                <li class="active"><a href="../HTML/account.php"> Account </a></li>
             </ul>
             <form id="search-form" action="search.php" method="GET">
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
@@ -57,6 +56,7 @@
             </fieldset>
             </form>
         <?php endforeach; ?>
+        <a href="../PHP/logoutUser.php"> Logout </a>
 
     </main>
 

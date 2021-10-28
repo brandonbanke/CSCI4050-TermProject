@@ -1,10 +1,10 @@
 <?php
-  require("../php/database.php");
+  require("../PHP/database.php");
 
-  $setinactive = "UPDATE userinfo
+  $setinactive = "UPDATE user
                   SET active=0;";
   $loginstatement2 = $db->prepare($setinactive);
   $loginstatement2->execute();
 
-  include("../html/login.php");
+  include("../HTML/login.php");
 ?>
