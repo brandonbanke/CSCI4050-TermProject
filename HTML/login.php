@@ -36,7 +36,9 @@
 
             <a href="../HTML/home.html"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
-        </form>
+            <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
+            
+    </form>
     </main>
     <footer>
         <a href="admin-home.html">Continue to Admin Home</a>

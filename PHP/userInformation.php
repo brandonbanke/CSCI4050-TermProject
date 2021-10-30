@@ -35,11 +35,15 @@ $already = $emailcheckstatement->rowCount();
 $emailcheckstatement->closeCursor();
 
 if ($already != 0) {
-include("../HTML/login.php");
-echo "<h5>An account with this email already exist<h5>";
-exit();
+    include("../HTML/login.php");
+    echo "<h5>An account with this email already exist<h5>";
+    exit();
 }
 
+# if promotion box not check, set to false
+if ($promoCheck == NULL) {
+    $promoCheck = FALSE;
+}
 
 $query2 = "INSERT INTO user
 (userId, firstName, lastName, email, pass, active, receiveProm)

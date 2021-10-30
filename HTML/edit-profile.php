@@ -38,9 +38,9 @@
                     <label>Email:</label>
                     <input type="text" value = <?php echo $userInf['email']; ?> disabled ><br><br><br>
                     <label>Username:</label>
-                    <input type="text" name = "new_userId" value = <?php echo $userInf['userId']; ?>><br><br><br>
+                    <input type="text" name = "new_userId" value = <?php echo $userInf['userId']; ?> disabled><br><br><br>
                     <input class = "bookMovie" type="submit" value="Submit">
-            </fieldset>
+                </fieldset>
             </form>
 
             <form class = "registrationForm" action = "../PHP/editPassword.php" method = "POST"> 
@@ -56,8 +56,11 @@
             </fieldset>
             </form>
         <?php endforeach; ?>
-        <a href="../PHP/logoutUser.php"> Logout </a>
 
+        <!-- might need to center the div with better style -->
+        <div style="padding-top: 30px; padding-left: 670px;">
+            <a href="../PHP/logoutUser.php" class="bookMovie"> Logout </a>
+        </div>
     </main>
 
 </body>

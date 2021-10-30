@@ -14,7 +14,6 @@
 
 <body>
 
-
         <?php 
         if (count($userInfs) == 0) {
             include("../HTML/login.php");
