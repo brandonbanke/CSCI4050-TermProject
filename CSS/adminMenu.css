@@ -34,6 +34,7 @@ h1{
     text-align: center;
 }
 
+
 .userName{
     text-align: left;
     color: black;
@@ -98,14 +99,18 @@ img{
     background-color: inherit;
 }
 
+
+
 .manageButton{
-    background-color: #B7B7B7;
+    background-color:  #D0CDD7;
 	text-align: center;
 	padding: .5rem 1rem;
 	margin-top: .5rem;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
 	border-radius: 2rem;
+    text-decoration: none;
+    
 	
 }
 
@@ -151,6 +156,23 @@ img{
 #managePromotions{
     display: inline;
     background-color: white;
+}
+
+
+.changeButton {
+    background-color:  #D0CDD7;
+	text-align: center;
+	margin-top: .5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	border-radius: 2rem;
+    text-decoration: none;
+    
+
+}
+
+.changeButton:hover {
+    background-color: #c3c9e9;
 }
 
 fieldset{

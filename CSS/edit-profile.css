@@ -41,6 +41,13 @@ input {
 	background-color: white;
 }
 
+#logoutButton {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+
 .bookMovie {
 	background-color: #B7B7B7;
 	text-align: center;
@@ -50,6 +57,8 @@ input {
 	font-weight: bold;
 	border-radius: 2rem;
 	box-shadow: .5px .5px 3px .5px #0d0e0f;
+	text-decoration: none;
+
 }
 
 .bookMovie:hover {

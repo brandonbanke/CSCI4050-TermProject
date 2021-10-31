@@ -58,7 +58,7 @@
         <?php endforeach; ?>
 
         <!-- might need to center the div with better style -->
-        <div style="padding-top: 30px; padding-left: 670px;">
+        <div id="logoutButton">
             <a href="../PHP/logoutUser.php" class="bookMovie"> Logout </a>
         </div>
     </main>
