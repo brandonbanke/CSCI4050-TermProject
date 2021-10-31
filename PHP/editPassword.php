@@ -26,5 +26,5 @@
         SET pass = '$pass' WHERE active=1";
         $db->exec($changepass);
     }
-    include("../HTML/home.html");
+    include("../HTML/account.php");
 ?>
