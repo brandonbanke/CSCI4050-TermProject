@@ -72,7 +72,7 @@
         foreach ($paymentCards as $card): ?>
         <form action='../PHP/editCardInfo.php' method='POST' class = "registrationForm"> 
             <fieldset>
-            <legend>Card <?php echo($counter); ?></legend>
+            <legend>Card <?php echo $counter; ?></legend>
             <label>Billing Address:</label>
             <input type="text" name='new_BillingAddress' value = "<?php echo $card['billingAddress']; ?>" ><br><br><br>
             <label>Expiraton Date:</label>

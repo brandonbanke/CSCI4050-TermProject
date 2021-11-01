@@ -33,12 +33,10 @@ header {
 }
 
 #nav-menu ul li.active a {
-    background-color: rgb(207, 199, 199);
-    color: #24272B;
+    color: #c3c9e9;
 }
 #nav-menu ul li a:hover {
-	background-color: rgb(240, 239, 239);
-	color: #24272B;
+	color: rgb(240, 239, 239);
 }
 #nav-menu ul.one {
 	position: relative;

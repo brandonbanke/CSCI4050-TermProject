@@ -28,15 +28,17 @@
             </form>  
         </div>
 
-        <div>
-            <ul>
+        <div id="edit-nav">
+            <ul class="one">
                 <li><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
                 <li><a href="../HTML/edit-card.php"> Edit Billing Info </a></li>
+                <li><a href="../PHP/logoutUser.php"> Logout </a></li>
+
             </ul>
         </div>
 
         <?php foreach ($userInfs as $userInf) : ?>
-            <form class = "registrationForm" action = "../PHP/editAccount.php" method = "POST"> 
+            <form class = "editProf" action = "../PHP/editAccount.php" method = "POST"> 
                 <fieldset>
                     <legend>Edit Profile</legend>
                     <label>First name:</label>
@@ -50,16 +52,16 @@
                     <?php
                         $checked = ($userInf['receiveProm'] == 1 ? ' checked':'');
                     ?>
-            
-                            <input type="checkbox" name="new_promotion" <?php echo $checked;?>/>
-                            <label> Recieve Promotions? </label><br><br><br>   
+                    <input id="check" type="checkbox" name="new_promotion" <?php echo $checked;?>/>
+                    <label id="checkLabel"> Recieve Promotions? </label><br><br><br>   
                     
                     
-                    <input class = "bookMovie" type="submit" value="Submit">
+                    <input class = "sub" type="submit" value="Submit">
                 </fieldset>
             </form>
+            <br>
 
-            <form class = "registrationForm" action = "../PHP/editPassword.php" method = "POST"> 
+            <form class = "resetPass" action = "../PHP/editPassword.php" method = "POST"> 
                 <fieldset>
                 <legend>Reset Password</legend>
                 <label>Current Password:</label>
@@ -68,15 +70,11 @@
                 <input type="text" style="-webkit-text-security: circle;" name = "new_password"><br><br><br>
                 <label>Confirm Password:</label>
                 <input type="text" style="-webkit-text-security: circle;" name = "confirm_new_pw"><br><br><br>
-                <input class = "bookMovie" type="submit" value="Submit">
+                <input class = "sub" type="submit" value="Submit">
             </fieldset>
             </form>
         <?php endforeach; ?>
-
-        <!-- might need to center the div with better style -->
-        <div id="logoutButton">
-            <a href="../PHP/logoutUser.php" class="bookMovie"> Logout </a>
-        </div>
+        
     </main>
 
 </body>

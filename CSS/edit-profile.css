@@ -14,7 +14,36 @@ main legend {
 	font-size: 30pt;
 	
 }
+#edit-nav ul {
+	list-style-type: none;
+}
 
+#edit-nav li {
+	width: 9%;
+	background-color: white;
+}
+#edit-nav ul.one {
+	position: relative;
+	border: none;
+}
+#edit-nav a{
+	text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+	color: #B7B7B7;
+	text-align: left;
+	display: block;
+	padding: 1rem 0;
+}
+
+#edit-nav ul li.active a {
+    background-color: rgb(207, 199, 199);
+    color: #24272B;
+}
+#edit-nav ul li a:hover {
+	color: rgb(240, 239, 239);
+	
+}
 form {
     text-align: center;
 }
@@ -50,7 +79,7 @@ input {
 }
 
 
-.bookMovie {
+.sub {
 	background-color: #B7B7B7;
 	text-align: center;
 	padding: .5rem 1rem;
@@ -63,7 +92,26 @@ input {
 
 }
 
-.bookMovie:hover {
+.sub:hover {
 	background-color: #c3c9e9;
 }
+
+label {
+	display: inline-block;
+	width: 8%;
+}
+
+#check {
+	width: 2rem;
+	margin-right: 2rem;
+}
+
+#checkLabel {
+	width: 10rem;
+}
+ 
+#logoutButton a {
+	color: black;
+}
+
 
