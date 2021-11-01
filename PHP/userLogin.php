@@ -28,7 +28,7 @@
         $loginstatement2->execute();
     } else {
         include("../HTML/login.php");
-        echo "<h5>Invalid credentials<h5> ";
+        echo "<h5 style='color:red;'>Invalid credentials<h5> ";
     }
 
 ?>

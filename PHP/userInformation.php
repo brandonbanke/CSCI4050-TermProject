@@ -42,7 +42,7 @@ if ($already != 0) {
 
 # if promotion box not check, set to false
 if ($promoCheck == NULL) {
-    $promoCheck = FALSE;
+    $promoCheck = 0;
 }
 
 $query2 = "INSERT INTO user
