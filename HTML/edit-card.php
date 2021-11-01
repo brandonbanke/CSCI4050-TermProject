@@ -50,6 +50,15 @@
                 <input type="text" name='cCVV'><br><br><br>
                 <label>Full Name:</label>
                 <input type="text" name='cFullName'><br><br><br>
+                <?php 
+                 
+                foreach($userInfs as $info) {
+                    $userInfo = $info['userId'];
+                }
+                ?>
+                
+                <input type="hidden" name='cUserId' value="<?php echo $userInfo ?>">
+                
                 <?php
                     if ($cardCount < 3) {
                         echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";

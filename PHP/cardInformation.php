@@ -27,12 +27,12 @@ $cardNum = filter_input(INPUT_POST, 'cCardNum');
 $CVV = filter_input(INPUT_POST, 'cCVV');
 $nameOnCard = filter_input(INPUT_POST, 'cFullName');
 $cardId = filter_input(INPUT_POST, 'cCardId');
-
+$userId = filter_input(INPUT_POST, 'cUserId');
 
 $query2 = "INSERT INTO payment_card
-(billingAddress, expirationDate, cardNumber, cvv, fullName, cardId)
+(billingAddress, expirationDate, cardNumber, cvv, fullName, cardId, userId)
 VALUE
-(:bill_ad, :ex_date, :card_num, :c_vv, :full_name, :card_id)
+(:bill_ad, :ex_date, :card_num, :c_vv, :full_name, :card_id, :user_ids)
 ";
 $insertinfo = $db->prepare($query2);
 $insertinfo->bindValue(':bill_ad', $billingAdd);
@@ -41,12 +41,10 @@ $insertinfo->bindValue(':card_num', $cardNum);
 $insertinfo->bindValue(':c_vv', $CVV);
 $insertinfo->bindValue(':full_name', $nameOnCard);
 $insertinfo->bindValue(':card_id', $cardId);
+$insertinfo->bindValue(':user_ids', $userId);
 $insertinfo->execute();
 $insertinfo->closeCursor();
 
-$query3 = "UPDATE payment_card 
-SET userId = (SELECT userId FROM user WHERE active=1)";
-$db->exec($query3);
 
 include("../HTML/home.html");
 
