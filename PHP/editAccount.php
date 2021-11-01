@@ -50,12 +50,20 @@
     $rowcount4 = $changestatement4->rowCount();
 
     $prom = filter_input(INPUT_POST, 'new_promotion');
+    
+    # if checked, prom = 1, 0 otherwise
+    if($prom == NULL){
+        $prom = 0;
+    } 
+    else {
+        $prom = 1;
+    }
+    
     $changePromotion = "UPDATE user
     SET receiveProm = '$prom' WHERE active=1";
     $db->exec($changePromotion);
 
 
     include("../HTML/home.html");
-    
 ?>
 
