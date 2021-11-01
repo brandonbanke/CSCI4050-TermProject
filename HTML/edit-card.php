@@ -35,25 +35,22 @@
             </ul>
         </div>
 
-        <?php foreach ($userInfs as $userInf) : ?>
-            <form class = "registrationForm" action = "../PHP/editCardInfo.php" method = "POST"> 
-                <fieldset>
-                    <legend>Edit Billing Info</legend>
-                    <label>Billing Address:</label>
-                    <input type="text" name = "new_firstName" value = <?php echo $userInf['firstName']; ?>><br><br><br>
-                    <label>Expriation Date:</label>
-                    <input type="text" name = "new_lastName" value = <?php echo $userInf['lastName']; ?>><br><br><br>
-                    <label>Card Number:</label>
-                    <input type="text" name = "new_lastName" value = <?php echo $userInf['lastName']; ?>><br><br><br>
-                    <label>CVV:</label>
-                    <input type="text" name = "new_lastName" value = <?php echo $userInf['lastName']; ?>><br><br><br>
-                    <label>Full Name:</label>
-                    <input type="text" name = "new_lastName" value = <?php echo $userInf['lastName']; ?>><br><br><br>
-
-                    <input class = "bookMovie" type="submit" value="Submit">
-                </fieldset>
-            </form>
-        <?php endforeach; ?>
+        <form action='../PHP/cardInformation.php' method='POST' class = "registrationForm"> 
+            <fieldset>
+            <legend>Add Card</legend>
+            <label>Billing Address:</label>
+            <input type="text" name='cBillingAddress'><br><br><br>
+            <label>Expiraton Date:</label>
+            <input type="text" name='cExpDate'><br><br><br>
+            <label>Card Number:</label>
+            <input type="text" name='cCardNum'><br><br><br>
+            <label>CVV:</label>
+            <input type="text" name='cCVV'><br><br><br>
+            <label>Full Name:</label>
+            <input type="text" name='cFullName'><br><br><br>
+            <a href="../HTML/home.html"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>
+        </fieldset>
+        </form>
 
 
 

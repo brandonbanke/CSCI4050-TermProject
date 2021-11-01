@@ -1,17 +1,11 @@
-<?php 
-    require("../PHP/database.php");
-    
+<?php
+    include("../PHP/database.php");
+    $querycard = "SELECT * FROM payment_card WHERE userId = (SELECT userId FROM user WHERE active=1)";
 
-    $changequery = "SELECT firstName FROM payment_card
-                        WHERE active = 1
-                        ";
-    $changestatement = $db->prepare($changequery);
-    $changestatement->execute();
-    $rowcount = $changestatement->rowCount();
+    $cstates = $db->prepare($querycard);
+    $cstates->execute();
+    $paymentCards = $pstates->fetchAll();
+    $cstates->closeCursor();
 
-    $fName = filter_input(INPUT_POST, 'new_firstName');
-    $changeFirstName = "UPDATE user
-    SET firstName = '$fName' WHERE active=1";
-    $db->exec($changeFirstName);
-
+   
 ?>
