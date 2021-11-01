@@ -27,6 +27,14 @@
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
             </form>  
         </div>
+
+        <div>
+            <ul>
+                <li><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
+                <li><a href="../HTML/edit-card.php"> Edit Billing Info </a></li>
+            </ul>
+        </div>
+
         <?php foreach ($userInfs as $userInf) : ?>
             <form class = "registrationForm" action = "../PHP/editAccount.php" method = "POST"> 
                 <fieldset>
