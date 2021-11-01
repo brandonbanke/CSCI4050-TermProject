@@ -40,5 +40,22 @@
     SET userId = '$uName' WHERE active=1";
     $db->exec($changeuserId);
 
+   
+
+    $changequery4 = "SELECT receiveProm FROM user
+                        WHERE active = 1
+                        ";
+    $changestatement4 = $db->prepare($changequery4);
+    $changestatement4->execute();
+    $rowcount4 = $changestatement4->rowCount();
+
+    $prom = filter_input(INPUT_POST, 'new_promotion');
+    $changePromotion = "UPDATE user
+    SET receiveProm = '$prom' WHERE active=1";
+    $db->exec($changePromotion);
+
+
     include("../HTML/home.html");
+    
 ?>
+

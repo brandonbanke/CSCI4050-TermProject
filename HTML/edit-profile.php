@@ -39,6 +39,14 @@
                     <input type="text" value = <?php echo $userInf['email']; ?> disabled ><br><br><br>
                     <label>Username:</label>
                     <input type="text" name = "new_userId" value = <?php echo $userInf['userId']; ?> disabled><br><br><br>
+                    <?php
+                        $checked = ($userInf['receiveProm'] == 1 ? ' checked':'');
+                    ?>
+            
+                            <input type="checkbox" name="new_promotion" value=<?php echo $userInf['receiveProm'];?> <?php echo $checked;?>/>
+                            <label> Recieve Promotions? </label><br><br><br>   
+                    
+                    
                     <input class = "bookMovie" type="submit" value="Submit">
                 </fieldset>
             </form>
