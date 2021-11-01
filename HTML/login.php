@@ -33,7 +33,7 @@
             <label>Username:</label><br>
             <input id="loguser" type="text" name='userIdent'><br><br>
             <label>Password:</label><br>
-            <input id="logpass" type="text" name='uPasswor'><br><br>
+            <input id="logpass" type="text" name='uPasswor' style="-webkit-text-security: circle;" ><br><br>
             <?php foreach ($userInfs as $userInf) : ?>
             <!-- <input  type="hidden" name='uAdm' value= "<?php #echo $userInf['isAdmin']; ?>"><br><br> -->
             <!-- <?php #echo $userInf['isAdmin']; ?> -->
