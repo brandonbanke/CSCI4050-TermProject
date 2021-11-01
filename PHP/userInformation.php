@@ -14,7 +14,8 @@ lastName VARCHAR(255) NOT NULL,
 email VARCHAR(255) NOT NULL,
 pass VARCHAR(255) NOT NULL,
 active BOOLEAN NOT NULL,
-receiveProm BOOLEAN NOT NULL
+receiveProm BOOLEAN NOT NULL,
+isAdmin BOOLEAN NOT NULL
 )
 ";
 $db->exec($query1);
@@ -26,6 +27,8 @@ $fName = filter_input(INPUT_POST, 'uFirstName');
 $lName = filter_input(INPUT_POST, 'uLastName');
 $active = 0;
 $promoCheck = filter_input(INPUT_POST, 'uPromo');
+$adminCheck = 0;
+
 
 $querycheck = "SELECT * FROM user WHERE email = :uEmail";
 $emailcheckstatement = $db->prepare($querycheck);
@@ -58,10 +61,16 @@ if ($promoCheck == NULL) {
     $promoCheck = 0;
 }
 
+if ($adminCheck == NULL) {
+    $adminCheck = 0;
+}
+
+
+
 $query2 = "INSERT INTO user
-(userId, firstName, lastName, email, pass, active, receiveProm)
+(userId, firstName, lastName, email, pass, active, receiveProm, isAdmin)
 VALUE
-(:user_iden, :first_name, :last_name, :e_mail, :p_word, :active, :receive_Prom)
+(:user_iden, :first_name, :last_name, :e_mail, :p_word, :active, :receive_Prom, :is_Admin)
 ";
 $insertinfo = $db->prepare($query2);
 $insertinfo->bindValue(':user_iden', $userIdentification);
@@ -71,6 +80,7 @@ $insertinfo->bindValue(':e_mail', $userEmail);
 $insertinfo->bindValue(':p_word', $pass);
 $insertinfo->bindValue(':active', $active);
 $insertinfo->bindValue(':receive_Prom', $promoCheck);
+$insertinfo->bindValue(':is_Admin', $adminCheck);
 $insertinfo->execute();
 $insertinfo->closeCursor();
 

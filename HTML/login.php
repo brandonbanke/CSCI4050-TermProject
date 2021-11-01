@@ -1,3 +1,7 @@
+<?php
+    require("../PHP/getUserInfo.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +34,10 @@
             <input id="loguser" type="text" name='userIdent'><br><br>
             <label>Password:</label><br>
             <input id="logpass" type="text" name='uPasswor'><br><br>
+            <?php foreach ($userInfs as $userInf) : ?>
+            <!-- <input  type="hidden" name='uAdm' value= "<?php #echo $userInf['isAdmin']; ?>"><br><br> -->
+            <!-- <?php #echo $userInf['isAdmin']; ?> -->
+            <?php endforeach ?>
             <a href="../HTML/home.html"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
