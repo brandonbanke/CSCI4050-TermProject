@@ -36,17 +36,23 @@
             <p id="cPassValidity"> Confirm Password is invalid</p><br>
             <legend>Register Your Account</legend>
             <label>First name:</label>
-            <input type="text" name='uFirstName' id='uFName'><br><br><br>
+            <input type="text" name='uFirstName' id='uFName'>
+            <label class='mand'>*</label><br><br><br>
             <label>Last name:</label>
-            <input type="text" name='uLastName' id='uLName'><br><br><br>
+            <input type="text" name='uLastName' id='uLName'>
+            <label class='mand'>*</label><br><br><br>
             <label>Email:</label>
-            <input type="text" name='uEmail' id='uEmail'><br><br><br>
+            <input type="text" name='uEmail' id='uEmail'>
+            <label class='mand'>*</label><br><br><br>
             <label>Username:</label>
-            <input type="text" name='userIden' id='uName'><br><br><br>
+            <input type="text" name='userIden' id='uName'>
+            <label class='mand'>*</label><br><br><br>
             <label>Password:</label>
-            <input type="text" name='uPassword' id='uPass'><br><br><br>
+            <input type="text" name='uPassword' id='uPass'>
+            <label class='mand'>*</label><br><br><br>
             <label>Confirm Password:</label>
-            <input type="text" name='uCPassword' id='uCPass'><br><br><br>
+            <input type="text" name='uCPassword' id='uCPass'>
+            <label class='mand'>*</label><br><br><br>
             <input type="checkbox" name="uPromo" value="1">
             <label for="uPromo"> Recieve Promotions? </label><br><br><br>
             <a href="registration-confirmation.html"><input type='submit' class='bookMovie' type='submit' value='Create Account'> </input></a>

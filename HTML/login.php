@@ -26,9 +26,6 @@
     </div>
     <form action='../PHP/userLogin.php' method='POST' class = "loginForm" onsubmit="return login();"> 
             <h2> Login </h2>
-            <p id="userValidity"> User is invalid</p>
-            <p id="passValidity"> Password is invalid</p>
-            <p id="loginValidity"> User/Password do not match our records</p>
             <label>Username:</label><br>
             <input id="loguser" type="text" name='userIdent'><br><br>
             <label>Password:</label><br>
@@ -36,7 +33,9 @@
             <a href="../HTML/home.html"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
-            
+            <p id="userValidity"> User is invalid</p>
+            <p id="passValidity"> Password is invalid</p>
+            <p id="loginValidity"> User/Password do not match our records</p>
     </form>
     </main>
     <footer>
