@@ -16,15 +16,16 @@
     $confirmpass = filter_input(INPUT_POST, 'confirm_new_pw');
     $issue = true;
 
+    
+    include("../HTML/account.php");
     if ($rowcount == 0 || $rowcount > 1) {
-        echo "<h5> Wrong Password Entered! </h5>";
+        echo "<h5 style=\"color:red; text-align:center;\"> Wrong Password Entered! </h5>";
     } else if ($pass != $confirmpass) {
-        echo "<h5> The New Passwords Do Not Match! </h5>";
+        echo "<h5 style=\"color:red; text-align:center;\"> The New Passwords Do Not Match! </h5>";
     } else {
         $issue = false;
         $changepass = "UPDATE user
         SET pass = '$pass' WHERE active=1";
         $db->exec($changepass);
     }
-    include("../HTML/account.php");
 ?>

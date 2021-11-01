@@ -33,7 +33,6 @@
             <input id="loguser" type="text" name='userIdent'><br><br>
             <label>Password:</label><br>
             <input id="logpass" type="text" name='uPasswor'><br><br>
-
             <a href="../HTML/home.html"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
