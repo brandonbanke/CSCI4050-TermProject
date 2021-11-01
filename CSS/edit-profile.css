@@ -40,8 +40,8 @@ main legend {
 }
 
 #edit-nav ul li.active a {
-    background-color: rgb(207, 199, 199);
-    color: #24272B;
+    color: #aab2e2;
+
 }
 #edit-nav ul li a:hover {
 	color: rgb(240, 239, 239);
@@ -82,7 +82,7 @@ input {
 }
 
 
-.sub {
+.bookMovie {
 	background-color: #B7B7B7;
 	text-align: center;
 	padding: .5rem 1rem;
@@ -95,7 +95,7 @@ input {
 
 }
 
-.sub:hover {
+.bookMovie:hover {
 	background-color: #c3c9e9;
 }
 
@@ -122,5 +122,5 @@ label {
 }
 
 #formDiv {
-	width: 90%;
+	width: 100%;
 }

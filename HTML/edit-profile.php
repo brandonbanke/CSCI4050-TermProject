@@ -30,7 +30,7 @@
         <div id="edit">
             <div id="edit-nav">
                 <ul class="one">
-                    <li><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
+                    <li class="active"><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
                     <li><a href="../HTML/edit-card.php"> Edit Billing Info </a></li>
                     <li><a href="../PHP/logoutUser.php"> Logout </a></li>
                 </ul>
@@ -54,9 +54,7 @@
                             ?>
                             <input id="check" type="checkbox" name="new_promotion" <?php echo $checked;?>/>
                             <label id="checkLabel"> Recieve Promotions? </label><br><br><br>   
-                            
-                            
-                            <input class = "sub" type="submit" value="Submit">
+                            <input class = "bookMovie" type="submit" value="Submit">
                         </fieldset>
                     </form>
                     <br>
@@ -70,7 +68,7 @@
                         <input type="text" style="-webkit-text-security: circle;" name = "new_password"><br><br><br>
                         <label>Confirm Password:</label>
                         <input type="text" style="-webkit-text-security: circle;" name = "confirm_new_pw"><br><br><br>
-                        <input class = "sub" type="submit" value="Submit">
+                        <input class = "bookMovie" type="submit" value="Submit">
                     </fieldset>
                     </form>
                 <?php endforeach; ?>
