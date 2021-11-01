@@ -6,10 +6,11 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/registration.css">
     <link rel="stylesheet" href="../CSS/nav-bar.css">
+    <script src="../JS/registrationCheck.js"></script>
 </head>
 
 
-<body>
+<body onload="stylePage();">
     <header> 
         <h1 class = "title">Booking Website!</h1>
     </header>
@@ -25,21 +26,27 @@
             </form>  
         </div>
 
-        <form action='../PHP/userInformation.php' method='POST' class = "registrationForm"> 
+        <form action='../PHP/userInformation.php' method='POST' class = "registrationForm" onsubmit="return regis();"> 
             <fieldset>
+            <p id="fNameValidity"> First Name is invalid</p>
+            <p id="lNameValidity"> Last Name is invalid</p>
+            <p id="emailValidity"> Email is invalid</p>
+            <p id="userValidity"> Username is invalid</p>
+            <p id="passValidity"> Password is invalid</p>
+            <p id="cPassValidity"> Confirm Password is invalid</p><br>
             <legend>Register Your Account</legend>
             <label>First name:</label>
-            <input type="text" name='uFirstName'><br><br><br>
+            <input type="text" name='uFirstName' id='uFName'><br><br><br>
             <label>Last name:</label>
-            <input type="text" name='uLastName'><br><br><br>
+            <input type="text" name='uLastName' id='uLName'><br><br><br>
             <label>Email:</label>
-            <input type="text" name='uEmail'><br><br><br>
+            <input type="text" name='uEmail' id='uEmail'><br><br><br>
             <label>Username:</label>
-            <input type="text" name='userIden'><br><br><br>
+            <input type="text" name='userIden' id='uName'><br><br><br>
             <label>Password:</label>
-            <input type="text" name='uPassword'><br><br><br>
+            <input type="text" name='uPassword' id='uPass'><br><br><br>
             <label>Confirm Password:</label>
-            <input type="text"><br><br><br>
+            <input type="text" name='uCPassword' id='uCPass'><br><br><br>
             <input type="checkbox" name="uPromo" value="1">
             <label for="uPromo"> Recieve Promotions? </label><br><br><br>
             <a href="registration-confirmation.html"><input type='submit' class='bookMovie' type='submit' value='Create Account'> </input></a>

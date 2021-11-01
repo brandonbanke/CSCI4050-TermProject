@@ -36,7 +36,20 @@ $emailcheckstatement->closeCursor();
 
 if ($already != 0) {
     include("../HTML/login.php");
-    echo "<h5>An account with this email already exist<h5>";
+    echo "<h5 style=\"color:red;\">An account with this email already exist<h5>";
+    exit();
+}
+
+$query2check = "SELECT * FROM user WHERE userID = :userIden";
+$usercheckstatement = $db->prepare($query2check);
+$usercheckstatement->bindValue(':userIden', $userIdentification);
+$usercheckstatement->execute();
+$already2 = $usercheckstatement->rowCount();
+$usercheckstatement->closeCursor();
+
+if ($already2 != 0) {
+    include("../HTML/login.php");
+    echo "<h5 style=\"color:red;\">An account with this username already exist<h5>";
     exit();
 }
 
