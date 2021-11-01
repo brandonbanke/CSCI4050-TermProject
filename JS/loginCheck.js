@@ -2,6 +2,9 @@ function stylePage() {
     document.getElementById("userValidity").style.display = "none";
     document.getElementById("passValidity").style.display = "none";
     document.getElementById("loginValidity").style.display = "none";
+    document.getElementById("userValidity").style.color = "red";
+    document.getElementById("passValidity").style.color = "red";
+    document.getElementById("loginValidity").style.color = "red";
   }
 
   function validateUser() {
