@@ -28,22 +28,23 @@ label {
     font-family: 'Roboto', sans-serif;
     color:#d6d5d6;
     text-align: right;
-    float:center;
+    float: center;
     width: 7em;
     text-align: right;
     margin-left: -1em;
-    
+    display:inline-block;
 }
 
 input {
     width: 15em;
     margin-left: 0.75em;
     border: 2px solid #B7B7B7;
-    background-color: white;
+    background-color: #d6d5d6;
 }
 
 .mand {
-    margin-left:0.25%;
+    margin: 0;
+    width: 1rem;
 }
 
 .bookMovie {
@@ -69,4 +70,12 @@ input {
 
 .registration a {
     color: #B7B7B7;
+}
+#check {
+	width: 2rem;
+	margin-right: 2rem;
+}
+
+#checkLabel {
+	width: 10rem;
 }
