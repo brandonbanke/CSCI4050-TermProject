@@ -29,13 +29,14 @@
             </form>  
         </div>
 
-        <div>
-            <ul>
+        <div id="edit-nav">
+            <ul class="one">
                 <li><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
                 <li><a href="../HTML/edit-card.php"> Edit Billing Info </a></li>
+                <li><a href="../PHP/logoutUser.php"> Logout </a></li>
             </ul>
         </div>
-
+        <div id="formDiv">
         <form action='../PHP/cardInformation.php' method='POST' class = "registrationForm"> 
             <fieldset>
             <legend>Add Card</legend>
@@ -49,23 +50,16 @@
             <input type="text" name='cCVV'><br><br><br>
             <label>Full Name:</label>
             <input type="text" name='cFullName'><br><br><br>
-
             <?php
-
-            if ($cardCount < 3) {
-                echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
-            } else {
-                echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
-            }
-            
-
+                if ($cardCount < 3) {
+                    echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
+                } else {
+                    echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
+                }
             ?>
-        </fieldset>
+            </fieldset>
         </form>
         <br><br>
-
-
-        <fieldset class="registrationForm">
 
         <?php 
         $counter = 1;
@@ -88,16 +82,13 @@
             <a href="../HTML/home.html"><input class='bookMovie' type='submit' name='edit_card' value="Submit"> </a>
             </fieldset>
         </form>
-        
-         
-        
+        <br>
         <?php $counter++; ?>
         <?php if ($counter == 4) {
                 break;
             } 
             endforeach; ?>
-
-        </fieldset>
+        </div>
     </main>
 
 </body>

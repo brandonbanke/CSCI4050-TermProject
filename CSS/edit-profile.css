@@ -14,12 +14,15 @@ main legend {
 	font-size: 30pt;
 	
 }
+
+#edit-nav {
+	width: 20%;
+}
 #edit-nav ul {
 	list-style-type: none;
 }
 
-#edit-nav li {
-	width: 9%;
+#edit-nav li{
 	background-color: white;
 }
 #edit-nav ul.one {
@@ -114,4 +117,10 @@ label {
 	color: black;
 }
 
+#edit {
+	display: flex;
+}
 
+#formDiv {
+	width: 90%;
+}
