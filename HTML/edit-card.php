@@ -83,8 +83,8 @@
             <input type="text" name='cCVV' value = "<?php echo $card['cvv']; ?>"><br><br><br>
             <label>Full Name:</label>
             <input type="text" name='cFullName' value = "<?php echo $card['fullName']; ?>"><br><br><br>
-            <!--<input class='bookMovie' type='submit' name='edit_card' value="submit"> -->
-            <!--<button>Ok</button>-->
+            <input type="hidden" name="card_id" value = "<?php echo $card['cardId']; ?>">
+            <a href="../HTML/home.html"><input class='bookMovie' type='submit' name='edit_card' value="Submit"> </a>
             </fieldset>
         </form>
         
