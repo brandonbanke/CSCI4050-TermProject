@@ -152,10 +152,7 @@ CREATE TABLE `payment_card` (
   `cvv` int NOT NULL,
   `fullName` varchar(255) NOT NULL,
   `cardId` int NOT NULL AUTO_INCREMENT,
-  `userId` varchar(255) NOT NULL,
-  PRIMARY KEY (`cardId`),
-  KEY `userId` (`userId`),
-  CONSTRAINT `payment_card_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  PRIMARY KEY (`cardId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -319,7 +316,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('q','q','q','q','q',1,1);
+INSERT INTO `user` VALUES ('juanca','q','q','q','q',1,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -332,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-31 23:10:54
+-- Dump completed on 2021-11-01  0:03:03
