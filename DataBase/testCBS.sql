@@ -152,8 +152,9 @@ CREATE TABLE `payment_card` (
   `cvv` int NOT NULL,
   `fullName` varchar(255) NOT NULL,
   `cardId` int NOT NULL AUTO_INCREMENT,
+  `userId` varchar(255) NOT NULL,
   PRIMARY KEY (`cardId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,6 +163,7 @@ CREATE TABLE `payment_card` (
 
 LOCK TABLES `payment_card` WRITE;
 /*!40000 ALTER TABLE `payment_card` DISABLE KEYS */;
+INSERT INTO `payment_card` VALUES ('123 ads','10/11','12341234',123,'test',3,'');
 /*!40000 ALTER TABLE `payment_card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,4 +331,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-01  0:03:03
+-- Dump completed on 2021-11-01  0:15:06

@@ -4,7 +4,8 @@
 
     $cstates = $db->prepare($querycard);
     $cstates->execute();
-    $paymentCards = $pstates->fetchAll();
+    $paymentCards = $cstates->fetchAll();
+    $cardCount = $cstates->rowCount();
     $cstates->closeCursor();
 
    

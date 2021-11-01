@@ -1,5 +1,6 @@
 <?php
     require("../PHP/getUserInfo.php");
+    require("../PHP/getCardInfo.php");
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +49,54 @@
             <input type="text" name='cCVV'><br><br><br>
             <label>Full Name:</label>
             <input type="text" name='cFullName'><br><br><br>
-            <a href="../HTML/home.html"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>
+
+            <?php
+
+            if ($cardCount < 3) {
+                echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
+            } else {
+                echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
+            }
+            
+
+            ?>
         </fieldset>
         </form>
+        <br><br>
 
 
+        <fieldset class="registrationForm">
 
+        <?php 
+        $counter = 1;
+        foreach ($paymentCards as $card): ?>
+        <form action='../PHP/editCardInfo.php' method='POST' class = "registrationForm"> 
+            <fieldset>
+            <legend>Card <?php echo($counter); ?></legend>
+            <label>Billing Address:</label>
+            <input type="text" name='new_BillingAddress' value = "<?php echo $card['billingAddress']; ?>" ><br><br><br>
+            <label>Expiraton Date:</label>
+            <input type="text" name='cExpDate' value = "<?php echo $card['expirationDate']; ?>"><br><br><br>
+            <label>Card Number:</label>
+            <input type="text" name='cCardNum' value = "<?php echo $card['cardNumber']; ?>"><br><br><br>
+            <label>CVV:</label>
+            <input type="text" name='cCVV' value = "<?php echo $card['cvv']; ?>"><br><br><br>
+            <label>Full Name:</label>
+            <input type="text" name='cFullName' value = "<?php echo $card['fullName']; ?>"><br><br><br>
+            <!--<input class='bookMovie' type='submit' name='edit_card' value="submit"> -->
+            <!--<button>Ok</button>-->
+            </fieldset>
+        </form>
+        
+         
+        
+        <?php $counter++; ?>
+        <?php if ($counter == 4) {
+                break;
+            } 
+            endforeach; ?>
 
+        </fieldset>
     </main>
 
 </body>

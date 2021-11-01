@@ -1,6 +1,7 @@
 <?php
 
 require("database.php");
+require("getUserInfo.php");
 
 $query0 = "USE cinema_booking";
 $db->exec($query0);
@@ -18,7 +19,7 @@ cardId INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
 #FOREIGN KEY (userId) REFERENCES user(userId)
 )
 ";
-$db->exec($query1);
+#$db->exec($query1);
 
 $billingAdd = filter_input(INPUT_POST, 'cBillingAddress');
 $expDate = filter_input(INPUT_POST, 'cExpDate');
