@@ -76,14 +76,15 @@
             <label>Billing Address:</label>
             <input type="text" name='new_BillingAddress' value = "<?php echo $card['billingAddress']; ?>" ><br><br><br>
             <label>Expiraton Date:</label>
-            <input type="text" name='cExpDate' value = "<?php echo $card['expirationDate']; ?>"><br><br><br>
+            <input type="text" name='new_ExpDate' value = "<?php echo $card['expirationDate']; ?>"><br><br><br>
             <label>Card Number:</label>
-            <input type="text" name='cCardNum' value = "<?php echo $card['cardNumber']; ?>"><br><br><br>
+            <input type="text" name='new_CardNum' value = "<?php echo $card['cardNumber']; ?>"><br><br><br>
             <label>CVV:</label>
-            <input type="text" name='cCVV' value = "<?php echo $card['cvv']; ?>"><br><br><br>
+            <input type="text" name='new_CVV' value = "<?php echo $card['cvv']; ?>"><br><br><br>
             <label>Full Name:</label>
-            <input type="text" name='cFullName' value = "<?php echo $card['fullName']; ?>"><br><br><br>
+            <input type="text" name='new_FullName' value = "<?php echo $card['fullName']; ?>"><br><br><br>
             <input type="hidden" name="card_id" value = "<?php echo $card['cardId']; ?>">
+            <input type="hidden" name="user_id" value = "<?php echo $card['userId']; ?>">
             <a href="../HTML/home.html"><input class='bookMovie' type='submit' name='edit_card' value="Submit"> </a>
             </fieldset>
         </form>
