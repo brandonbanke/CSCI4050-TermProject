@@ -15,6 +15,38 @@ main legend {
 	
 }
 
+#edit-nav {
+	width: 20%;
+}
+#edit-nav ul {
+	list-style-type: none;
+}
+
+#edit-nav li{
+	background-color: white;
+}
+#edit-nav ul.one {
+	position: relative;
+	border: none;
+}
+#edit-nav a{
+	text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+	color: #B7B7B7;
+	text-align: left;
+	display: block;
+	padding: 1rem 0;
+}
+
+#edit-nav ul li.active a {
+    color: #aab2e2;
+
+}
+#edit-nav ul li a:hover {
+	color: rgb(240, 239, 239);
+	
+}
 form {
     text-align: center;
 }
@@ -67,3 +99,28 @@ input {
 	background-color: #c3c9e9;
 }
 
+label {
+	display: inline-block;
+	width: 8%;
+}
+
+#check {
+	width: 2rem;
+	margin-right: 2rem;
+}
+
+#checkLabel {
+	width: 10rem;
+}
+ 
+#logoutButton a {
+	color: black;
+}
+
+#edit {
+	display: flex;
+}
+
+#formDiv {
+	width: 100%;
+}
