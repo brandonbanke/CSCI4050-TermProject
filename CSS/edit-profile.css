@@ -12,6 +12,7 @@ main legend {
 	margin-top: 1rem;
 	font-family: 'Bebas Neue', cursive;
 	font-size: 30pt;
+	
 }
 
 form {
@@ -22,6 +23,7 @@ fieldset {
     border: 0.75px solid #d6d5d6;
     padding: 1%;
     text-align: center;
+
 }
 
 label {

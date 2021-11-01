@@ -14,7 +14,7 @@ main h2 {
 	font-size: 30pt;
 }
 .loginForm{
-	padding-left: 45%;
+	text-align: center;
 }
 label, input {
 	margin-bottom: .5rem;
