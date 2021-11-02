@@ -20,7 +20,7 @@
     <main>
     <div id="nav-menu">
         <ul class="one">
-            <li><a href="../HTML/home.html"> Home </a></li>
+            <li><a href="../HTML/home.php"> Home </a></li>
             <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
             <li class="active"><a href="../HTML/account.php"> Account </a></li>
         </ul>
@@ -38,7 +38,7 @@
             <!-- <input  type="hidden" name='uAdm' value= "<?php #echo $userInf['isAdmin']; ?>"><br><br> -->
             <!-- <?php #echo $userInf['isAdmin']; ?> -->
             <?php endforeach ?>
-            <a href="../HTML/home.html"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
+            <a href="../HTML/home.php"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
             <p id="userValidity"> User is invalid</p>
@@ -47,7 +47,7 @@
     </form>
     </main>
     <footer>
-        <a href="../HTML/admin-home.html">Continue to Admin Home</a>
+        <a href="../HTML/admin-home.php">Continue to Admin Home</a>
     </footer>
 </body>
 </html>

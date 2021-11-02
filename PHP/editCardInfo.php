@@ -81,6 +81,6 @@
                         WHERE cardId = '$cardIden' AND userId = '$userId'";
             $db->exec($change);
         }
-        include("../HTML/home.html");
+        include("../HTML/edit-card.php");
     #} # if
 ?>

@@ -46,6 +46,6 @@ $insertinfo->execute();
 $insertinfo->closeCursor();
 
 
-include("../HTML/home.html");
+include("../HTML/home.php");
 
 ?>

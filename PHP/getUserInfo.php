@@ -5,6 +5,7 @@
     $pstates = $db->prepare($queryacct);
     $pstates->execute();
     $userInfs = $pstates->fetchAll();
+    $userOnCheck = $pstates->rowCount();
     $pstates->closeCursor();
 
    

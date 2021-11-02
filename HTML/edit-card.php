@@ -20,7 +20,7 @@
     <main>
         <div id="nav-menu">
             <ul class="one">
-                <li><a href="../HTML/home.html"> Home </a></li>
+                <li><a href="../HTML/home.php"> Home </a></li>
                 <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
                 <li class="active"><a href="../HTML/account.php"> Account </a></li>
             </ul>
@@ -61,9 +61,9 @@
                 
                 <?php
                     if ($cardCount < 3) {
-                        echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
+                        echo "<a href=\"../HTML/home.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
                     } else {
-                        echo "<a href=\"../HTML/home.html\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
+                        echo "<a href=\"../HTML/home.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
                     }
                 ?>
                 </fieldset>
@@ -88,7 +88,7 @@
                 <input type="text" name='new_FullName' value = "<?php echo $card['fullName']; ?>"><br><br><br>
                 <input type="hidden" name="card_id" value = "<?php echo $card['cardId']; ?>">
                 <input type="hidden" name="user_id" value = "<?php echo $card['userId']; ?>">
-                <a href="../HTML/home.html"><input class='bookMovie' type='submit' name='edit_card' value="Submit"> </a>
+                <a href="../HTML/home.php"><input class='bookMovie' type='submit' name='edit_card' value="Submit"> </a>
                 </fieldset>
             </form>
             <br>

@@ -34,22 +34,22 @@
     if ($password == $pass) {
         
         if($adminVal == 0){
-            include("../HTML/home.html");
             $setactive = "UPDATE user
                             SET active=1
                             WHERE userId=:user_iden;";
             $loginstatement2 = $db->prepare($setactive);
             $loginstatement2->bindValue(':user_iden', $uId);
             $loginstatement2->execute();
+            include("../HTML/home.php");
         }
         else if($adminVal == 1) {
-            include("../HTML/admin-home.html");
             $setactive = "UPDATE user
                             SET active=1
                             WHERE userId=:user_iden;";
             $loginstatement2 = $db->prepare($setactive);
             $loginstatement2->bindValue(':user_iden', $uId);
             $loginstatement2->execute();
+            include("../HTML/admin-home.php");
         }
         
       

@@ -63,7 +63,6 @@
     SET receiveProm = '$prom' WHERE active=1";
     $db->exec($changePromotion);
 
-
-    include("../HTML/home.html");
+    include("../HTML/edit-profile.php");
 ?>
 
