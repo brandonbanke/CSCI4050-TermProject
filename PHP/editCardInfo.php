@@ -14,7 +14,7 @@
                         WHERE cardId = '$cardIden' AND userId = '$userId'
                         ";
         $changestatement1 = $db->prepare($changequery1);
-        #$changestatement1->execute();
+        
 
         if ($changestatement1->execute() == 1) {
             $billAdd = filter_input(INPUT_POST, 'new_BillingAddress');
@@ -28,7 +28,7 @@
                         WHERE cardId = '$cardIden' AND userId = '$userId'
                         ";
         $changestatement2 = $db->prepare($changequery2);
-        #$changestatement2->execute();
+        
         
         if ($changestatement2->execute() == 1) {
         $expDate = filter_input(INPUT_POST, 'new_ExpDate');
@@ -42,7 +42,7 @@
                         WHERE cardId = '$cardIden' AND userId = '$userId'
                         ";
         $changestatement3 = $db->prepare($changequery3);
-        #$changestatement3->execute();
+       
 
         if ($changestatement3->execute() == 1) {
             $cNum = filter_input(INPUT_POST, 'new_CardNum');
@@ -57,7 +57,7 @@
                         WHERE cardId = '$cardIden' AND userId = '$userId'
         ";
         $changestatement4 = $db->prepare($changequery4);
-        #$changestatement4->execute();
+        
 
         if ($changestatement4->execute() == 1) {
             $cvv = filter_input(INPUT_POST, 'new_CVV');
@@ -72,7 +72,7 @@
                         WHERE cardId = '$cardIden' AND userId = '$userId'
         ";
         $changestatement5 = $db->prepare($changequery5);
-        #$changestatement5->execute();
+       
         
         if ($changestatement5->execute() == 1) {
             $fName = filter_input(INPUT_POST, 'new_FullName');
@@ -82,5 +82,5 @@
             $db->exec($change);
         }
         include("../HTML/edit-card.php");
-    #} # if
+    
 ?>
