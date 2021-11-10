@@ -34,6 +34,7 @@
             <br>
             <form id="search-form" action="search.php" method="GET">
                 <input type="search" id="search-bar" name="searchTerm" placeholder="Seach movie">
+                <input type="button" id="button" name="addMovieButton" style="width:60px" onclick="showWindow()">
             </form> 
             <br>
             <section class="movies">
@@ -166,34 +167,42 @@
                 <div style="float: left; width: 50%; align-items: center; background-color: inherit;">
                     <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg" style="width: 300px; height: auto; padding-top: 100px;">
                 </div>
-                    <div style="float: left; width: 50%; background-color: inherit;">
-                    <p>name:</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
+
+                
+                <div style="float: left; width: 50%; background-color: inherit;">
+                <form method='POST' action='../PHP/movieInformation.php'>
+                    <fieldset><br><br>
+                    <label>name:</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name='mName'><br><br>
+                    <label>Category</plabel>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mCategory"><br><br>
+                    <label>Cast</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mCast"><br><br>
+                    <label>director</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mDirector"><br><br>
+                    <label>Producer</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mProducer"><br><br>
+                    <label>synopsis</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mSynopsis"><br><br>
+                    <label>reviews</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mReviews"><br><br>
+                    <label>trailer link</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mTrailerLink"><br><br>
+                    <label>movie picture</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mMoviePic"><br><br>
+                    <label>MPPA-US film rating code</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mRating"><br><br>
+                    <label>show date</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mDate"><br><br>
+                    <label>show time</label>
+                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mTime"><br><br>
                     <br>
-                    <p>Category</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>Cast</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>director</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>Producer</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>synopsis</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>reviews</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>trailer link</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>movie picture</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>MPPA-US film raiting code</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                    <p>show date and time [mm/dd/yyyy h:m]</p>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
                     <br>
-                    <br>
-                    <input type="submit" value="Submit" style="background-color:lightgrey" onclick="closeWindow()">
+                    <input type="submit" value="submit" style="background-color:lightgrey">
+                    </fieldset>
+                    </form>
                 </div>
+                 
 
             </div>
           

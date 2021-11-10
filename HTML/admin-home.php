@@ -36,8 +36,8 @@
             </form>  
         </div>
         <h2 class = "adminTitle">Admin View</h2>
-            <a href="adminMenu.html" class="manage">Manage Movies</a>
-            <a href="adminMenu.html" class="manage">Manage Promotions</a>
+            <a href="../HTML/adminMenu.html" class="manage">Manage Movies</a>
+            <a href="../HTML/adminMenu.html" class="manage">Manage Promotions</a>
         <section class="trailerList">
             <div class = "trailer">
                 <iframe width="350" height="250"
