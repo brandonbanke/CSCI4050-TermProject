@@ -70,7 +70,7 @@ if ($adminCheck == NULL) {
 $query2 = "INSERT INTO user
 (userId, firstName, lastName, email, pass, active, receiveProm, isAdmin)
 VALUE
-(:user_iden, :first_name, :last_name, :e_mail, :p_word, :active, :receive_Prom, :is_Admin)
+(:user_iden, :first_name, :last_name, :e_mail, AES_ENCRYPT(:p_word, 'cebs1234'), :active, :receive_Prom, :is_Admin)
 ";
 $insertinfo = $db->prepare($query2);
 $insertinfo->bindValue(':user_iden', $userIdentification);

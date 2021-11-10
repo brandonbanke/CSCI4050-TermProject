@@ -38,7 +38,7 @@
         $db->exec($change);
         }
         #cardNumber
-        $changequery3 = "SELECT cardNumber FROM payment_card
+        $changequery3 = "SELECT CAST(AES_DECRYPT(cardNumber, 'cebs1234') AS CHAR(200)) AS cardNumber FROM payment_card
                         WHERE cardId = '$cardIden' AND userId = '$userId'
                         ";
         $changestatement3 = $db->prepare($changequery3);
@@ -47,13 +47,13 @@
         if ($changestatement3->execute() == 1) {
             $cNum = filter_input(INPUT_POST, 'new_CardNum');
             $change = "UPDATE payment_card
-                                SET cardNumber = '$cNum' 
+                                SET cardNumber = AES_ENCRYPT('$cNum', 'cebs1234')
                                 WHERE cardId = '$cardIden' AND userId = '$userId' ";
             $db->exec($change);
         }
 
         #cvv
-        $changequery4 = "SELECT cvv FROM payment_card
+        $changequery4 = "SELECT CAST(AES_DECRYPT(cvv, 'cebs1234') AS CHAR(200)) AS cvv FROM payment_card
                         WHERE cardId = '$cardIden' AND userId = '$userId'
         ";
         $changestatement4 = $db->prepare($changequery4);
@@ -62,7 +62,7 @@
         if ($changestatement4->execute() == 1) {
             $cvv = filter_input(INPUT_POST, 'new_CVV');
             $change = "UPDATE payment_card
-                                SET cvv = '$cvv' 
+                                SET cvv = AES_ENCRYPT('$cvv', 'cebs1234') 
                                 WHERE cardId = '$cardIden' AND userId = '$userId' ";
             $db->exec($change);
         }

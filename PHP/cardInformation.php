@@ -32,7 +32,7 @@ $userId = filter_input(INPUT_POST, 'cUserId');
 $query2 = "INSERT INTO payment_card
 (billingAddress, expirationDate, cardNumber, cvv, fullName, cardId, userId)
 VALUE
-(:bill_ad, :ex_date, :card_num, :c_vv, :full_name, :card_id, :user_ids)
+(:bill_ad, :ex_date, AES_ENCRYPT(:card_num, 'cebs1234'), AES_ENCRYPT(:c_vv, 'cebs1234'), :full_name, :card_id, :user_ids)
 ";
 $insertinfo = $db->prepare($query2);
 $insertinfo->bindValue(':bill_ad', $billingAdd);

@@ -61,9 +61,9 @@
                 
                 <?php
                     if ($cardCount < 3) {
-                        echo "<a href=\"../HTML/home.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
+                        echo "<a href=\"../HTML/account.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card'> </input></a>";
                     } else {
-                        echo "<a href=\"../HTML/home.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
+                        echo "<a href=\"../HTML/account.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
                     }
                 ?>
                 </fieldset>

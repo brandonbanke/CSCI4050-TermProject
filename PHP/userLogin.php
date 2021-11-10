@@ -12,21 +12,18 @@
 
     
 
-    $loginquery = "SELECT * FROM user
+    $loginquery = "SELECT userId, CAST(AES_DECRYPT(pass, 'cebs1234') AS CHAR(200)) AS pass, isAdmin, active FROM user
                     WHERE userId = :user_iden
-                    AND pass = :p_word
                     ";
 
     $loginstatement = $db->prepare($loginquery);
     $loginstatement->bindValue(':user_iden', $uId);
-    $loginstatement->bindValue(':p_word', $password);
+    #$loginstatement->bindValue(':p_word', $password);
     $loginstatement->execute();
     $infor = $loginstatement->fetchAll();
     $rowcount = $loginstatement->rowCount();
-    #echo $rowcount;
     if ($rowcount == 1) {
     foreach ($infor as $info) {
-            #echo($info['isAdmin']);
             $adminVal = $info['isAdmin'];
             $pass = $info['pass'];
     }
@@ -57,6 +54,11 @@
     } else {
         include("../HTML/login.php");
         echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
+        #foreach($infor as $info){
+        #    echo $info['pass'];
+        #}
+       
+
     }
 
     
