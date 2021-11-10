@@ -1,4 +1,4 @@
-<?php require("../PHP/getUserinfo.php"); ?>
+<?php require("../PHP/getUserInfo.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
