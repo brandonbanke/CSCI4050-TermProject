@@ -41,6 +41,8 @@
                     <form class = "resetPass" action = "../PHP/changeForgottenPassword.php" method = "POST"> 
                         <fieldset>
                         <legend>Make New Password</legend>
+                        <label>Username:</label>
+                        <input type="text" name = "useName"><br><br><br>
                         <label>New Password:</label>
                         <input type="text" style="-webkit-text-security: circle;" name = "new_password"><br><br><br>
                         <label>Confirm New Password:</label>
