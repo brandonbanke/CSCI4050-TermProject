@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 04:59 AM
+-- Generation Time: Nov 10, 2021 at 08:24 PM
 -- Server version: 8.0.27
 -- PHP Version: 8.0.11
 
@@ -68,14 +68,14 @@ CREATE TABLE `customer` (
 CREATE TABLE `movie` (
   `title` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `cast` varchar(255) NOT NULL,
+  `movieCast` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `director` varchar(255) NOT NULL,
   `producer` varchar(255) NOT NULL,
   `synopsis` varchar(255) NOT NULL,
   `reviews` varchar(255) NOT NULL,
   `trailer` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `raitingCode` enum('G','PG','PG-13','R','NC-17') DEFAULT NULL,
+  `ratingCode` enum('G','PG','PG-13','R','NC-17') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `showTime` varchar(255) NOT NULL,
   `showDate` varchar(255) NOT NULL,
   `id` int NOT NULL
@@ -191,7 +191,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`) VALUES
 ('a', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'a', 'a', 'a', 0, 1, 0),
 ('f', 0x0f761780a25bb27bf8dcbd59c715449a, 'f', 'f', 'f', 0, 1, 0),
-('q', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'q', 'q', 'q', 1, 1, 0),
+('q', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'q', 'q', 'q', 1, 1, 1),
 ('test', 0x6aabfc791cbc771039ef17c78f0223aa, 'test', 'test', 'test', 0, 1, 0);
 
 --
@@ -278,6 +278,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `movie`
+--
+ALTER TABLE `movie`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
@@ -317,8 +323,6 @@ ALTER TABLE `admin`
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`ticketNumber`) REFERENCES `ticket` (`ticketNumber`),
   ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`id`),
-  ADD CONSTRAINT `booking_ibfk_5` FOREIGN KEY (`movieTitle`) REFERENCES `movie` (`title`),
-  ADD CONSTRAINT `booking_ibfk_6` FOREIGN KEY (`cardId`) REFERENCES `payment_card` (`cardId`),
   ADD CONSTRAINT `booking_ibfk_7` FOREIGN KEY (`userId`) REFERENCES `customer` (`userId`);
 
 --
@@ -332,7 +336,6 @@ ALTER TABLE `customer`
 -- Constraints for table `showinfo`
 --
 ALTER TABLE `showinfo`
-  ADD CONSTRAINT `showinfo_ibfk_1` FOREIGN KEY (`movieId`) REFERENCES `movie` (`id`),
   ADD CONSTRAINT `showinfo_ibfk_2` FOREIGN KEY (`showRoomId`) REFERENCES `showroom` (`id`);
 
 --
