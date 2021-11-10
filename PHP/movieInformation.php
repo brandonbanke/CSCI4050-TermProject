@@ -19,7 +19,7 @@ $query1 = "CREATE TABLE IF NOT EXISTS movie
     ratingCode enum('G','PG','PG-13','R','NC-17') DEFAULT NULL,
     showTime VARCHAR(255) NOT NULL,
     showDate VARCHAR(255) NOT NULL,
-    id VARCHAR(255) NOT NULL AUTO_INCREMENT PRIMARY KEY
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
 )";
 $db->exec($query1);
 
@@ -38,13 +38,10 @@ $rating = filter_input(INPUT_POST, 'mRating');
 $date = filter_input(INPUT_POST, 'mDate');
 $time = filter_input(INPUT_POST, 'mTime');
 
-echo "name: " .$name;
-
-
 $query2 = "INSERT INTO movie
-(title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, showTime, showDate, id)
+(title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, showTime, showDate)
 VALUE
-(:m_title, :category, :movieCast, :director, :producer, :synopsis, :reviews, :trailer, :picture, :ratingCode, :showTime, :showDate, :id)
+(:m_title, :category, :movieCast, :director, :producer, :synopsis, :reviews, :trailer, :picture, :ratingCode, :showTime, :showDate)
 ";
 $insertinfo = $db->prepare($query2);
 $insertinfo->bindValue(':m_title', $name);
@@ -57,9 +54,10 @@ $insertinfo->bindValue(':reviews', $reviews);
 $insertinfo->bindValue(':trailer', $trailerLink);
 $insertinfo->bindValue(':picture', $picture);
 $insertinfo->bindValue(':ratingCode', $rating);
-$insertinfo->bindValue(':showTime', $date);
-$insertinfo->bindValue(':showDate', $time);
+$insertinfo->bindValue(':showTime', $time);
+$insertinfo->bindValue(':showDate', $date);
 $insertinfo->execute();
 $insertinfo->closeCursor();
 
+include("../HTML/adminMenu.php")
 ?>
