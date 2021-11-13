@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 08:24 PM
--- Server version: 8.0.27
--- PHP Version: 8.0.11
+-- Host: localhost
+-- Generation Time: Nov 13, 2021 at 04:40 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `userId` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -39,14 +39,14 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `booking` (
   `bookingNumber` varchar(255) NOT NULL,
-  `ticketNumber` int NOT NULL,
+  `ticketNumber` int(11) NOT NULL,
   `movieTitle` varchar(255) NOT NULL,
   `showDate` varchar(255) NOT NULL,
   `showTime` varchar(255) NOT NULL,
-  `promotionId` int DEFAULT NULL,
-  `cardId` int DEFAULT NULL,
+  `promotionId` int(11) DEFAULT NULL,
+  `cardId` int(11) DEFAULT NULL,
   `userId` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -56,8 +56,8 @@ CREATE TABLE `booking` (
 
 CREATE TABLE `customer` (
   `userId` varchar(255) DEFAULT NULL,
-  `cardId` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `cardId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -68,18 +68,26 @@ CREATE TABLE `customer` (
 CREATE TABLE `movie` (
   `title` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `movieCast` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `movieCast` varchar(255) NOT NULL,
   `director` varchar(255) NOT NULL,
   `producer` varchar(255) NOT NULL,
   `synopsis` varchar(255) NOT NULL,
   `reviews` varchar(255) NOT NULL,
   `trailer` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `ratingCode` enum('G','PG','PG-13','R','NC-17') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `ratingCode` enum('G','PG','PG-13','R','NC-17') DEFAULT NULL,
   `showTime` varchar(255) NOT NULL,
   `showDate` varchar(255) NOT NULL,
-  `id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `movie`
+--
+
+INSERT INTO `movie` (`title`, `category`, `movieCast`, `director`, `producer`, `synopsis`, `reviews`, `trailer`, `picture`, `ratingCode`, `showTime`, `showDate`, `id`) VALUES
+('T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'G', 'T', 'T', 1),
+('G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 3);
 
 -- --------------------------------------------------------
 
@@ -93,9 +101,9 @@ CREATE TABLE `payment_card` (
   `cardNumber` varbinary(255) NOT NULL,
   `cvv` varbinary(50) NOT NULL,
   `fullName` varchar(255) NOT NULL,
-  `cardId` int NOT NULL,
-  `userId` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `cardId` int(11) NOT NULL,
+  `userId` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `payment_card`
@@ -113,9 +121,18 @@ INSERT INTO `payment_card` (`billingAddress`, `expirationDate`, `cardNumber`, `c
 --
 
 CREATE TABLE `promotion` (
+  `promoName` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
-  `id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `promDescription` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `promotion`
+--
+
+INSERT INTO `promotion` (`promoName`, `code`, `promDescription`, `id`) VALUES
+('test', 'test', 'test', 1);
 
 -- --------------------------------------------------------
 
@@ -124,13 +141,13 @@ CREATE TABLE `promotion` (
 --
 
 CREATE TABLE `showinfo` (
-  `movieId` int NOT NULL,
-  `showRoomId` int NOT NULL,
+  `movieId` int(11) NOT NULL,
+  `showRoomId` int(11) NOT NULL,
   `showId` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL,
   `duration` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -139,9 +156,9 @@ CREATE TABLE `showinfo` (
 --
 
 CREATE TABLE `showroom` (
-  `id` int NOT NULL,
-  `numberOfSeats` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int(11) NOT NULL,
+  `numberOfSeats` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -151,8 +168,8 @@ CREATE TABLE `showroom` (
 
 CREATE TABLE `theater` (
   `theaterName` varchar(255) NOT NULL,
-  `showRoomNum` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `showRoomNum` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -161,11 +178,11 @@ CREATE TABLE `theater` (
 --
 
 CREATE TABLE `ticket` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `showTime` varchar(255) DEFAULT NULL,
   `AgeType` enum('adult','senior','child') DEFAULT NULL,
-  `ticketNumber` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `ticketNumber` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -182,7 +199,7 @@ CREATE TABLE `user` (
   `active` tinyint(1) NOT NULL,
   `receiveProm` tinyint(1) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -191,7 +208,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`) VALUES
 ('a', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'a', 'a', 'a', 0, 1, 0),
 ('f', 0x0f761780a25bb27bf8dcbd59c715449a, 'f', 'f', 'f', 0, 1, 0),
-('q', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'q', 'q', 'q', 1, 1, 1),
+('q', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'q', 'q', 'q', 0, 1, 1),
+('r', 0x3795a990870394e00dc67dedce583d01, 'r', 'r', 'r', 1, 0, 1),
 ('test', 0x6aabfc791cbc771039ef17c78f0223aa, 'test', 'test', 'test', 0, 1, 0);
 
 --
@@ -281,31 +299,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
-  MODIFY `cardId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `showroom`
 --
 ALTER TABLE `showroom`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
