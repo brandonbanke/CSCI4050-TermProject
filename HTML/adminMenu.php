@@ -140,15 +140,15 @@
             <div style="background-color: inherit; float: left; padding-left: 100px; padding-top: 50px;">
                 <p>Add new promotion:</p>
                 <br>
-                <form class = "promotionForm"> 
+                <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php'> 
                     <fieldset>
                         
                         <label>Promotion Name:</label>
-                        <input type="text" style="background-color:lightgrey;"><br><br><br>
+                        <input type="text" style="background-color:lightgrey;" name='pName'><br><br><br>
                         <label>Promotion Code:</label>
-                        <input type="text" style="background-color:lightgrey"><br><br><br>
+                        <input type="text" style="background-color:lightgrey" name='pCode'><br><br><br>
                         <label>Promotion Description:</label>
-                        <input type="text" style="background-color:lightgrey"><br><br><br>
+                        <input type="text" style="background-color:lightgrey" name='pDescription'><br><br><br>
                         
                         <input class = "bookMovie" type="submit" value="Submit" style="background-color:lightgrey">
                     </fieldset>
