@@ -28,29 +28,23 @@
             </form>  
         </div>
         <div id="edit">
-            <div id="edit-nav">
-                <ul class="one">
-                    <li class="active"><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
-                    <li><a href="../HTML/edit-card.php"> Edit Billing Info </a></li>
-                    <li><a href="../PHP/logoutUser.php"> Login </a></li>
-                </ul>
-            </div>
+            
             
             <div id="formDiv">
-                <?php foreach ($userInfs as $userInf) : ?>
-                    <form class = "resetPass" action = "../PHP/changeForgottenPassword.php" method = "POST"> 
-                        <fieldset>
-                        <legend>Make New Password</legend>
-                        <label>Username:</label>
-                        <input type="text" name = "useName"><br><br><br>
-                        <label>New Password:</label>
-                        <input type="text" style="-webkit-text-security: circle;" name = "new_password"><br><br><br>
-                        <label>Confirm New Password:</label>
-                        <input type="text" style="-webkit-text-security: circle;" name = "confirm_new_pw"><br><br><br>
-                        <input class = "bookMovie" type="submit" value="Submit">
-                    </fieldset>
-                    </form>
-                <?php endforeach; ?>
+                
+            <form class = "resetPass" action = "../PHP/changeForgottenPassword.php" method = "POST"> 
+                <fieldset>
+                <legend>Make New Password</legend>
+                <label>Username:</label>
+                <input type="text" name = "useName"><br><br><br>
+                <label>New Password:</label>
+                <input type="text" style="-webkit-text-security: circle;" name = "new_password"><br><br><br>
+                <label>Confirm New Password:</label>
+                <input type="text" style="-webkit-text-security: circle;" name = "confirm_new_pw"><br><br><br>
+                <input class = "bookMovie" type="submit" value="Submit">
+            </fieldset>
+            </form>
+                
             </div>
         </div>
     </main>

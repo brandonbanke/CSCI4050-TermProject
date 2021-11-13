@@ -26,7 +26,8 @@
         # EMAIL #
         $subject = 'CBS Forgot Password';
         $message = '<p>This is an email for forget password to: ' .$inputEmail .'</p>';
-        $message .= '<p>Password: ' .$pass .'</p>';
+        #$message .= '<p>Password: ' .$pass .'</p>';
+        $message .= '<p> click here to reset your password: <a href=\'http://localhost/CSCI4050-TermProject/HTML/change-forget-password.php\'>Here</a></p>';
         $headers = "From: cbsmailserver9@gmail.com\r\n";
         $headers .= "Reply To: cbsmailserver9@gmail.com\r\n";
         $headers .= "Content-type: text/html\r\n";

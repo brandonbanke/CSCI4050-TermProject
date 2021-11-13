@@ -17,7 +17,6 @@
 
     $pass = filter_input(INPUT_POST, 'new_password');
     $confirmpass = filter_input(INPUT_POST, 'confirm_new_pw');
-    $issue = true;
 
 
     
@@ -27,9 +26,13 @@
     } else if ($rowcount == 0) {
         echo "<h5 style=\"color:red; text-align:center;\"> That Account Does Not Exist! </h5>";
     } else {
-        $issue = false;
+
+        # changes the pass where userId = inputed userId and not where user is active
         $changepass = "UPDATE user
-        SET pass = AES_ENCRYPT('$pass', 'cebs1234') WHERE active=1";
+        SET pass = AES_ENCRYPT('$pass', 'cebs1234') WHERE userId = '$usId'";  
         $db->exec($changepass);
+
+        # takes the user back to login
+        header('Location: ../HTML/login.php');
     }
 ?>
