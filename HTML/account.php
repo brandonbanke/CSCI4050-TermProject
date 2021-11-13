@@ -17,15 +17,17 @@
         <?php 
         if (count($userInfs) == 0) {
             include("../HTML/login.php");
+            #header("Location: ../HTML/login.php");
         } else {
             foreach ($userInfs as $userInf) {
                 $isActive = $userInf['active'];
-                if ($isActive == 1) {
-                    include("../HTML/edit-profile.php");
-                } else {
-                    include("../HTML/login.php");
-                }
+            }    
+            if ($isActive == 1) {
+                header("Location: ../HTML/edit-profile.php");
+            } else {
+                header("Location: ../HTML/login.php");
             }
+            
         }
         ?>
     </main>
