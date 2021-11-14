@@ -1,4 +1,7 @@
-<?php require("../PHP/getUserInfo.php"); ?>
+<?php 
+    require("../PHP/getUserInfo.php");
+    require("../PHP/getMovieInfo.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +38,7 @@
     </div>
         <h2>Current Movies</h2>
         <section class="trailerList">
+            <!--
             <div class = "trailer">
                 <iframe width="350" height="250"
                 src="https://www.youtube.com/embed/8YjFbMbfXaQ">
@@ -77,9 +81,19 @@
                 </iframe><br>
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div>
+            -->
+            <?php foreach ($movieInfs as $movieInf) : ?>
+            <div class = "trailer">
+                <iframe width="350" height="250"
+                src = "<?php echo $movieInf['trailer']; ?>">
+                </iframe><br>
+                <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
+            </div>
+            <?php endforeach; ?>
         </section>
         <h2>Coming Soon</h2>
         <section class="trailerList">
+            <!--
             <div class = "trailer">
                 <iframe width="350" height="250"
                 src="https://www.youtube.com/embed/x_me3xsvDgk">
@@ -116,6 +130,15 @@
                 </iframe><br>
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div>
+            -->
+            <?php foreach ($movieInfs as $movieInf) : ?>
+            <div class = "trailer">
+                <iframe width="350" height="250"
+                src = "<?php echo $movieInf['trailer']; ?>">
+                </iframe><br>
+                <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
+            </div>
+            <?php endforeach; ?>
         </section>
 
     </main>

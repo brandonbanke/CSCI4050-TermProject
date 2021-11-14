@@ -1,3 +1,8 @@
+<?php 
+    require("../PHP/getUserInfo.php");
+    require("../PHP/getMovieInfo.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +24,14 @@
             <div class="adminTab">
                 <div class="userName">
                     <h3 style="padding-left: 5px;">Welcome back</h3>
-                    <p style="padding-left: 5px;">[name]</p>
+                    <?php 
+                        if ($userOnCheck == 1) {
+                            foreach($userInfs as $userInfo) {
+                                $name = $userInfo['firstName'];
+                            } 
+                            echo "<p style=\"padding-left:5px;\">" .$name ."</p>";
+                        } 
+                    ?>
                 </div>
 
                 <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen" style="padding-left: 5px;">Manage Movies</button>
@@ -40,84 +52,15 @@
             <section class="movies">
             
                 
+                <?php foreach ($movieInfs as $movieInf) : ?>
                 <div class="movie">
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
+                <img src="<?php echo $movieInf['picture']; ?>">                
                 <br>
                 <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
                 </div>
-
-                <div class="movie"> 
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                   
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-            
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
+                <?php endforeach; ?>
 
 
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                </div>
-
-                <div class="movie">        
-                    <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg">                
-                    <br>
-                    <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
-                    </div>
             </section>
         </div>
 

@@ -1,4 +1,7 @@
-<?php require("../PHP/getUserInfo.php")?>
+<?php 
+    require("../PHP/getUserInfo.php");
+    require("../PHP/getMovieInfo.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,90 +39,27 @@
             </form>  
         </div>
         <h2 class = "adminTitle">Admin View</h2>
-            <a href="../HTML/adminMenu.html" class="manage">Manage Movies</a>
-            <a href="../HTML/adminMenu.html" class="manage">Manage Promotions</a>
+            <a href="../HTML/adminMenu.php" class="manage">Manage Movies and Promotions</a>
         <section class="trailerList">
+        <?php foreach ($movieInfs as $movieInf) : ?>
             <div class = "trailer">
                 <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/8YjFbMbfXaQ">
+                src = "<?php echo $movieInf['trailer']; ?>">
                 </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
+                <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/TPBH3XO8YEU">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/Gczt0fhawDs">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/f_HvoipFcA8">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/LRMTr2VZcr8">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/JVc8SI5CAKw">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/g_c_Jd-hP-s">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
+        <?php endforeach; ?>
         </section>
         <h2>Coming Soon</h2>
         <section class="trailerList">
+        <?php foreach ($movieInfs as $movieInf) : ?>
             <div class = "trailer">
                 <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/x_me3xsvDgk">
+                src = "<?php echo $movieInf['trailer']; ?>">
                 </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
+                <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/gxc6y2ZVfCU">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/S-GJ3lk0GCA">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/ahZFCF--uRY">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/LLFSNWU8yx8">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src="https://www.youtube.com/embed/WgU7P6o-GkM">
-                </iframe><br>
-                <button class='bookMovie' type='button'>Book Movie </button>
-            </div>
+        <?php endforeach; ?>
         </section>
     </main>
 
