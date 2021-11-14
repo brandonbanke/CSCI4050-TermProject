@@ -139,6 +139,8 @@
                     <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mDate"><br><br>
                     <label>show time</label>
                     <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mTime"><br><br>
+                    <input id="check" type="checkbox" name="mComingSoon" value="1">
+                    <label id="checkLabel" for="mComingSoon"> Coming Soon? </label><br><br><br>
                     <br>
                     <br>
                     <input type="submit" value="submit" style="background-color:lightgrey">

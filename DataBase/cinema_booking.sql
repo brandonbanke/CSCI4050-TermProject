@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2021 at 04:40 PM
+-- Generation Time: Nov 15, 2021 at 12:51 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -78,6 +78,7 @@ CREATE TABLE `movie` (
   `ratingCode` enum('G','PG','PG-13','R','NC-17') DEFAULT NULL,
   `showTime` varchar(255) NOT NULL,
   `showDate` varchar(255) NOT NULL,
+  `comingSoon` tinyint(1) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -85,9 +86,10 @@ CREATE TABLE `movie` (
 -- Dumping data for table `movie`
 --
 
-INSERT INTO `movie` (`title`, `category`, `movieCast`, `director`, `producer`, `synopsis`, `reviews`, `trailer`, `picture`, `ratingCode`, `showTime`, `showDate`, `id`) VALUES
-('T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'G', 'T', 'T', 1),
-('G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 3);
+INSERT INTO `movie` (`title`, `category`, `movieCast`, `director`, `producer`, `synopsis`, `reviews`, `trailer`, `picture`, `ratingCode`, `showTime`, `showDate`, `comingSoon`, `id`) VALUES
+('Eternals', 'marvel', 'selma hyak', 'chloe zhao', 'chloe zhao', 'new marvel movie', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '10:00am', '11/20', 0, 4),
+('Batman', 'dc', 'robert pattinson', 'idk', 'idk', 'batman is a hero', '10/10', 'https://www.youtube.com/embed/mqqft2x_Aa4', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '11:00am', '11/24', 0, 6),
+('Holden', 'tiktoker', 'holden smith', 'n/a', 'n/a', 'hes lame', '0/10', 'https://www.youtube.com/embed/LRMTr2VZcr8', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'R', '12:00am', '11/21', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -105,15 +107,6 @@ CREATE TABLE `payment_card` (
   `userId` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `payment_card`
---
-
-INSERT INTO `payment_card` (`billingAddress`, `expirationDate`, `cardNumber`, `cvv`, `fullName`, `cardId`, `userId`) VALUES
-('tt', '22/22', 0xa8c62a58461527420430fd6cc2049f29, 0xa9d8b6cd5e590e66c4e9f8878ba5f68c, 'tt', 18, 'q'),
-('test', '44/44', 0xb3edae40bbb5131711f9bce52df81363, 0x42dfbde27a015eee5f16b783cac60895, 'test2', 19, 'q'),
-('', '', 0x3d4c27374091779abb58a50b7d3f6e39, 0x3d4c27374091779abb58a50b7d3f6e39, '', 20, 'q');
-
 -- --------------------------------------------------------
 
 --
@@ -126,13 +119,6 @@ CREATE TABLE `promotion` (
   `promDescription` varchar(255) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `promotion`
---
-
-INSERT INTO `promotion` (`promoName`, `code`, `promDescription`, `id`) VALUES
-('test', 'test', 'test', 1);
 
 -- --------------------------------------------------------
 
@@ -206,11 +192,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`) VALUES
-('a', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'a', 'a', 'a', 0, 1, 0),
-('f', 0x0f761780a25bb27bf8dcbd59c715449a, 'f', 'f', 'f', 0, 1, 0),
-('q', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'q', 'q', 'q', 0, 1, 1),
-('r', 0x3795a990870394e00dc67dedce583d01, 'r', 'r', 'r', 1, 0, 1),
-('test', 0x6aabfc791cbc771039ef17c78f0223aa, 'test', 'test', 'test', 0, 1, 0);
+('b', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Admin', 'bbanke107@gmail.com', 1, 0, 1),
+('bdawg', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Banke', 'bbrandon107@gmail.com', 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -299,13 +282,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
-  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `promotion`

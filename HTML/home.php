@@ -82,14 +82,16 @@
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div>
             -->
-            <?php foreach ($movieInfs as $movieInf) : ?>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src = "<?php echo $movieInf['trailer']; ?>">
-                </iframe><br>
-                <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
-            </div>
-            <?php endforeach; ?>
+            <?php 
+                foreach ($movieInfs as $movieInf) {
+                    if ($movieInf['comingSoon'] == 0) {
+                        echo "<div class = \"trailer\">";
+                            echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
+                            echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                        echo "</div>";
+                    }
+                }
+            ?>
         </section>
         <h2>Coming Soon</h2>
         <section class="trailerList">
@@ -131,14 +133,16 @@
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div>
             -->
-            <?php foreach ($movieInfs as $movieInf) : ?>
-            <div class = "trailer">
-                <iframe width="350" height="250"
-                src = "<?php echo $movieInf['trailer']; ?>">
-                </iframe><br>
-                <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
-            </div>
-            <?php endforeach; ?>
+            <?php 
+            foreach ($movieInfs as $movieInf) {
+                if ($movieInf['comingSoon'] == 1) {
+                    echo "<div class = \"trailer\">";
+                        echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
+                        echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                    echo "</div>";
+                }
+            }
+            ?>
         </section>
 
     </main>
