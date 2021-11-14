@@ -23,34 +23,37 @@
     $infor = $loginstatement->fetchAll();
     $rowcount = $loginstatement->rowCount();
     if ($rowcount == 1) {
-    foreach ($infor as $info) {
-            $adminVal = $info['isAdmin'];
-            $pass = $info['pass'];
-    }
+        foreach ($infor as $info) {
+                $adminVal = $info['isAdmin'];
+                $pass = $info['pass'];
+        }
 
-    if ($password == $pass) {
+        if ($password == $pass) {
+            
+            if($adminVal == 0){
+                $setactive = "UPDATE user
+                                SET active=1
+                                WHERE userId=:user_iden;";
+                $loginstatement2 = $db->prepare($setactive);
+                $loginstatement2->bindValue(':user_iden', $uId);
+                $loginstatement2->execute();
+                include("../HTML/home.php");
+            }
+            else if($adminVal == 1) {
+                $setactive = "UPDATE user
+                                SET active=1
+                                WHERE userId=:user_iden;";
+                $loginstatement2 = $db->prepare($setactive);
+                $loginstatement2->bindValue(':user_iden', $uId);
+                $loginstatement2->execute();
+                include("../HTML/admin-home.php");
+            }
+            
         
-        if($adminVal == 0){
-            $setactive = "UPDATE user
-                            SET active=1
-                            WHERE userId=:user_iden;";
-            $loginstatement2 = $db->prepare($setactive);
-            $loginstatement2->bindValue(':user_iden', $uId);
-            $loginstatement2->execute();
-            include("../HTML/home.php");
+        } else {
+            include("../HTML/login.php");
+            echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
         }
-        else if($adminVal == 1) {
-            $setactive = "UPDATE user
-                            SET active=1
-                            WHERE userId=:user_iden;";
-            $loginstatement2 = $db->prepare($setactive);
-            $loginstatement2->bindValue(':user_iden', $uId);
-            $loginstatement2->execute();
-            include("../HTML/admin-home.php");
-        }
-        
-      
-    } 
     } else {
         include("../HTML/login.php");
         echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
