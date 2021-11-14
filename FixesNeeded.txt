@@ -1,2 +1,0 @@
-* When logging in with the wrong password, website goes to a white screen
-* You can enter a blank card

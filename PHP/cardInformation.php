@@ -46,6 +46,6 @@ $insertinfo->execute();
 $insertinfo->closeCursor();
 
 
-include("../HTML/home.php");
+include("../HTML/edit-card.php");
 
 ?>

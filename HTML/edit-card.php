@@ -11,9 +11,10 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/edit-profile.css">
     <link rel="stylesheet" href="../CSS/nav-bar.css">
+    <script src="../JS/cardCheck.js"></script>
 </head>
 
-<body>
+<body onload="stylePage();">
     <header> 
         <h1 class = "title">Booking Website!</h1>
     </header>
@@ -37,19 +38,19 @@
                 </ul>
             </div>
             <div id="formDiv">
-            <form action='../PHP/cardInformation.php' method='POST' class = "registrationForm"> 
+            <form action='../PHP/cardInformation.php' method='POST' class = "registrationForm" onsubmit="return addCard();"> 
                 <fieldset>
                 <legend>Add Card</legend>
                 <label>Billing Address:</label>
-                <input type="text" name='cBillingAddress'><br><br><br>
+                <input id = "cardBill" type="text" name='cBillingAddress'><br><br><br>
                 <label>Expiraton Date:</label>
-                <input type="text" name='cExpDate'><br><br><br>
+                <input id = "cardExDate" type="text" name='cExpDate'><br><br><br>
                 <label>Card Number:</label>
-                <input type="text" name='cCardNum'><br><br><br>
+                <input id = "cardNumb" type="text" name='cCardNum'><br><br><br>
                 <label>CVV:</label>
-                <input type="text" name='cCVV'><br><br><br>
+                <input id = "cardVV" type="text" name='cCVV'><br><br><br>
                 <label>Full Name:</label>
-                <input type="text" name='cFullName'><br><br><br>
+                <input id = "cardFlName" type="text" name='cFullName'><br><br><br>
                 <?php 
                  
                 foreach($userInfs as $info) {
@@ -66,6 +67,11 @@
                         echo "<a href=\"../HTML/account.php\"><input type='submit' class='bookMovie' type='submit' value='Add Card' disabled> </input></a>";
                     }
                 ?>
+                <p id="billingValidity"> Billing Address is invalid</p>
+                <p id="exDateValidity"> Expiration Date is invalid</p>
+                <p id="cardNumValidity"> Card Number is invalid</p>
+                <p id="cvvValidity"> CVV is invalid</p>
+                <p id="nameValidity"> Name is invalid</p>
                 </fieldset>
             </form>
             <br><br>
