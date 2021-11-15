@@ -32,5 +32,5 @@ $insertinfo->bindValue(':p_description', $description);
 $insertinfo->execute();
 $insertinfo->closeCursor();
 
-include("../HTML/adminMenu.php")
+header("Location: ../HTML/adminMenu.php")
 ?>

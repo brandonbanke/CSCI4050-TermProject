@@ -43,5 +43,5 @@
     SET promDescription = '$pDescr' WHERE id= '$promotionIden'";
     $db->exec($changeDescrip);
 
-    include("../HTML/adminMenu.php");
+    header("Location: ../HTML/adminMenu.php");
 ?>
