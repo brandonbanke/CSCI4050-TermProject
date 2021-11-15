@@ -29,7 +29,7 @@
     <div id="nav-menu">
         <ul class="one">
             <li class="active"><a href="../HTML/home.php"> Home </a></li>
-            <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
+            <li><a href="../HTML/select-movie.php"> Find Movie </a></li>
             <li><a href="../HTML/account.php"> Account </a></li>
         </ul>
         <form id="search-form" action="search.php" method="GET">
@@ -87,6 +87,7 @@
                     if ($movieInf['comingSoon'] == 0) {
                         echo "<div class = \"trailer\">";
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
+                            echo "<p>".$movieInf['title']." </p>";
                             echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
                         echo "</div>";
                     }
@@ -138,6 +139,7 @@
                 if ($movieInf['comingSoon'] == 1) {
                     echo "<div class = \"trailer\">";
                         echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
+                        echo "<p>".$movieInf['title']." </p>";
                         echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
                     echo "</div>";
                 }

@@ -23,15 +23,34 @@ main h2 {
 	font-size: 30pt;
 }
 
+p {
+	color: #d6d5d6;
+	font-size: 20pt;
+	font-family: 'Bebas Neue', cursive;
+}
+
+
+
 .trailerList {
-	display: flex;
-	text-align: center;
-	align-items: center;
+	display: table;
+	/* text-align: center; */
+	/* align-items: center; */
     overflow-x: scroll;
     padding-bottom: .75rem;
 }
 
+.info {
+	
+	/* float: right; */
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	
+}
+
 .trailer {
+	/* display: table; */
+	float: left;
 	padding: 10px;
 }
 

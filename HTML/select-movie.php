@@ -1,3 +1,7 @@
+<?php
+require("../PHP/getMovieInfo.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +30,7 @@
     <h1>Book a Movie</h1>
         <h2>Current Movies</h2>
         <section class="trailerList">
-            <div class = "trailer">
+            <!-- <div class = "trailer">
                 <iframe width="350" height="250"
                 src="https://www.youtube.com/embed/8YjFbMbfXaQ">
                 </iframe><br>
@@ -67,11 +71,41 @@
                 src="https://www.youtube.com/embed/g_c_Jd-hP-s">
                 </iframe><br>
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
-            </div>
+            </div> -->
+            <?php 
+                foreach ($movieInfs as $movieInf) {
+                    if ($movieInf['comingSoon'] == 0) {
+                        echo "<div class = \"trailer\">";
+                            echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
+                            // echo "<div class = \"info\">";
+                                echo "<p class = \"info\"> Title: ".$movieInf['title']." </p>";
+                                echo "<p class = \"info\"> Category: ".$movieInf['category']." </p>";
+                                echo "<p> Cast: ".$movieInf['movieCast']." </p>";
+                                echo "<p> Director: ".$movieInf['director']." </p>";
+                                echo "<p> Rating: ".$movieInf['ratingCode']." </p>";
+                            echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                            // echo "<div>";
+                        echo "</div>";
+                        
+                    }
+                }
+            ?>
         </section>
         <h2>Coming Soon</h2>
         <section class="trailerList">
-            <div class = "trailer">
+        <?php 
+            foreach ($movieInfs as $movieInf) {
+                if ($movieInf['comingSoon'] == 1) {
+                    echo "<div class = \"trailer\">";
+                        echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
+                        echo "<p>".$movieInf['title']." </p>";
+                        echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                    echo "</div>";
+                }
+            }
+            ?>
+
+            <!-- <div class = "trailer">
                 <iframe width="350" height="250"
                 src="https://www.youtube.com/embed/x_me3xsvDgk">
                 </iframe><br>
@@ -106,7 +140,7 @@
                 src="https://www.youtube.com/embed/WgU7P6o-GkM">
                 </iframe><br>
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
-            </div>
+            </div> -->
         </section>
 
     </main>
