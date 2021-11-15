@@ -40,6 +40,12 @@ $date = filter_input(INPUT_POST, 'mDate');
 $time = filter_input(INPUT_POST, 'mTime');
 $cSoon = filter_input(INPUT_POST, 'mComingSoon');
 
+
+if ($cSoon == NULL) {
+    $cSoon = 0;
+}
+
+
 $query2 = "INSERT INTO movie
 (title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, showTime, showDate, comingSoon)
 VALUE

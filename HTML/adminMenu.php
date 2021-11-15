@@ -15,7 +15,7 @@
 <body>
     <header>
         <h1 class="title" style="padding-top: 10px;">Admin Menu</h1>
-            <a href="admin-home.php" class="manageButton">Go back</a>
+            <a href="../HTML/admin-home.php" class="manageButton">Go back</a>
     </header>
     <br>
     
@@ -46,18 +46,78 @@
             <br>
             <form id="search-form" action="search.php" method="GET">
                 <input type="search" id="search-bar" name="searchTerm" placeholder="Seach movie">
-                <input type="button" id="button" name="addMovieButton" style="width:60px" onclick="showWindow()">
+                <input type="button" id="button" name="addMovieButton" style="width:60px" onclick="showWindow()" value = "Add Movie">
             </form> 
             <br>
             <section class="movies">
             
-                
+                <?php $counter = 0;?>
                 <?php foreach ($movieInfs as $movieInf) : ?>
                 <div class="movie">
                 <img src="<?php echo $movieInf['picture']; ?>">                
                 <br>
-                <button class="manageButton" type='button' onclick="showWindow()">Edit</button>
+                <button class="manageButton" type='button' onclick="showEditWindow()">Edit</button>
                 </div>
+
+
+                <div id="movie-edit-screen" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content" style="display: flex; text-align: center;">
+                    <span class="close" onclick="closeEditWindow()" style="background-color: inherit">&times;</span>
+                    <div style="float: left; width: 50%; align-items: center; background-color: inherit;">
+                        <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg" style="width: 300px; height: auto; padding-top: 100px;">
+                    </div>
+
+                    
+                    <div style="float: left; width: 50%; background-color: inherit;">
+                        <form method='POST' action='../PHP/editMovie.php'>
+                            <fieldset><br><br>
+                            <label>name:</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name='new_mName' value = "<?php echo $movieInfs[$counter]['title']; ?>"><br><br>
+                            <label>Category</plabel>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mCategory" value = "<?php echo $movieInf['category']; ?>"><br><br>
+                            <label>Cast</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mCast" value = "<?php echo $movieInf['movieCast']; ?>"><br><br>
+                            <label>director</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mDirector" value = "<?php echo $movieInf['director']; ?>"><br><br>
+                            <label>Producer</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mProducer" value = "<?php echo $movieInf['producer']; ?>"><br><br>
+                            <label>synopsis</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mSynopsis" value = "<?php echo $movieInf['synopsis']; ?>"><br><br>
+                            <label>reviews</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mReviews" value = "<?php echo $movieInf['reviews']; ?>"><br><br>
+                            <label>trailer link</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mTrailerLink" value = "<?php echo $movieInf['trailer']; ?>"><br><br>
+                            <label>movie picture</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mMoviePic" value = "<?php echo $movieInf['picture']; ?>"><br><br>
+                            <label>MPPA-US film rating code</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mRating" value = "<?php echo $movieInf['ratingCode']; ?>"><br><br>
+                            <label>show date</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mDate" value = "<?php echo $movieInf['showDate']; ?>"><br><br>
+                            <label>show time</label>
+                            <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="new_mTime" value = "<?php echo $movieInf['showTime']; ?>"><br><br>
+                            <?php
+                                $checked = "";
+                                if ($movieInf['comingSoon'] == 1) {
+                                    $checked = "checked";
+                                }
+                            ?>
+                            <input id="check" type="checkbox" name="new_mComingSoon" <?php echo $checked;?>>
+                            <label id="checkLabel" for="new_mComingSoon"> Coming Soon? </label><br><br><br>
+                            <br>
+                            <br>
+                            <input type="hidden" name="movie_id" value = "<?php echo $movieInf['id']; ?>">
+                            <input type="submit" value="submit" style="background-color:lightgrey">
+                            </fieldset>
+                            </form>
+                    </div>
+                    
+
+                    </div>
+                
+                </div>
+                <?php $counter++; ?>
                 <?php endforeach; ?>
 
 
@@ -153,6 +213,7 @@
           
         </div>
 
+
         <div class="modal" id="promotion-screen">
             <div class="modal-content">
                 <span class="close" onclick="closeWindowPromotion()" style="background-color: inherit">&times;</span>
@@ -209,6 +270,16 @@ function showWindow() {
 
 function closeWindow() {
     let popupBox = document.getElementById("movie-screen");
+    popupBox.style.display = "";
+}
+
+function showEditWindow() {
+    let popupBox = document.getElementById("movie-edit-screen");
+    popupBox.style.display = "block"; 
+}
+
+function closeEditWindow() {
+    let popupBox = document.getElementById("movie-edit-screen");
     popupBox.style.display = "";
 }
 
