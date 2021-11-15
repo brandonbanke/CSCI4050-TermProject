@@ -1,6 +1,7 @@
 <?php 
     require("../PHP/getUserInfo.php");
     require("../PHP/getMovieInfo.php");
+    require("../PHP/getPromotion.php");
 ?>
 
 <!DOCTYPE html>
@@ -127,6 +128,37 @@
         <div id="managePromotions" class="content">
             <br>
             <div style="background-color: inherit; float: left;">
+            <h2 style="padding-left: 10px;">Manage Promotions</h2>
+            <br>
+            <p style="padding-left: 10px;">Select promotion:</p>    
+            <br>
+            <?php foreach ($promInfs as $promInf) : ?>
+            <p style="padding-left: 10px; display: inline-block;">'<?php echo $promInf['promoName']; ?>'</p>
+            <button class="changeButton" onclick="showWindowPromotion()">Change</button>
+            <br>
+
+            <div class="modal" id="promotion-screen">
+            <div class="modal-content">
+                <span class="close" onclick="closeWindowPromotion()" style="background-color: inherit">&times;</span>
+                <br>
+                <form method='POST' action='../PHP/editPromotion.php'>
+                        <p>Name</p>
+                        <input type="text" style="background-color: lightgrey; display: inline-flexbox;" value = "<?php echo $promInf['promoName']; ?>" name='new_pName'>
+                        <p>Code</p>
+                        <input type="text" style="background-color: lightgrey; display: inline-flexbox;" value = "<?php echo $promInf['code']; ?>" name='new_pCode'>
+                        <p>Description</p>
+                        <input type="text" style="background-color: lightgrey; display: inline-flexbox;" value = "<?php echo $promInf['promDescription']; ?>" name='new_pDescription'>
+                        <br>
+                        <br>
+                        <input type="hidden" name="promotion_id" value = "<?php echo $promoInf['id']; ?>">
+                        <input type="submit" value="Submit" style="background-color:lightgrey">
+                </form>
+            </div>
+        </div>
+            <?php endforeach; ?>
+
+
+            <!--
                 <h2 style="padding-left: 10px;">Manage Promotions</h2>
                 <br>
                 <p style="padding-left: 10px;">Select promotion:</p>    
@@ -139,6 +171,7 @@
                 <br>
                 <p style="padding-left: 10px; display: inline-block;">3. Another promotion</p>
                 <button class="changeButton" onclick="showWindowPromotion()">Change</button>
+                            -->
             </div> 
             <div style="background-color: inherit; float: left; padding-left: 100px; padding-top: 50px;">
                 <p>Add new promotion:</p>
@@ -213,22 +246,6 @@
           
         </div>
 
-
-        <div class="modal" id="promotion-screen">
-            <div class="modal-content">
-                <span class="close" onclick="closeWindowPromotion()" style="background-color: inherit">&times;</span>
-                <br>
-                <p>name</p>
-                <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                <p>code</p>
-                <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                <p>Description</p>
-                <input type="text" style="background-color: lightgrey; display: inline-flexbox;">
-                <br>
-                <br>
-                <input type="submit" value="Submit" style="background-color:lightgrey" onclick="closeWindowPromotion()">
-            </div>
-        </div>
 
  </main>
 
