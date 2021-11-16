@@ -28,7 +28,12 @@ require("../PHP/getMovieInfo.php");
         </form>  
     </div>
     <h1>Book a Movie</h1>
-        <h2>Current Movies</h2>
+        <div id="filter"> 
+            <p>Filter Search</p>
+            <p>category<p>
+        </div>
+        <div id= "content">
+      
         <section class="trailerList">
             <!-- <div class = "trailer">
                 <iframe width="350" height="250"
@@ -74,36 +79,31 @@ require("../PHP/getMovieInfo.php");
             </div> -->
             <?php 
                 foreach ($movieInfs as $movieInf) {
-                    if ($movieInf['comingSoon'] == 0) {
+                    // if ($movieInf['comingSoon'] == 0) {
                         echo "<div class = \"trailer\">";
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                             // echo "<div class = \"info\">";
                                 echo "<p class = \"info\"> Title: ".$movieInf['title']." </p>";
                                 echo "<p class = \"info\"> Category: ".$movieInf['category']." </p>";
-                                echo "<p> Cast: ".$movieInf['movieCast']." </p>";
-                                echo "<p> Director: ".$movieInf['director']." </p>";
-                                echo "<p> Rating: ".$movieInf['ratingCode']." </p>";
+                                if($movieInf['comingSoon'] == 0) {
+                                    echo "<p class = \"info\">Released</p>";
+                                } else {
+                                    echo "<p class = \"info\">Coming Soon</p>";
+                                }
+                                echo "<p class = \"info\"> Cast: ".$movieInf['movieCast']." </p>";
+                                echo "<p class = \"info\"> Director: ".$movieInf['director']." </p>";
+                                echo "<p class = \"info\"> Rating: ".$movieInf['ratingCode']." </p>";
                             echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
                             // echo "<div>";
                         echo "</div>";
                         
-                    }
+                            // }
                 }
             ?>
         </section>
-        <h2>Coming Soon</h2>
+
         <section class="trailerList">
-        <?php 
-            foreach ($movieInfs as $movieInf) {
-                if ($movieInf['comingSoon'] == 1) {
-                    echo "<div class = \"trailer\">";
-                        echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
-                        echo "<p>".$movieInf['title']." </p>";
-                        echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
-                    echo "</div>";
-                }
-            }
-            ?>
+        
 
             <!-- <div class = "trailer">
                 <iframe width="350" height="250"
@@ -142,6 +142,7 @@ require("../PHP/getMovieInfo.php");
                 <a href="select-showtime.html"><button class='bookMovie' type='button'>Book Movie </button></a>
             </div> -->
         </section>
+        </div>
 
     </main>
 

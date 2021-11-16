@@ -6,6 +6,7 @@
 }
 main {
 	padding: 1rem 3%;
+
 }
 
 main h1 {
@@ -29,28 +30,41 @@ p {
 	font-family: 'Bebas Neue', cursive;
 }
 
+#filter {
+	float: left;
+	width: 20%;
+}
+
+#content {
+	display: block;
+	width: 100%;
+	/* justify-content: center; */
+}
+
 
 
 .trailerList {
-	display: table;
+	display: block;
 	/* text-align: center; */
 	/* align-items: center; */
-    overflow-x: scroll;
+    overflow-y: scroll;
+	
     padding-bottom: .75rem;
 }
 
 .info {
-	
-	/* float: right; */
+
 	display: flex;
-	flex-direction: row;
+	flex-direction:column;
 	justify-content: right;
+	
+	
 	
 }
 
 .trailer {
 	/* display: table; */
-	float: left;
+	
 	padding: 10px;
 }
 
