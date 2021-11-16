@@ -11,8 +11,8 @@
     $mstates->closeCursor();
 
     if($movieCount == 1) {
-        #include("../HTML/edit-movie.php");
-        echo "it went through";
+        include("../HTML/edit-movie.php");
+        
     } else {
         echo $movieId;
     }

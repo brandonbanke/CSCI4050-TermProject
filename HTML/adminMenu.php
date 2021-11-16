@@ -2,6 +2,8 @@
     require("../PHP/getUserInfo.php");
     require("../PHP/getMovieInfo.php");
     require("../PHP/getPromotion.php");
+    require("../PHP/getCustomer.php");
+    
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +37,13 @@
 
                 <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen" style="padding-left: 5px;">Manage Movies</button>
                 <button class="adminButton" onclick="openTab(event, 'managePromotions')" style="padding-left: 5px;">Manage Promotions</button>
+                <button class="adminButton" onclick="openTab(event, 'manageUsers')" style="padding-left: 5px;">Manage Users</button>
+                
             </div>
            
         </div>
 
+        <!-- Manage movies tab-->
         <div id="manageMovies" class="content">
             <br>
             <h2 style="padding-left: 10px;">Manage Movies</h2>    
@@ -57,15 +62,44 @@
                     <br>
                     <form method='POST' action='../PHP/getMovieInformation.php'>
                         <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
-                        <a href="..HTML/edit-movie.php"><input style = "color: white;"type='submit' class='bookMovie' type='submit' value='sub'></a>
+                        <!-- testing with a button 
+                        <a href="..HTML/edit-movie.php"><input style = "color: white;"type='submit' class='bookMovie' type='submit' value='sub'></a>-->
+                        <button type="submit" class="manageButton">Edit</button>
+                        
                     </form>
                 </div>
                 <?php endforeach; ?>
             </section>
         </div>
+        
+        <div id="manageUsers" class="content">
+            <br>
+            <h2 style="padding-left: 10px;">Manage Users</h2>                    
+            <br>
+            <!-- gets all the users in the db -->
+            <?php foreach($custInfs as $info) :?>
+                <div id="box">
+                    <p><?php echo $info['userId']?></p>
+
+                    <!-- different for blocked and not blocked, still needs to add the submit-->
+                    <?php 
+                        if ($info['isBlocked'] == 0) {
+                            echo "<button type='submit' value='" .$info['userId']. "class='manageButton' style='background-color:gray;'>block</button>";
+                        } else {
+                            echo "<button type='submit' value='" .$info['userId']. "class='manageButton' style='background-color:gray;'>un-block</button>";
+                        }
+                        
+                    ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
+
+
+
 
         <!-- Promotions -->
-
         <div id="managePromotions" class="content">
             <br>
             <div style="background-color: inherit; float: left;">
@@ -96,10 +130,10 @@
                 </form>
             </div>
         </div>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
 
-            <!-- Add promotion -->
-            </div> 
+        <!-- Add promotion -->
+        </div> 
             <div style="background-color: inherit; float: left; padding-left: 100px; padding-top: 50px;">
                 <p>Add new promotion:</p>
                 <br>

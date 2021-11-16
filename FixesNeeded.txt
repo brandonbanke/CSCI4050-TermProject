@@ -1,0 +1,1 @@
+* Unable to edit a movie title because of "PDOException"

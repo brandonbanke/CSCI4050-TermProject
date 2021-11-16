@@ -183,10 +183,24 @@ label{
     background-color: white;
 }
 
+#input{
+    background-color: #c3c9e9;
+}
+
 legend{
     background-color: white;
 }
 
+/* user's box*/
+#box{
+    background-color: inherit; 
+    float: left; 
+    padding-left: 100px; 
+    padding-top: 50px;
+    border: 1px solid #888;
+    padding: 20px;
+    float: inline-end;
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
