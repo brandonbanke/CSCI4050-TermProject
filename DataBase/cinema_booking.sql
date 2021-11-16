@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 15, 2021 at 12:51 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Host: 127.0.0.1
+-- Generation Time: Nov 16, 2021 at 04:02 AM
+-- Server version: 8.0.27
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `userId` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -39,14 +39,14 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `booking` (
   `bookingNumber` varchar(255) NOT NULL,
-  `ticketNumber` int(11) NOT NULL,
+  `ticketNumber` int NOT NULL,
   `movieTitle` varchar(255) NOT NULL,
   `showDate` varchar(255) NOT NULL,
   `showTime` varchar(255) NOT NULL,
-  `promotionId` int(11) DEFAULT NULL,
-  `cardId` int(11) DEFAULT NULL,
+  `promotionId` int DEFAULT NULL,
+  `cardId` int DEFAULT NULL,
   `userId` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -56,8 +56,8 @@ CREATE TABLE `booking` (
 
 CREATE TABLE `customer` (
   `userId` varchar(255) DEFAULT NULL,
-  `cardId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cardId` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -79,17 +79,17 @@ CREATE TABLE `movie` (
   `showTime` varchar(255) NOT NULL,
   `showDate` varchar(255) NOT NULL,
   `comingSoon` tinyint(1) NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `movie`
 --
 
 INSERT INTO `movie` (`title`, `category`, `movieCast`, `director`, `producer`, `synopsis`, `reviews`, `trailer`, `picture`, `ratingCode`, `showTime`, `showDate`, `comingSoon`, `id`) VALUES
-('Eternals', 'marvel', 'selma hyak', 'chloe zhao', 'chloe zhao', 'new marvel movie', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '10:00am', '11/20', 0, 4),
-('Batman', 'dc', 'robert pattinson', 'idk', 'idk', 'batman is a hero', '10/10', 'https://www.youtube.com/embed/mqqft2x_Aa4', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '11:00am', '11/24', 0, 6),
-('Holden', 'tiktoker', 'holden smith', 'n/a', 'n/a', 'hes lame', '0/10', 'https://www.youtube.com/embed/LRMTr2VZcr8', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'R', '12:00am', '11/21', 1, 7);
+('Eternals', 'test1', 'selma hyak', 'chloe zhao', 'chloe zhao', 'new marvel movie', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '10:00am', '11/20', 0, 4),
+('Batman', 'dc', 'robert pattinson', 'idk', 'idk', 'batman is a hero', '10/10', 'https://www.youtube.com/embed/mqqft2x_Aa4', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '11:00am', '11/24', 1, 6),
+('', 'tiktoker', 'holden smith', 'n/a', 'n/a', 'hes lame', '0/10', 'https://www.youtube.com/embed/LRMTr2VZcr8', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'R', '12:00am', '11/21', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -103,9 +103,9 @@ CREATE TABLE `payment_card` (
   `cardNumber` varbinary(255) NOT NULL,
   `cvv` varbinary(50) NOT NULL,
   `fullName` varchar(255) NOT NULL,
-  `cardId` int(11) NOT NULL,
+  `cardId` int NOT NULL,
   `userId` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -117,8 +117,8 @@ CREATE TABLE `promotion` (
   `promoName` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `promDescription` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -127,13 +127,13 @@ CREATE TABLE `promotion` (
 --
 
 CREATE TABLE `showinfo` (
-  `movieId` int(11) NOT NULL,
-  `showRoomId` int(11) NOT NULL,
+  `movieId` int NOT NULL,
+  `showRoomId` int NOT NULL,
   `showId` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL,
   `duration` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -142,9 +142,9 @@ CREATE TABLE `showinfo` (
 --
 
 CREATE TABLE `showroom` (
-  `id` int(11) NOT NULL,
-  `numberOfSeats` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int NOT NULL,
+  `numberOfSeats` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -154,8 +154,8 @@ CREATE TABLE `showroom` (
 
 CREATE TABLE `theater` (
   `theaterName` varchar(255) NOT NULL,
-  `showRoomNum` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `showRoomNum` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -164,11 +164,11 @@ CREATE TABLE `theater` (
 --
 
 CREATE TABLE `ticket` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `showTime` varchar(255) DEFAULT NULL,
   `AgeType` enum('adult','senior','child') DEFAULT NULL,
-  `ticketNumber` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ticketNumber` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -184,16 +184,18 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `receiveProm` tinyint(1) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `isAdmin` tinyint(1) NOT NULL,
+  `isBlocked` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`) VALUES
-('b', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Admin', 'bbanke107@gmail.com', 1, 0, 1),
-('bdawg', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Banke', 'bbrandon107@gmail.com', 0, 0, 0);
+INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`, `isBlocked`) VALUES
+('b', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Admin', 'bbanke107@gmail.com', 0, 0, 1, 0),
+('bdawg', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Banke', 'bbrandon107@gmail.com', 0, 0, 0, 1),
+('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 1, 1, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -282,31 +284,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
-  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `cardId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `showroom`
 --
 ALTER TABLE `showroom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
