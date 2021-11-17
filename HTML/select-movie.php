@@ -1,5 +1,6 @@
 <?php
-require("../PHP/getMovieInfo.php");
+    require("../PHP/getMovieInfo.php");
+    require("../PHP/getUserInfo.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +18,16 @@ require("../PHP/getMovieInfo.php");
         <h1 class = "title">Booking Website!</h1>
     </header>
     <main>
+    <?php foreach ($userInfs as $userInf) : ?>
     <div id="nav-menu">
         <ul class="one">
-            <li><a href="../HTML/home.php"> Home </a></li>
+        <?php 
+            if ($userInf['isAdmin'] == 1) {
+                echo "<li><a href='../HTML/admin-home.php'> Admin Home </a></li>"; 
+            } else {
+                echo "<li><a href='../HTML/home.php'> Home </a></li>";
+            }
+        ?>
             <li class="active"><a href="../HTML/select-movie.html"> Find Movie </a></li>
             <li><a href="../HTML/account.php"> Account </a></li>
         </ul>
@@ -27,6 +35,7 @@ require("../PHP/getMovieInfo.php");
             <input type="search" id="search-bar" name="search" placeholder="What are you watching?">
         </form>  
     </div>
+    <?php endforeach; ?>
     <h1>Book a Movie</h1>
         <div id="filter"> 
             <p>Filter Search</p>
