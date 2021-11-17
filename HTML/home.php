@@ -88,7 +88,7 @@
                         echo "<div class = \"trailer\">";
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                             echo "<p>".$movieInf['title']." </p>";
-                            echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                            echo "<a href=\"select-showtime.php\"><button class='bookMovie' type='button'>Book Movie </button></a>";
                         echo "</div>";
                     }
                 }
@@ -140,7 +140,7 @@
                     echo "<div class = \"trailer\">";
                         echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                         echo "<p>".$movieInf['title']." </p>";
-                        echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                        echo "<a href=\"select-showtime.php\"><button class='bookMovie' type='button'>Book Movie </button></a>";
                     echo "</div>";
                 }
             }
