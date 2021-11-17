@@ -14,7 +14,7 @@
     $mShowTime = filter_input(INPUT_POST, 'new_mTime');  
     $mShowDate = filter_input(INPUT_POST, 'new_mDate');
     $comeSoon = filter_input(INPUT_POST, 'new_mComingSoon');
-
+    
     # if checked, prom = 1, 0 otherwise
     if($comeSoon == NULL){
         $comeSoon = 0;
@@ -23,15 +23,8 @@
         $comeSoon = 1;
     }
 
-    #$changequery = "UPDATE movie
-    #                SET title = ''
-    #                WHERE id= '$movieIden'
-    #                ";
-    #$changestatement = $db->prepare($changequery);
-    #$changestatement->execute();
-
     $changeTitle = "UPDATE movie
-    SET #title = '$mNameTitle',
+    SET title = '$mNameTitle',
     category = '$mCat',
     movieCast = '$mCastMems',
     director = '$mDirec',
