@@ -37,7 +37,7 @@
                 <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen"> Manage Movies</button>
                 <button class="adminButton" onclick="openTab(event, 'managePromotions')"> Manage Promotions</button>
                 <button class="adminButton" onclick="openTab(event, 'manageUsers')"> Manage Users</button>  
-                <button class="adminButton"><a href="../HTML/admin-home.php">Go back</a></button>
+                <button ><a href="../HTML/admin-home.php">Go back</a></button>
 
             </div>
            
@@ -68,15 +68,20 @@
             <?php foreach($custInfs as $info) :?>
                 <div id="box">
                     <?php 
+                        
                         if ($info['isAdmin'] != 1) {
                             if ($info['isBlocked'] == 0) {
-                                echo "<p>" .$info['userId']. "<button type='submit' value='" .$info['userId']. "class='manageButton' >block</button> </p>";
+                                $value = 'block';
                             } else {
-                                echo "<button type='submit' value='" .$info['userId']. "class='manageButton' '>un-block</button>";
+                                $value = 'un-block';
                             }
-
-
-
+                            
+                            echo "
+                                <form method='POST' action='../PHP/changeIsBlocked.php'>
+                                    <p>" .$info['userId']. "<button type='submit' name='userBlockButton' value='" .$info['userId']. "' class='manageButton'>" .$value. "</button></p>
+                                </form>
+                            
+                            ";
                         } ?>                      
 
                     <!-- different for blocked and not blocked, still needs to add the submit-->
@@ -93,11 +98,12 @@
 
         <!-- Promotions -->
         <div id="managePromotions" class="content">       
-            <div class = managePromo>
-                <p>Select promotion:</p>    
-                <?php foreach ($promInfs as $promInf) : ?>
-                <p>'<?php echo $promInf['promoName']; ?>'</p>
-                <button class="changeButton" onclick="showWindowPromotion()">Change</button>
+        
+        <p>Select promotion:</p>    
+        <?php foreach ($promInfs as $promInf) : ?>
+            <p><?php echo $promInf['promoName']; ?></p>
+            <button class="changeButton" onclick="showWindowPromotion()">Change</button>
+
                 <div class="modal" id="promotion-screen">
                     <div class="modal-content">
                         <span class="close" onclick="closeWindowPromotion()">&times;</span>
@@ -116,12 +122,10 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
+           
         <?php endforeach; ?>
 
         <!-- Add promotion -->
-        </div> 
             <div class="addPromo">
                 <p>Add new promotion:</p>
                 
@@ -138,9 +142,13 @@
                         <input class = "bookMovie" type="submit" value="Submit">
                     </fieldset>
                 </form>
-            </div>          
+            </div> 
         </div>
+        
 
+                 
+        
+        
         <!--popup window to manage movies-->
         <div id="movie-screen" class="modal">
 
