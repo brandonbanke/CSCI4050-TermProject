@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2021 at 04:02 AM
+-- Generation Time: Nov 17, 2021 at 08:45 PM
 -- Server version: 8.0.27
 -- PHP Version: 8.0.11
 
@@ -87,7 +87,7 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`title`, `category`, `movieCast`, `director`, `producer`, `synopsis`, `reviews`, `trailer`, `picture`, `ratingCode`, `showTime`, `showDate`, `comingSoon`, `id`) VALUES
-('Eternals', 'test1', 'selma hyak', 'chloe zhao', 'chloe zhao', 'new marvel movie', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '10:00am', '11/20', 0, 4),
+('eternals', 'test1', 'test', 'chloe test', 'est', 'new marvel movie', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '10:00am', '11/20', 0, 4),
 ('Batman', 'dc', 'robert pattinson', 'idk', 'idk', 'batman is a hero', '10/10', 'https://www.youtube.com/embed/mqqft2x_Aa4', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'PG-13', '11:00am', '11/24', 1, 6),
 ('', 'tiktoker', 'holden smith', 'n/a', 'n/a', 'hes lame', '0/10', 'https://www.youtube.com/embed/LRMTr2VZcr8', 'https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg', 'R', '12:00am', '11/21', 1, 7);
 
@@ -120,6 +120,16 @@ CREATE TABLE `promotion` (
   `id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+--
+-- Dumping data for table `promotion`
+--
+
+INSERT INTO `promotion` (`promoName`, `code`, `promDescription`, `id`) VALUES
+('test', 'test', 'test', 2),
+('test123', 'test123', 'test', 3),
+('q', 'q', 'q', 4),
+('yet another promo', 'another promo', 'promotion!', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -128,12 +138,20 @@ CREATE TABLE `promotion` (
 
 CREATE TABLE `showinfo` (
   `movieId` int NOT NULL,
-  `showRoomId` int NOT NULL,
-  `showId` varchar(255) NOT NULL,
-  `date` varchar(255) NOT NULL,
-  `time` varchar(255) NOT NULL,
-  `duration` double NOT NULL
+  `showRoomId` int DEFAULT NULL,
+  `showId` int NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `showinfo`
+--
+
+INSERT INTO `showinfo` (`movieId`, `showRoomId`, `showId`, `date`, `time`) VALUES
+(6, NULL, 1, '2021-11-18', '14:10:05'),
+(6, NULL, 2, '2021-11-20', '15:15:15'),
+(6, NULL, 3, '2021-11-20', '15:15:15');
 
 -- --------------------------------------------------------
 
@@ -185,7 +203,7 @@ CREATE TABLE `user` (
   `active` tinyint(1) NOT NULL,
   `receiveProm` tinyint(1) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL,
-  `isBlocked` tinyint(1) NOT NULL
+  `isBlocked` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -194,7 +212,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`, `isBlocked`) VALUES
 ('b', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Admin', 'bbanke107@gmail.com', 0, 0, 1, 0),
-('bdawg', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Banke', 'bbrandon107@gmail.com', 0, 0, 0, 1),
+('bdawg', 0x296a40b94fc65430ab558014f30c0eb1, 'Brandon', 'Banke', 'bbrandon107@gmail.com', 0, 0, 0, 0),
+('john', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'john', 'field', 'juanestebansdadsad@gmail.com', 0, 1, 0, 0),
+('juanca', 0x2c20c79e9ee0e7d4df38d3985053dd51, 'Juan', 'Campos', 'jecampos408@gmail.com', 0, 1, 0, 0),
 ('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 1, 1, 1, 0);
 
 --
@@ -214,7 +234,6 @@ ALTER TABLE `booking`
   ADD PRIMARY KEY (`bookingNumber`),
   ADD KEY `ticketNumber` (`ticketNumber`),
   ADD KEY `promotionId` (`promotionId`),
-  ADD KEY `movieTitle` (`movieTitle`),
   ADD KEY `cardId` (`cardId`),
   ADD KEY `userId` (`userId`);
 
@@ -229,8 +248,7 @@ ALTER TABLE `customer`
 -- Indexes for table `movie`
 --
 ALTER TABLE `movie`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `title` (`title`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `payment_card`
@@ -248,8 +266,9 @@ ALTER TABLE `promotion`
 -- Indexes for table `showinfo`
 --
 ALTER TABLE `showinfo`
-  ADD KEY `movieId` (`movieId`),
-  ADD KEY `showRoomId` (`showRoomId`);
+  ADD PRIMARY KEY (`showId`),
+  ADD KEY `showRoomId` (`showRoomId`),
+  ADD KEY `movieId` (`movieId`);
 
 --
 -- Indexes for table `showroom`
@@ -296,7 +315,13 @@ ALTER TABLE `payment_card`
 -- AUTO_INCREMENT for table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `showinfo`
+--
+ALTER TABLE `showinfo`
+  MODIFY `showId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `showroom`
@@ -339,7 +364,8 @@ ALTER TABLE `customer`
 -- Constraints for table `showinfo`
 --
 ALTER TABLE `showinfo`
-  ADD CONSTRAINT `showinfo_ibfk_2` FOREIGN KEY (`showRoomId`) REFERENCES `showroom` (`id`);
+  ADD CONSTRAINT `showinfo_ibfk_2` FOREIGN KEY (`showRoomId`) REFERENCES `showroom` (`id`),
+  ADD CONSTRAINT `showinfo_ibfk_3` FOREIGN KEY (`movieId`) REFERENCES `movie` (`id`);
 
 --
 -- Constraints for table `theater`
