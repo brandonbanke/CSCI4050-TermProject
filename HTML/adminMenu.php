@@ -17,55 +17,45 @@
 </head>
 <body>
     <header>
-        <h1 class="title" style="padding-top: 10px;">Admin Menu</h1>
-            <a href="../HTML/admin-home.php" class="manageButton">Go back</a>
+        <h2 class="title">Admin Menu</h2>
+            
     </header>
-    <br>
     <main>
             <div class="adminTab">
                 <div class="userName">
-                    <h3 style="padding-left: 5px;">Welcome back</h3>
+                    <h3>Welcome back, </h3>
                     <?php 
                         if ($userOnCheck == 1) {
                             foreach($userInfs as $userInfo) {
                                 $name = $userInfo['firstName'];
                             } 
-                            echo "<p style=\"padding-left:5px;\">" .$name ."</p>";
+                            echo "<p>" .$name ."</p>";
                         } 
                     ?>
                 </div>
 
-                <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen" style="padding-left: 5px;">Manage Movies</button>
-                <button class="adminButton" onclick="openTab(event, 'managePromotions')" style="padding-left: 5px;">Manage Promotions</button>
-                <button class="adminButton" onclick="openTab(event, 'manageUsers')" style="padding-left: 5px;">Manage Users</button>
-                
+                <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen"> Manage Movies</button>
+                <button class="adminButton" onclick="openTab(event, 'managePromotions')"> Manage Promotions</button>
+                <button class="adminButton" onclick="openTab(event, 'manageUsers')"> Manage Users</button>  
+                <button class="adminButton"><a href="../HTML/admin-home.php">Go back</a></button>
+
             </div>
            
-        </div>
-
         <!-- Manage movies tab-->
         <div id="manageMovies" class="content">
-            <br>
-            <h2 style="padding-left: 10px;">Manage Movies</h2>    
-            <br>
-            <form id="search-form" action="search.php" method="GET">
-                <input type="search" id="search-bar" name="searchTerm" placeholder="Seach movie">
-                <input type="button" id="button" name="addMovieButton" style="width:60px" onclick="showWindow()" value = "Add Movie">
+            <form id="add-movie" action="search.php" method="GET">
+                <input class= "addMovieButton" type="button" id="button" name="addMovieButton" onclick="showWindow()" value = "Add Movie">
             </form> 
-            <br>
-
+        
             <section class="movies">
                 <?php $counter = 0;?>
                 <?php foreach ($movieInfs as $movieInf) : ?>
                 <div class="movie">
-                    <img src="<?php echo $movieInf['picture']; ?>">                
-                    <br>
+                    <img src="<?php echo $movieInf['picture']; ?>" alt="pic">                
+                    
                     <form method='POST' action='../PHP/getMovieInformation.php'>
                         <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
-                        <!-- testing with a button 
-                        <a href="..HTML/edit-movie.php"><input style = "color: white;"type='submit' class='bookMovie' type='submit' value='sub'></a>-->
                         <button type="submit" class="manageButton">Edit</button>
-                        
                     </form>
                 </div>
                 <?php endforeach; ?>
@@ -73,9 +63,6 @@
         </div>
         
         <div id="manageUsers" class="content">
-            <br>
-            <h2 style="padding-left: 10px;">Manage Users</h2>                    
-            <br>
             <!-- gets all the users in the db -->
             <?php foreach($custInfs as $info) :?>
                 <div id="box">
@@ -94,60 +81,51 @@
             <?php endforeach; ?>
         </div>
 
-
-
-
-
-
         <!-- Promotions -->
-        <div id="managePromotions" class="content">
-            <br>
-            <div style="background-color: inherit; float: left;">
-            <h2 style="padding-left: 10px;">Manage Promotions</h2>
-            <br>
-            <p style="padding-left: 10px;">Select promotion:</p>    
-            <br>
-            <?php foreach ($promInfs as $promInf) : ?>
-            <p style="padding-left: 10px; display: inline-block;">'<?php echo $promInf['promoName']; ?>'</p>
-            <button class="changeButton" onclick="showWindowPromotion()">Change</button>
-            <br>
+        <div id="managePromotions" class="content">       
+            <div class = managePromo>
+                <p>Select promotion:</p>    
+                <?php foreach ($promInfs as $promInf) : ?>
+                <p>'<?php echo $promInf['promoName']; ?>'</p>
+                <button class="changeButton" onclick="showWindowPromotion()">Change</button>
+                <div class="modal" id="promotion-screen">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeWindowPromotion()">&times;</span>
 
-            <div class="modal" id="promotion-screen">
-            <div class="modal-content">
-                <span class="close" onclick="closeWindowPromotion()" style="background-color: inherit">&times;</span>
-                <br>
-                <form method='POST' action='../PHP/editPromotion.php'>
-                        <p>Name</p>
-                        <input type="text" style="background-color: lightgrey; display: inline-flexbox;" value = "<?php echo $promInf['promoName']; ?>" name='new_pName'>
-                        <p>Code</p>
-                        <input type="text" style="background-color: lightgrey; display: inline-flexbox;" value = "<?php echo $promInf['code']; ?>" name='new_pCode'>
-                        <p>Description</p>
-                        <input type="text" style="background-color: lightgrey; display: inline-flexbox;" value = "<?php echo $promInf['promDescription']; ?>" name='new_pDescription'>
-                        <br>
-                        <br>
-                        <input type="hidden" name="promotion_id" value = "<?php echo $promoInf['id']; ?>">
-                        <input type="submit" value="Submit" style="background-color:lightgrey">
-                </form>
+                        <form method='POST' action='../PHP/editPromotion.php'>
+                                <p>Name</p>
+                                <input type="text" value = "<?php echo $promInf['promoName']; ?>" name='new_pName'>
+                                <p>Code</p>
+                                <input type="text" value = "<?php echo $promInf['code']; ?>" name='new_pCode'>
+                                <p>Description</p>
+                                <input type="text" value = "<?php echo $promInf['promDescription']; ?>" name='new_pDescription'>
+                                
+                                
+                                <input type="hidden" name="promotion_id" value = "<?php echo $promoInf['id']; ?>">
+                                <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <?php endforeach; ?>
 
         <!-- Add promotion -->
         </div> 
-            <div style="background-color: inherit; float: left; padding-left: 100px; padding-top: 50px;">
+            <div class="addPromo">
                 <p>Add new promotion:</p>
-                <br>
+                
                 <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php'> 
                     <fieldset>
                         
                         <label>Promotion Name:</label>
-                        <input type="text" style="background-color:lightgrey;" name='pName'><br><br><br>
+                        <input type="text" name='pName'><br><br><br>
                         <label>Promotion Code:</label>
-                        <input type="text" style="background-color:lightgrey" name='pCode'><br><br><br>
+                        <input type="text" name='pCode'><br><br><br>
                         <label>Promotion Description:</label>
-                        <input type="text" style="background-color:lightgrey" name='pDescription'><br><br><br>
+                        <input type="text" name='pDescription'><br><br><br>
                         
-                        <input class = "bookMovie" type="submit" value="Submit" style="background-color:lightgrey">
+                        <input class = "bookMovie" type="submit" value="Submit">
                     </fieldset>
                 </form>
             </div>          
@@ -157,44 +135,44 @@
         <div id="movie-screen" class="modal">
 
             <!-- Add movie content -->
-            <div class="modal-content" style="display: flex; text-align: center;">
-                <span class="close" onclick="closeWindow()" style="background-color: inherit">&times;</span>
-                <div style="float: left; width: 50%; align-items: center; background-color: inherit;">
-                    <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg" style="width: 300px; height: auto; padding-top: 100px;">
+            <div class="modal-content">
+                <span class="close" onclick="closeWindow()">&times;</span>
+                <div class="imgAddMovie">
+                    <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg" alt="placeholder image">
                 </div>
                 
-                <div style="float: left; width: 50%; background-color: inherit;">
+                <div class="addMovieModal">
                 <form method='POST' action='../PHP/movieInformation.php'>
                     <fieldset><br><br>
                     <label>name:</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name='mName'><br><br>
+                    <input type="text" name='mName'><br><br>
                     <label>Category</plabel>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mCategory"><br><br>
+                    <input type="text" name="mCategory"><br><br>
                     <label>Cast</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mCast"><br><br>
+                    <input type="text" name="mCast"><br><br>
                     <label>director</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mDirector"><br><br>
+                    <input type="text" name="mDirector"><br><br>
                     <label>Producer</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mProducer"><br><br>
+                    <input type="text" name="mProducer"><br><br>
                     <label>synopsis</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mSynopsis"><br><br>
+                    <input type="text" name="mSynopsis"><br><br>
                     <label>reviews</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mReviews"><br><br>
+                    <input type="text" name="mReviews"><br><br>
                     <label>trailer link</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mTrailerLink"><br><br>
+                    <input type="text" name="mTrailerLink"><br><br>
                     <label>movie picture</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mMoviePic"><br><br>
+                    <input type="text" name="mMoviePic"><br><br>
                     <label>MPPA-US film rating code</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mRating"><br><br>
+                    <input type="text" name="mRating"><br><br>
                     <label>show date</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mDate"><br><br>
+                    <input type="text" name="mDate"><br><br>
                     <label>show time</label>
-                    <input type="text" style="background-color: lightgrey; display: inline-flexbox;" name="mTime"><br><br>
+                    <input type="text" name="mTime"><br><br>
                     <input id="check" type="checkbox" name="mComingSoon" value="1">
                     <label id="checkLabel" for="mComingSoon"> Coming Soon? </label><br><br><br>
                     <br>
                     <br>
-                    <input type="submit" value="submit" style="background-color:lightgrey">
+                    <input type="submit" value="submit">
                     </fieldset>
                     </form>
                 </div>

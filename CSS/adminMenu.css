@@ -1,105 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
-
 * {
 	margin: 0;
 	padding: 0;
     background-color: #24272B;
-    color: black;
-    font-family: 'Bebas Neue', cursive;
-
 }
-* p{
-    background-color: inherit;
+main {
+    padding: 1rem 3%;
+    display: flex;
 }
 
-* h2 {
-    background-color: inherit;
-    font-family: 'Bebas Neue', cursive;
-
-   
-}
-
-* h3{
-    background-color: inherit;
-}
-
-main{
-    padding: 1%;
-
-}
-
-h1{
-    color: white;
-    align-items: center;
+h2 {
+	color: #d6d5d6;
+	margin-top: 1rem;
+	font-family: 'Bebas Neue', cursive;
+    font-size: 30pt;
     text-align: center;
 }
 
+h1 {
+    color: #d6d5d6;
+    text-align: center;
+}
 
-.userName{
+h3 {
+    color: #d6d5d6;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+}
+
+p {
+	color: #d6d5d6;
+	font-size: 20pt;
+	font-family: 'Bebas Neue', cursive;
+}
+
+.userName {
     text-align: left;
-    color: black;
-    background-color: #B7B7B7;
-    height: 10%;
-    padding-bottom: 45px;
-    border: 1px gray;
-    
-    
+    margin-bottom: 2rem;
 }
 
+.adminTab {
+    width: 20%;
+    margin-left: 1rem;
 
-.adminTab{
-    float:left;
-    border: 1px solid white;
-    background-color: #B7B7B7;
-    width: 10%;
-    height: 200px;
-    border-right: none;
-    
 }
 
-.adminTab button{
-    display: block;
-    align-items: left;
-    text-align:left;
-   /* color: black;*/
-    background-color: inherit;
+.adminTab button {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 27pt;
+	color: #B7B7B7;
+	text-align: left;
+	display: block;
+    padding: 1rem 0;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    height: 10%;
-    padding-bottom: 30px;
-    
+}
+.adminTab button.active {
+    color: #aab2e2;
+
+}
+.adminTab button:hover {
+	color: rgb(240, 239, 239);
+	
+}
+.adminTab button a {
+    text-decoration: none; 
+    color: #B7B7B7;
 }
 
-.adminTab button:hover{
-    background-color: gainsboro;
-}
-
-.adminTab button.active{
-    background-color: gray;
-}
-
-.content{
-    background-color: white ;
-    border: 2px solid white;
-    border-left: none;
-    margin-left: 10%;
-    height: 80%;
-    min-height: 400px;
-}
-
-figure {
-    background-color: inherit;
+.addMovieButton {
+    background-color: #D0CDD7;
+	text-align: center;
+	padding: .5rem 1rem;
+	margin-top: .5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	border-radius: 2rem;
+	box-shadow: .5px .5px 3px .5px #0d0e0f;
 }
 
 img{
     width: 50%;
     height: auto;
-    background-color: inherit;
+     
 }
-
-
 
 .manageButton{
     background-color:  #D0CDD7;
@@ -108,54 +92,37 @@ img{
 	margin-top: .5rem;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
-	border-radius: 2rem;
+    border-radius: 2rem;
     text-decoration: none;
-    
-	
+    color: #24272B;
 }
 
 .manageButton:hover {
 	background-color: #c3c9e9;
 }
 
-
-.movie{
-    padding: 10px;
-    background-color: inherit;
-    display: inline-block;
-    
+#add-movie input {
+    float: right; 
 }
 
+.movie {
+    display: inline-block;
+    width: 30%;
+    margin-top: 2rem;
+}
 
 .movies {
-	text-align: center;
-	padding-left: 30px;
-    background-color: inherit;
+    text-align: center;
     overflow-y: auto;
+    margin-top: 4rem;
 }
 
-
-#search-bar{
-    width: 20%;
-	padding: 1em;
-    background-repeat: no-repeat;
-   	background-position: left;  
-	background-color: rgb(240, 239, 239);
-	padding-left: 10px;
-	text-align: center;
-	border: none;
-	
-	padding-bottom: 10px;
-}
-
-#search-form{
-    background-color: inherit;
-    padding-left: 10px;
+#manageMovies {
+    margin-top: 2rem;
 }
 
 #managePromotions{
     display: inline;
-    background-color: white;
 }
 
 
@@ -167,40 +134,24 @@ img{
 	font-weight: bold;
 	border-radius: 2rem;
     text-decoration: none;
-    
-
 }
 
 .changeButton:hover {
     background-color: #c3c9e9;
 }
 
-fieldset{
-    background-color: white;
-}
-
-label{
-    background-color: white;
+label {
+    color: #d6d5d6;
 }
 
 #input{
-    background-color: #c3c9e9;
-}
-
-legend{
-    background-color: white;
+    background-color: #d6d5d6;;
 }
 
 /* user's box*/
-#box{
-    background-color: inherit; 
-    float: left; 
-    padding-left: 100px; 
-    padding-top: 50px;
-    border: 1px solid #888;
-    padding: 20px;
-    float: inline-end;
-}
+
+
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -239,6 +190,3 @@ legend{
     cursor: pointer;
   }
 
-  .modal-content p{
-      background-color: inherit;
-  }
