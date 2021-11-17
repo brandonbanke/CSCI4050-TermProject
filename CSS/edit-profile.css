@@ -62,10 +62,10 @@ label {
     font-family: 'Roboto', sans-serif;
     color:#d6d5d6;
     text-align: right;
-    float: center;
-    width: 7em;
+    width: 16%;
     text-align: right;
-    margin-left: -1em;
+	margin-left: -1em;
+	display: inline-block;
 }
 
 input {
@@ -97,11 +97,6 @@ input {
 
 .bookMovie:hover {
 	background-color: #c3c9e9;
-}
-
-label {
-	display: inline-block;
-	width: 8%;
 }
 
 #check {
