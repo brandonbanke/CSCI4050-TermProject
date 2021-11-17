@@ -55,13 +55,19 @@
                     
                     <form method='POST' action='../PHP/getMovieInformation.php'>
                         <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
-                        <button type="submit" class="manageButton">Edit</button>
+                        <button type="submit" class="manageButton">Edit Information</button>
+                    </form>
+                    <form method='POST' action='../PHP/getMovieInformation.php'>
+                        <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
+                        <button type="submit" class="manageButton">Edit Time</button>
                     </form>
                 </div>
                 <?php endforeach; ?>
             </section>
         </div>
         
+
+
         <!-- manage users tab -->
         <div id="manageUsers" class="content">
             <!-- gets all the users in the db -->
@@ -101,9 +107,14 @@
         
         <p>Select promotion:</p>    
         <?php foreach ($promInfs as $promInf) : ?>
-            <p><?php echo $promInf['promoName']; ?></p>
-            <button class="changeButton" onclick="showWindowPromotion()">Change</button>
+            <form method="POST" action="../PHP/getPromotion.php">
+                <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
+                <p><?php echo $promInf['promoName']; ?> <button type="submit" class="changeButton" onclick="showWindowPromotion()">Change</button>  </p>
+            </form>
+        <?php endforeach; ?>
 
+
+        <!-- NEEDS TO SHOW SPECIFIC PROMOTION -->
                 <div class="modal" id="promotion-screen">
                     <div class="modal-content">
                         <span class="close" onclick="closeWindowPromotion()">&times;</span>
@@ -122,8 +133,8 @@
                         </form>
                     </div>
                 </div>
-           
-        <?php endforeach; ?>
+        <!-- SPECIFIC PROMO -->
+        
 
         <!-- Add promotion -->
             <div class="addPromo">
@@ -146,7 +157,7 @@
         </div>
         
 
-                 
+        
         
         
         <!--popup window to manage movies-->
