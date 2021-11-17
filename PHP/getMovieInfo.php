@@ -16,5 +16,4 @@
     $allCategories = $query2->fetchAll();
     
 
-
 ?>

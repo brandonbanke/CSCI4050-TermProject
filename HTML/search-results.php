@@ -1,4 +1,7 @@
-
+<?php
+    
+    require("../PHP/getUserInfo.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
     <div id="nav-menu">
         <ul class="one">
             <li><a href="../HTML/home.php"> Home </a></li>
-            <li class="active"><a href="../HTML/select-movie.html"> Find Movie </a></li>
+            <li class="active"><a href="../HTML/select-movie.php"> Find Movie </a></li>
             <li><a href="../HTML/account.php"> Account </a></li>
         </ul>
         <form id="search-form" action="../PHP/searchMovies.php" method="POST">
@@ -26,20 +29,20 @@
     </div>
     <h1>Book a Movie</h1>
         <div id="filter"> 
-        <p>Filter Search</p>
+        <p>Filter Search</p><br>
             <form action="../PHP/searchMovies.php" method="POST">
                 <fieldset>
-                    <p>category</p>
+                    <p>Filter by Category</p>
                     <?php foreach ($movieInfs as $cats) {
                         echo "<input type='submit' name='search' value=" .$cats['category'] ." class='bookMovie'><br>";
                     }  ?>
                 </fieldset>
             </form>
                 <br>
-                <p>Filter Date</p>
+                
             <form action="../PHP/searchMovies.php" method="POST">
                 <fieldset>
-                    <p>Date</p>
+                    <p>Filter By Date</p>
                     <?php foreach ($movieInfs as $info) {
                         echo "<input type='submit' name='search' value=" .$info['showDate'] ." class='bookMovie'><br>";
                     }  ?>
@@ -52,7 +55,7 @@
             
             <?php 
                 foreach ($information as $movieInf) {
-                    // if ($movieInf['comingSoon'] == 0) {
+                    
                         echo "<div class = \"trailer\">";
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                             // echo "<div class = \"info\">";
@@ -66,11 +69,11 @@
                                 echo "<p class = \"info\"> Cast: ".$movieInf['movieCast']." </p>";
                                 echo "<p class = \"info\"> Director: ".$movieInf['director']." </p>";
                                 echo "<p class = \"info\"> Rating: ".$movieInf['ratingCode']." </p>";
-                            echo "<a href=\"select-showtime.html\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                                echo "<a href='select-showtime.php'><button class='bookMovie' type='button'>Book Movie </button></a>";
                             // echo "<div>";
                         echo "</div>";
                         
-                            // }
+                           
                 }
             ?>
         </section>

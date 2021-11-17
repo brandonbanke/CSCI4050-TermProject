@@ -57,3 +57,22 @@ a:link {
 ul {
     list-style: none;
 }
+
+.showtimeDisplay {
+    text-align: center;
+}
+
+.bookMovie {
+	background-color: #B7B7B7;
+	text-align: center;
+	padding: .5rem 1rem;
+	margin-top: .5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	border-radius: 2rem;
+	box-shadow: .5px .5px 3px .5px #0d0e0f;
+}
+
+.bookMovie:hover {
+	background-color: #c3c9e9;
+}

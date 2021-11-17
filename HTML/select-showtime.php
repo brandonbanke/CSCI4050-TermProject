@@ -1,3 +1,8 @@
+<?php
+    require("../PHP/getMovieInfo.php");
+    require("../PHP/getUserInfo.php");
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +40,7 @@
         <div id="nav-menu">
             <ul class="one">
                 <li><a href="../HTML/home.php"> Home </a></li>
-                <li class="active"><a href="../HTML/select-movie.html"> Find Movie </a></li>
+                <li class="active"><a href="../HTML/select-movie.php"> Find Movie </a></li>
                 <li><a href="../HTML/account.php"> Account </a></li>
             </ul>
             <form id="search-form" action="search.php" method="GET">
@@ -62,7 +67,19 @@
             </button>
         </div>
 
-        <div class="showtimes" id="1">
+        <div class="showtimeDisplay">
+        <h3>Showtimes </h3>
+        <form action="../HTML/select-age.html" method="POST">
+           
+                <?php foreach ($movieInfs as $time) {
+                    echo "<input type='submit' name='search' value=" .$time['showTime'] ." class='bookMovie'><br>";
+                }  
+                ?>
+            
+        </form>
+        </div>
+
+        <!-- <div class="showtimes" id="1">
             <h3>Today's Showtimes</h3>
             <ul>
                 <li><a href="select-age.html" class="time">10:00am</a></li>
@@ -96,7 +113,7 @@
                 <li><a href="select-age.html" class="time">1:30pm</a></li>
                 <li><a href="select-age.html" class="time">2:00pm</a></li>
             </ul>
-        </div>
+        </div> -->
 
 
 
