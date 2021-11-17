@@ -57,12 +57,13 @@
                         <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
                         <button type="submit" class="manageButton">Edit Information</button>
                     </form>
-                    <form method='POST' action='../PHP/getMovieInformation.php'>
-                        <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
+                    <form method='POST' action='../PHP/getShowTimeInfo.php'>
+                        <input type="hidden" name="showmovie_id" value="<?php echo $movieInf['id']; ?>">
                         <button type="submit" class="manageButton">Edit Time</button>
                     </form>
                 </div>
                 <?php endforeach; ?>
+                
             </section>
         </div>
         
