@@ -2,8 +2,10 @@
 <html lang="en">
 <html> 
 <div id="managePromotions" class="content">       
-        
-        <p>Select promotion:</p>    
+            
+
+
+        <p>Select Time for <?php echo $movieName; ?>:</p>    
         <?php foreach ($specificShowInfs as $specificShowInf) : ?>
             <form method="POST" action="">
                 <input type="hidden" value="<?php echo $specificShowInf['showId'] ?>" name="promId">
@@ -11,24 +13,23 @@
             </form>
         <?php endforeach; ?>
 
-        <!-- Add promotion 
-            <div class="addPromo">
-                <p>Add new promotion:</p>
+         
+            <div class="addShowTime">
                 
-                <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php'> 
+                
+                <form class = "promotionForm" method='POST' action='../PHP/addMovieShowtime.php'> 
                     <fieldset>
-                        
-                        <label>Promotion Name:</label>
-                        <input type="text" name='pName'><br><br><br>
-                        <label>Promotion Code:</label>
-                        <input type="text" name='pCode'><br><br><br>
-                        <label>Promotion Description:</label>
-                        <input type="text" name='pDescription'><br><br><br>
+                        <p>Add new show time:</p>
+                        <label>Date:</label>
+                        <input type="text" name='date'><br><br><br>
+                        <label>Time:</label>
+                        <input type="text" name='time'><br><br><br> 
+                        <input type="hidden" name="movieId" value="<?php echo $specificShowInfs[0]['movieId']; ?>">
                         
                         <input class = "bookMovie" type="submit" value="Submit">
                     </fieldset>
                 </form>
             </div> 
-            -->
+            
         </div>
 </html>
