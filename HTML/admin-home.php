@@ -31,7 +31,7 @@
         <div id="nav-menu">
             <ul class="one">
                 <li class="active"><a href="../HTML/admin-home.php"> Home </a></li>
-                <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
+                <li><a href="../HTML/select-movie.php"> Find Movie </a></li>
                 <li><a href="../HTML/account.php"> Account </a></li>
             </ul>
             <form id="search-form" action="search.php" method="GET">

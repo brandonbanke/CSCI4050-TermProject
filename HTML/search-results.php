@@ -1,6 +1,3 @@
-<?php
-require("../PHP/getMovieInfo.php");
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +26,7 @@ require("../PHP/getMovieInfo.php");
     </div>
     <h1>Book a Movie</h1>
         <div id="filter"> 
-            <p>Filter Search</p>
+        <p>Filter Search</p>
             <form action="../PHP/searchMovies.php" method="POST">
                 <fieldset>
                     <p>category</p>
@@ -48,14 +45,13 @@ require("../PHP/getMovieInfo.php");
                     }  ?>
                 </fieldset>
             </form>
-            
         </div>
         <div id= "content">
       
         <section class="trailerList">
             
             <?php 
-                foreach ($movieInfs as $movieInf) {
+                foreach ($information as $movieInf) {
                     // if ($movieInf['comingSoon'] == 0) {
                         echo "<div class = \"trailer\">";
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
