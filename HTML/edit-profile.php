@@ -17,9 +17,16 @@
         <h1 class = "title">Booking Website!</h1>
     </header>
     <main>
+        <?php foreach ($userInfs as $userInf) : ?>
         <div id="nav-menu">
             <ul class="one">
-                <li><a href="../HTML/home.php"> Home </a></li>
+                <?php 
+                    if ($userInf['isAdmin'] == 1) {
+                        echo "<li><a href='../HTML/admin-home.php'> Admin Home </a></li>"; 
+                    } else {
+                        echo "<li><a href='../HTML/home.php'> Home </a></li>";
+                    }
+                ?>
                 <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
                 <li class="active"><a href="../HTML/account.php"> Account </a></li>
             </ul>
@@ -27,6 +34,7 @@
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
             </form>  
         </div>
+        <?php endforeach; ?>
         <div id="edit">
             <div id="edit-nav">
                 <ul class="one">
