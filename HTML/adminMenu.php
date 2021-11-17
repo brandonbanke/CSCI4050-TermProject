@@ -62,19 +62,29 @@
             </section>
         </div>
         
+        <!-- manage users tab -->
         <div id="manageUsers" class="content">
             <!-- gets all the users in the db -->
             <?php foreach($custInfs as $info) :?>
                 <div id="box">
-                    <p><?php echo $info['userId']?></p>
+                    <?php 
+                        if ($info['isAdmin'] != 1) {
+                            if ($info['isBlocked'] == 0) {
+                                echo "<p>" .$info['userId']. "<button type='submit' value='" .$info['userId']. "class='manageButton' >block</button> </p>";
+                            } else {
+                                echo "<button type='submit' value='" .$info['userId']. "class='manageButton' '>un-block</button>";
+                            }
+
+
+
+                        } ?>                      
 
                     <!-- different for blocked and not blocked, still needs to add the submit-->
                     <?php 
-                        if ($info['isBlocked'] == 0) {
-                            echo "<button type='submit' value='" .$info['userId']. "class='manageButton' style='background-color:gray;'>block</button>";
-                        } else {
-                            echo "<button type='submit' value='" .$info['userId']. "class='manageButton' style='background-color:gray;'>un-block</button>";
+                        if ($info['isAdmin'] != 1) {
+                            
                         }
+                        
                         
                     ?>
                 </div>
