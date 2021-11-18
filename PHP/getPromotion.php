@@ -23,7 +23,6 @@
           $code = $_POST['code'];
           $description = $_POST['description'];
           $promId = $_POST['promotion_id'];
-          echo $promId;
           $query2 = "UPDATE promotion 
                SET promoName = '$name',
                code = '$code',
