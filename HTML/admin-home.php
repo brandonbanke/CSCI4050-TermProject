@@ -38,8 +38,10 @@
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
             </form>  
         </div>
+
         <h2 class = "adminTitle">Admin View</h2>
-            <a href="../HTML/adminMenu.php" class="manage">Manage Movies and Promotions</a>
+        <a href="../HTML/adminMenu.php" class="manage" style="float: inherit;">Manage Movies and Promotions</a>
+        
         <h2>Current Movies</h2>
         <section class="trailerList">
         <?php 

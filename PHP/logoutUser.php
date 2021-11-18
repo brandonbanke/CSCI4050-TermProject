@@ -6,5 +6,5 @@
   $loginstatement2 = $db->prepare($setinactive);
   $loginstatement2->execute();
 
-  include("../HTML/login.php");
+  header("Location: ../HTML/login.php");
 ?>

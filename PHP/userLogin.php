@@ -12,7 +12,7 @@
 
     
 
-    $loginquery = "SELECT userId, CAST(AES_DECRYPT(pass, 'cebs1234') AS CHAR(200)) AS pass, isAdmin, active FROM user
+    $loginquery = "SELECT userId, CAST(AES_DECRYPT(pass, 'cebs1234') AS CHAR(200)) AS pass, isAdmin, active, isBlocked FROM user
                     WHERE userId = :user_iden
                     ";
 
@@ -26,9 +26,12 @@
         foreach ($infor as $info) {
                 $adminVal = $info['isAdmin'];
                 $pass = $info['pass'];
+                $isBlocked = $info['isBlocked'];
         }
-
-        if ($password == $pass) {
+        if ($isBlocked) {
+            include("../HTML/login.php");
+            echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Account is blocked. Cannot login<h5> ";
+        } else if ($password == $pass) {
             
             if($adminVal == 0){
                 $setactive = "UPDATE user
@@ -57,15 +60,6 @@
     } else {
         include("../HTML/login.php");
         echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
-        #foreach($infor as $info){
-        #    echo $info['pass'];
-        #}
-       
-
     }
-
-    
-
-
 
 ?>

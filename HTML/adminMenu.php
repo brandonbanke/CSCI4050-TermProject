@@ -2,8 +2,19 @@
     require("../PHP/getUserInfo.php");
     require("../PHP/getMovieInfo.php");
     require("../PHP/getPromotion.php");
-    require("../PHP/getCustomer.php");
-    
+    require("../PHP/getCustomer.php");   
+
+    if (isset($_POST['changePromoForm'])) {
+        $promId = filter_input(INPUT_POST, 'promotion_id');
+        $query = "SELECT * FROM promotion WHERE id = '$promId'";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $info = $statement->fetchAll();
+
+        $name = $info[0]['promoName'];
+        $code = $info[0]['code'];
+        $description = $info[0]['promDescription'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +70,7 @@
                     </form>
                     <form method='POST' action='../PHP/getShowTimeInfo.php'>
                         <input type="hidden" name="showmovie_id" value="<?php echo $movieInf['id']; ?>">
-                        <button type="submit" class="manageButton">Edit Time</button>
+                        <button type="submit" class="manageButton" name="editTime">Edit Time</button>
                     </form>
                 </div>
                 <?php endforeach; ?>
@@ -108,34 +119,11 @@
         
         <p>Select promotion:</p>    
         <?php foreach ($promInfs as $promInf) : ?>
-            <form method="POST" action="../PHP/getPromotion.php">
+            <form method="POST" >
                 <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
-                <p><?php echo $promInf['promoName']; ?> <button type="submit" class="changeButton" onclick="showWindowPromotion()">Change</button>  </p>
+                <p><?php echo $promInf['promoName']; ?> <button type="submit" class="changeButton" onclick="showWindowPromotion()">Change</button> <button type="submit" class="changeButton" name="deletePromo">Delete</button></p><br>
             </form>
         <?php endforeach; ?>
-
-
-        <!-- NEEDS TO SHOW SPECIFIC PROMOTION -->
-                <div class="modal" id="promotion-screen">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeWindowPromotion()">&times;</span>
-
-                        <form method='POST' action='../PHP/editPromotion.php'>
-                                <p>Name</p>
-                                <input type="text" value = "<?php echo $promInf['promoName']; ?>" name='new_pName'>
-                                <p>Code</p>
-                                <input type="text" value = "<?php echo $promInf['code']; ?>" name='new_pCode'>
-                                <p>Description</p>
-                                <input type="text" value = "<?php echo $promInf['promDescription']; ?>" name='new_pDescription'>
-                                
-                                
-                                <input type="hidden" name="promotion_id" value = "<?php echo $promoInf['id']; ?>">
-                                <input type="submit" value="Submit">
-                        </form>
-                    </div>
-                </div>
-        <!-- SPECIFIC PROMO -->
-        
 
         <!-- Add promotion -->
             <div class="addPromo">
@@ -156,7 +144,28 @@
                 </form>
             </div> 
         </div>
-        
+
+
+        <!-- NEEDS TO SHOW SPECIFIC PROMOTION -->
+        <div class="modal" id="promotion-screen">
+            <div class="modal-content">
+                <span class="close" onclick="closeWindowPromotion()">&times;</span>
+
+                <form method='POST' action='../PHP/editPromotion.php'>
+                        <p>Name</p>
+                        <input type="text" value = "<?php echo $name; ?>" name='new_pName'>
+                        <p>Code</p>
+                        <input type="text" value = "<?php echo $code; ?>" name='new_pCode'>
+                        <p>Description</p>
+                        <input type="text" value = "<?php echo $description; ?>" name='new_pDescription'>
+                        
+                        
+                        <input type="hidden" name="promotion_id" value = "<?php echo $promoInf['id']; ?>">
+                        <input type="submit" value="Submit" name="changePromoForm">
+                </form>
+            </div>
+        </div>
+        <!-- SPECIFIC PROMO -->
 
         
         

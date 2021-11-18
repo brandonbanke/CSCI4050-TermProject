@@ -140,8 +140,9 @@ label {
     color: #d6d5d6;
 }
 
-#input{
-    background-color: #d6d5d6;;
+input{
+    background-color: #d6d5d6;
+    float: inherit;
 }
 
 /* user's box*/
