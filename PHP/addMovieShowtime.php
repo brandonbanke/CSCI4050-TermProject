@@ -5,9 +5,9 @@
 
     $date = filter_input(INPUT_POST,'date');
     $time = filter_input(INPUT_POST,'time');
-    $movieId = filter_input(INPUT_POST,'movieId');
+    $movieId = filter_input(INPUT_POST,'showmovie_id');
 
-    $queryCheck = "SELECT * FROM showinfo WHERE movieId = '$movieId'";
+    $queryCheck = "SELECT * FROM showinfo";
     
     $statement2 = $db->prepare($queryCheck);
     $statement2->execute();
@@ -18,8 +18,7 @@
     foreach ($movieInfo as $info) {
         if ($date == $info['date'] && $time == $info['time']) {
             include("getShowTimeInfo.php");
-            echo "<p> Movie time was already found, please go back and try again. </p>";
-
+            echo "<p style='padding-left:40%;'> Movie time was already found, please try again. </p>";
             $bool = FALSE;
             break;
         }

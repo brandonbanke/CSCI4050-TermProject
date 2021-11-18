@@ -54,7 +54,7 @@
                         <input type="text" name='date'><br><br>
                         <p>Time:</p>
                         <input type="text" name='time'><br><br><br> 
-                        <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+                        <input type="hidden" name="showmovie_id" value="<?php echo $showMovieId; ?>">
                         <input class="bookMovie" type="submit" name="addShowtime">
 
                     </fieldset>

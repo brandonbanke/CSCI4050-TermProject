@@ -4,17 +4,6 @@
     require("../PHP/getPromotion.php");
     require("../PHP/getCustomer.php");   
 
-    if (isset($_POST['changePromoForm'])) {
-        $promId = filter_input(INPUT_POST, 'promotion_id');
-        $query = "SELECT * FROM promotion WHERE id = '$promId'";
-        $statement = $db->prepare($query);
-        $statement->execute();
-        $info = $statement->fetchAll();
-
-        $name = $info[0]['promoName'];
-        $code = $info[0]['code'];
-        $description = $info[0]['promDescription'];
-    }
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +111,7 @@
         <?php foreach ($promInfs as $promInf) : ?>
             <form method="POST" >
                 <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
-                <p><?php echo $promInf['promoName']; ?> <button type="submit" class="changeButton" onclick="showWindowPromotion()">Change</button> <button type="submit" class="changeButton" name="deletePromo">Delete</button></p><br>
+                <p><?php echo $promInf['promoName']; ?> <button type="submit" name="change" formmethod="POST" formaction="../HTML/editPromotion.php" class="changeButton">Change</button> <button type="submit" class="changeButton" name="deletePromo">Delete</button></p><br>
             </form>
         <?php endforeach; ?>
 

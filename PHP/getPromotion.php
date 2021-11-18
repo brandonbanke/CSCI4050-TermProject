@@ -17,5 +17,24 @@
         $statement->closeCursor();
 
         header("Location: ../HTML/adminMenu.php");
+   } else if (isset($_POST['changePromoForm'])) {
+         
+          $name = $_POST['name'];
+          $code = $_POST['code'];
+          $description = $_POST['description'];
+          $promId = $_POST['promotion_id'];
+          echo $promId;
+          $query2 = "UPDATE promotion 
+               SET promoName = '$name',
+               code = '$code',
+               promDescription = '$description'
+               WHERE id = '$promId'
+               ";
+
+          $statement = $db->prepare($query2);
+          $statement->execute();
+          $statement->closeCursor();
+          
+          header("Location: ../HTML/adminMenu.php");
    }
 ?>
