@@ -25,8 +25,9 @@
     <title> Cinema E Booking Website! </title>
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/adminMenu.css">
+    <script src="../JS/addMovieCheck.js"></script>
 </head>
-<body>
+<body onload="stylePage();">
     <header>
         <h2 class="title">Admin Menu</h2>
             
@@ -181,34 +182,59 @@
                 </div>
                 
                 <div class="addMovieModal">
-                <form method='POST' action='../PHP/movieInformation.php'>
+                <form method='POST' action='../PHP/movieInformation.php' onsubmit="return movieCheck();">
                     <fieldset><br><br>
+                    <p id="titleValidity"> Title not entered</p>
+                    <p id="categoryValidity"> Category not entered</p>
+                    <p id="castValidity"> Cast not entered</p>
+                    <p id="directorValidity"> Director not entered</p>
+                    <p id="producerValidity"> Producer not entered</p>
+                    <p id="synopsisValidity"> Synopsis not entered</p><br>
+                    <p id="reviewsValidity"> Review not entered</p>
+                    <p id="trailerValidity"> Trailer not entered</p>
+                    <p id="pictureValidity"> Picture not entered</p>
+                    <p id="ratingValidity"> Rating not entered</p>
+                    <p id="dateValidity"> Show Date not entered</p>
+                    <p id="timeValidity"> Show Time not entered</p><br>
                     <label>name:</label>
-                    <input type="text" name='mName'><br><br>
+                    <input type="text" name='mName' id='mName'>
+                    <label class='mand'>*</label><br><br>
                     <label>Category</plabel>
-                    <input type="text" name="mCategory"><br><br>
+                    <input type="text" name="mCategory" id='catName'>
+                    <label class='mand'>*</label><br><br>
                     <label>Cast</label>
-                    <input type="text" name="mCast"><br><br>
+                    <input type="text" name="mCast" id='casName'>
+                    <label class='mand'>*</label><br><br>
                     <label>director</label>
-                    <input type="text" name="mDirector"><br><br>
+                    <input type="text" name="mDirector" id='dirName'>
+                    <label class='mand'>*</label><br><br>
                     <label>Producer</label>
-                    <input type="text" name="mProducer"><br><br>
+                    <input type="text" name="mProducer" id='proName'>
+                    <label class='mand'>*</label><br><br>
                     <label>synopsis</label>
-                    <input type="text" name="mSynopsis"><br><br>
+                    <input type="text" name="mSynopsis" id='synName'>
+                    <label class='mand'>*</label><br><br>
                     <label>reviews</label>
-                    <input type="text" name="mReviews"><br><br>
+                    <input type="text" name="mReviews" id='revName'>
+                    <label class='mand'>*</label><br><br>
                     <label>trailer link</label>
-                    <input type="text" name="mTrailerLink"><br><br>
+                    <input type="text" name="mTrailerLink" id='trailName'>
+                    <label class='mand'>*</label><br><br>
                     <label>movie picture</label>
-                    <input type="text" name="mMoviePic"><br><br>
+                    <input type="text" name="mMoviePic" id='picName'>
+                    <label class='mand'>*</label><br><br>
                     <label>MPPA-US film rating code</label>
-                    <input type="text" name="mRating"><br><br>
+                    <input type="text" name="mRating" id='ratCodName'>
+                    <label class='mand'>*</label><br><br>
                     <label>show date</label>
-                    <input type="text" name="mDate"><br><br>
+                    <input type="text" name="mDate" id='dateName'>
+                    <label class='mand'>*</label><br><br>
                     <label>show time</label>
-                    <input type="text" name="mTime"><br><br>
+                    <input type="text" name="mTime" id='timeName'>
+                    <label class='mand'>*</label><br><br>
                     <input id="check" type="checkbox" name="mComingSoon" value="1">
-                    <label id="checkLabel" for="mComingSoon"> Coming Soon? </label><br><br><br>
+                    <label id="checkLabel" for="mComingSoon"> Coming Soon? </label>
+                    <label class='mand'>*</label><br><br><br>
                     <br>
                     <br>
                     <input type="submit" value="submit">
