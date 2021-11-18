@@ -4,7 +4,6 @@ require("../PHP/getUserInfo.php");
 
 if (isset($_POST['change'])) {
     $promId = filter_input(INPUT_POST, 'promId');
-    echo $promId;
     $query = "SELECT * FROM promotion WHERE id = '$promId'";
     $statement = $db->prepare($query);
     $statement->execute();
