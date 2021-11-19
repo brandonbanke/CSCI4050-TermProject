@@ -20,9 +20,9 @@
         <!-- add "Welcome back, 'user's name'" here-->
         <?php 
         if ($userOnCheck == 1) {
-        foreach($userInfs as $userInfo) {
-            $name = $userInfo['firstName'];
-        } 
+            foreach($userInfs as $userInfo) {
+                $name = $userInfo['firstName'];
+            } 
             
         echo "<p style=\"align-text: center; padding-left:60px; color: #d6d5d6;\">Welcome back, " .$name ."</p>";
         } ?>
@@ -34,9 +34,9 @@
                 <li><a href="../HTML/select-movie.php"> Find Movie </a></li>
                 <li><a href="../HTML/account.php"> Account </a></li>
             </ul>
-            <form id="search-form" action="search.php" method="GET">
-                <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
-            </form>  
+            <form id="search-form" action="../PHP/searchMovies.php" method="POST">
+            <input type="search" id="search-bar" name="search" placeholder="What are you watching?">
+        </form>   
         </div>
 
         <h2 class = "adminTitle">Admin View</h2>
@@ -44,31 +44,37 @@
         
         <h2>Current Movies</h2>
         <section class="trailerList">
-        <?php 
+           
+            <?php 
             foreach ($movieInfs as $movieInf) {
                 if ($movieInf['comingSoon'] == 0) {
                     echo "<div class = \"trailer\">";
                         echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                         echo "<p>".$movieInf['title']." </p>";
-                        echo "<a href=\"select-showtime.php\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                        echo "<form method='POST' action='../PHP/searchMovies.php'><input type='hidden' name='search' value='". $movieInf['title']."'>";
+                            echo "<button name='bookMovie' class='bookMovie' type='submit'>Select Movie</button>";
+                        echo "</form>";
                     echo "</div>";
                 }
             }
-        ?>
+            ?>
         </section>
         <h2>Coming Soon</h2>
         <section class="trailerList">
-        <?php 
+            
+            <?php 
             foreach ($movieInfs as $movieInf) {
                 if ($movieInf['comingSoon'] == 1) {
                     echo "<div class = \"trailer\">";
                         echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                         echo "<p>".$movieInf['title']." </p>";
-                        echo "<a href=\"select-showtime.php\"><button class='bookMovie' type='button'>Book Movie </button></a>";
+                        echo "<form method='POST' action='../PHP/searchMovies.php'><input type='hidden' name='search' value='". $movieInf['title']."'>";
+                            echo "<button name='bookMovie' class='bookMovie' type='submit'>Select Movie</button>";
+                        echo "</form>";
                     echo "</div>";
                 }
             }
-        ?>
+            ?>
         </section>
     </main>
 

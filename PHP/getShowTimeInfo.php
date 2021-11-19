@@ -23,7 +23,8 @@
     $movieName = $nameInfo[0]['title'];
     $statement->closeCursor();
 
-     if (isset($_POST["changeForm"])) { # if admin clicks on change
+
+    if (isset($_POST["changeForm"])) { # if admin clicks on change
 
         # GETS SHOW INFO FROM showId
         $showInfoId = filter_input(INPUT_POST, "showId");
@@ -66,6 +67,9 @@
         
     } 
     
-    include("../HTML/manageShowtime.php");
+    if (!isset($_POST['bookMovie'])) {
+        include("../HTML/manageShowtime.php");
+    
+    }
     
 ?>

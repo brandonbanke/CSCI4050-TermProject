@@ -22,7 +22,7 @@
             <ul class="one">
                 <?php 
                     if ($userInf['isAdmin'] == 1) {
-                        echo "<li><a href='../HTML/admin-home.php'> Admin Home </a></li>"; 
+                        echo "<li><a href='../HTML/admin-home.php'> Home </a></li>"; 
                     } else {
                         echo "<li><a href='../HTML/home.php'> Home </a></li>";
                     }

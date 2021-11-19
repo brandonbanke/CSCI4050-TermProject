@@ -8,5 +8,7 @@
     $userOnCheck = $pstates->rowCount();
     $pstates->closeCursor();
 
-   
+    if ($userOnCheck) {
+        $isAdmin = $userInfs[0]['isAdmin'];
+    }
 ?>

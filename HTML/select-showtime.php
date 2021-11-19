@@ -1,7 +1,8 @@
 <?php
     require("../PHP/getMovieInfo.php");
     require("../PHP/getUserInfo.php");
-   
+    $showMovieId = $_POST['movieId'];
+    include("../PHP/getShowTimeInfo.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,76 +48,19 @@
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
             </form>  
         </div>
-        <h1> SELECT SHOWTIME</h1>
+        <h3 style="text-align: center;"> SELECT SHOWTIME</h3>
+
         <div class="button-section">
-            <button type='button' class="dateButtons" id="today" onClick='window.location="#1"'>
-                <script>
-                    document.getElementById("today").innerHTML = m + "/" + d + "/" + y;
-                    document.write("<h4>Today</h4>");
-                </script>
-            </button>
-            <button type='button' class="dateButtons" id="tmrw" onClick='window.location="#2"'>
-                <script>
-                    document.getElementById("tmrw").innerHTML =  m + "/" + tmr.getDate() + "/" + y + "<br>" + gd;
-                </script>
-            </button>
-            <button type='button' class="dateButtons" id="2tmrw" onClick='window.location="#3"'>
-                <script>
-                    document.getElementById("2tmrw").innerHTML =  m + "/" + tmr2.getDate() + "/" + y + "<br>" + gd2;
-                </script>
-            </button>
+            <?php 
+            if ($rowCount == 0) echo"<p>No showtimes yet!</p>";
+            foreach ($specificShowInfs as $info) :?>
+                <a href="../HTML/select-age.html"><button type='button' class="dateButtons" id="today" onClick='window.location="#1"'>
+                    <?php echo $info['date'] ." ". $info['time'];?>
+                </button></a>
+            <?php endforeach; ?>
         </div>
 
-        <div class="showtimeDisplay">
-        <h3>Showtimes </h3>
-        <form action="../HTML/select-age.html" method="POST">
-           
-                <?php foreach ($movieInfs as $time) {
-                    echo "<input type='submit' name='search' value=" .$time['showTime'] ." class='bookMovie'><br>";
-                }  
-                ?>
-            
-        </form>
-        </div>
-
-        <!-- <div class="showtimes" id="1">
-            <h3>Today's Showtimes</h3>
-            <ul>
-                <li><a href="select-age.html" class="time">10:00am</a></li>
-                <li><a href="select-age.html" class="time">11:00am</a></li>
-                <li><a href="select-age.html" class="time">12:00pm</a></li>
-                <li><a href="select-age.html" class="time">1:00pm</a></li>
-                <li><a href="select-age.html" class="time">2:00pm</a></li>
-            </ul>
-        </div> <br>
-
-        <div class="showtimes" id="2">
-            <script>
-                document.write('<h3>'+ gd + '</h3>');
-            </script>
-            <ul>
-                <li><a href="select-age.html" class="time">11:00am</a></li>
-                <li><a href="select-age.html" class="time">12:00pm</a></li>
-                <li><a href="select-age.html" class="time">12:45pm</a></li>
-                <li><a href="select-age.html" class="time">1:10pm</a></li>
-                <li><a href="select-age.html" class="time">2:00pm</a></li>
-            </ul>
-        </div><br>
-        <div class="showtimes" id="3">
-            <script>
-                document.write('<h3>'+ gd2 + '</h3>');
-            </script>
-            <ul>
-                <li><a href="select-age.html" class="time">10:45am</a></li>
-                <li><a href="select-age.html" class="time">11:00am</a></li>
-                <li><a href="select-age.html" class="time">12:45pm</a></li>
-                <li><a href="select-age.html" class="time">1:30pm</a></li>
-                <li><a href="select-age.html" class="time">2:00pm</a></li>
-            </ul>
-        </div> -->
-
-
-
+        
     </main>
 
 </body>
