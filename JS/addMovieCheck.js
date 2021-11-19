@@ -24,6 +24,14 @@ function stylePage() {
     document.getElementById("ratingValidity").style.color = "red";
     document.getElementById("dateValidity").style.color = "red";
     document.getElementById("timeValidity").style.color = "red";
+
+    document.getElementById("pNameValidity").style.display = "none";
+    document.getElementById("pCodeValidity").style.display = "none";
+    document.getElementById("pDescValidity").style.display = "none";
+
+    document.getElementById("pNameValidity").style.color = "red";
+    document.getElementById("pCodeValidity").style.color = "red";
+    document.getElementById("pDescValidity").style.color = "red";
   }
 
   function validateTitle() {
@@ -174,6 +182,52 @@ function stylePage() {
 
 
     if (v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8 && v9 && v10 && v11 && v12) {   
+      return true;
+    } else {
+      return false;
+    }
+      
+  }
+
+  function validatePName() {
+    var pNa = document.getElementById("pName");
+    if (pNa.value == "") {
+        document.getElementById("pNameValidity").style.display = "block";
+        return false;
+      } else {
+        document.getElementById("pNameValidity").style.display = "none";
+        return true; 
+      } 
+  }
+
+  function validatePCode() {
+    var pCo = document.getElementById("pCode");
+    if (pCo.value == "") {
+        document.getElementById("pCodeValidity").style.display = "block";
+        return false;
+      } else {
+        document.getElementById("pCodeValidity").style.display = "none";
+        return true; 
+      } 
+  }
+
+  function validatePDesc() {
+    var pDe = document.getElementById("pDescription");
+    if (pDe.value == "") {
+        document.getElementById("pDescValidity").style.display = "block";
+        return false;
+      } else {
+        document.getElementById("pDescValidity").style.display = "none";
+        return true; 
+      } 
+  }
+
+  function promoCheck() {
+    var v20 = validatePName();
+    var v21 = validatePCode();
+    var v22 = validatePDesc();
+
+    if (v20 && v21 && v22) {   
       return true;
     } else {
       return false;

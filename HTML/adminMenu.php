@@ -103,14 +103,17 @@
              <!-- Add promotion --> 
             <div class="addPromo">
                     <h2 class="select">Add new promotion:</h2>
-                    <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php'> 
+                    <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php' onsubmit="return promoCheck();"> 
                         <fieldset>
+                            <p id="pNameValidity"> Name not entered</p>
+                            <p id="pCodeValidity"> Code not entered</p>
+                            <p id="pDescValidity"> Description not entered</p>
                             <label>Promotion Name:</label>
-                            <input type="text" name='pName'><br><br><br>
+                            <input type="text" name='pName' id='pName'><br><br><br>
                             <label>Promotion Code:</label>
-                            <input type="text" name='pCode'><br><br><br>
+                            <input type="text" name='pCode' id='pCode'><br><br><br>
                             <label>Promotion Description:</label>
-                            <input type="text" name='pDescription'><br><br>
+                            <input type="text" name='pDescription' id='pDescription'><br><br>
                             <input class = "manageButton" type="submit" value="Submit">
                         </fieldset>
                     </form>
