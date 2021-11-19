@@ -66,6 +66,6 @@
         
     } 
     
-    include("../HTML/manageShowTime.php");
+    include("../HTML/manageShowtime.php");
     
 ?>
