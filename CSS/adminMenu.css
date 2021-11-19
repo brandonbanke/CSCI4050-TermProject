@@ -31,7 +31,13 @@ h3 {
 p {
 	color: #d6d5d6;
 	font-size: 20pt;
-	font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.select {
+    font-size: 26pt;
+    text-align: left;
+    margin-bottom: 1rem;
 }
 
 .userName {
@@ -42,7 +48,6 @@ p {
 .adminTab {
     width: 20%;
     margin-left: 1rem;
-
 }
 
 .adminTab button {
@@ -68,16 +73,6 @@ p {
     color: #B7B7B7;
 }
 
-.addMovieButton {
-    background-color: #D0CDD7;
-	text-align: center;
-	padding: .5rem 1rem;
-	margin-top: .5rem;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
-	border-radius: 2rem;
-	box-shadow: .5px .5px 3px .5px #0d0e0f;
-}
 
 img{
     width: 50%;
@@ -103,24 +98,25 @@ img{
 
 #add-movie input {
     float: right; 
+    margin-bottom: 2rem;
 }
 
 .movie {
     display: inline-block;
-    width: 30%;
     margin-top: 2rem;
+    width: 35rem;
 }
 
 .movies {
     text-align: center;
     overflow-y: auto;
     margin-top: 4rem;
+    width: 100%;
 }
 
 #manageMovies {
     margin-top: 2rem;
 }
-
 
 .changeButton {
     background-color:  #D0CDD7;
@@ -138,15 +134,22 @@ img{
 
 label {
     color: #d6d5d6;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18pt;
+    margin-right: .5rem;
 }
 
 input{
     background-color: #d6d5d6;
-    float: inherit;
+}
+
+.modInput {
+    width: 9rem;
+    height: 1rem;
+
 }
 
 /* user's box*/
-
 
 
 /* The Modal (background) */
@@ -159,19 +162,22 @@ input{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
+    color: blue;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
     width: fit-content; /* Could be more or less, depending on screen size */
   }
   
+  fieldset {
+      border: 0;
+  }
+
   /* The Close Button */
   .close {
     color: #aaa;
@@ -186,4 +192,14 @@ input{
     text-decoration: none;
     cursor: pointer;
   }
+
+
+.addPromo { 
+    margin-bottom: 3rem;
+}
+
+#manageUsers {
+    margin-top: 6rem;
+}
+
 

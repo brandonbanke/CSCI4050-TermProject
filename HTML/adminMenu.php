@@ -22,30 +22,28 @@
             
     </header>
     <main>
-            <div class="adminTab">
-                <div class="userName">
-                    <h3>Welcome back, </h3>
-                    <?php 
-                        if ($userOnCheck == 1) {
-                            foreach($userInfs as $userInfo) {
-                                $name = $userInfo['firstName'];
-                            } 
-                            echo "<p>" .$name ."</p>";
+        <div class="adminTab">
+            <div class="userName">
+                <h3>Welcome back, </h3>
+                <?php 
+                    if ($userOnCheck == 1) {
+                        foreach($userInfs as $userInfo) {
+                            $name = $userInfo['firstName'];
                         } 
-                    ?>
-                </div>
-
-                <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen"> Manage Movies</button>
-                <button class="adminButton" onclick="openTab(event, 'managePromotions')"> Manage Promotions</button>
-                <button class="adminButton" onclick="openTab(event, 'manageUsers')"> Manage Users</button>  
-                <button ><a href="../HTML/admin-home.php">Go back</a></button>
-
+                        echo "<p>" .$name ."</p>";
+                    } 
+                ?>
             </div>
+            <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen"> Manage Movies</button>
+            <button class="adminButton" onclick="openTab(event, 'managePromotions')"> Manage Promotions</button>
+            <button class="adminButton" onclick="openTab(event, 'manageUsers')"> Manage Users</button>  
+            <button ><a href="../HTML/admin-home.php">Go back</a></button>
+        </div>
            
         <!-- Manage movies tab-->
         <div id="manageMovies" class="content">
             <form id="add-movie" action="search.php" method="GET">
-                <input class= "addMovieButton" type="button" id="button" name="addMovieButton" onclick="showWindow()" value = "Add Movie">
+                <input class= "manageButton" type="button" id="button" name="addMovieButton" onclick="showWindow()" value = "Add Movie">
             </form> 
         
             <section class="movies">
@@ -67,16 +65,12 @@
                 
             </section>
         </div>
-        
-
-
         <!-- manage users tab -->
         <div id="manageUsers" class="content">
             <!-- gets all the users in the db -->
             <?php foreach($custInfs as $info) :?>
                 <div id="box">
                     <?php 
-                        
                         if ($info['isAdmin'] != 1) {
                             if ($info['isBlocked'] == 0) {
                                 $value = 'block';
@@ -86,7 +80,7 @@
                             
                             echo "
                                 <form method='POST' action='../PHP/changeIsBlocked.php'>
-                                    <p>" .$info['userId']. "<button type='submit' name='userBlockButton' value='" .$info['userId']. "' class='manageButton'>" .$value. "</button></p>
+                                    <p>" .$info['userId'].  "&nbsp&nbsp&nbsp<button type='submit' name='userBlockButton' value='" .$info['userId']. "' class='manageButton'>" .$value. "</button></p>
                                 </form>
                             
                             ";
@@ -98,43 +92,41 @@
                             
                         }
                         
-                        
+            
                     ?>
                 </div>
             <?php endforeach; ?>
         </div>
 
         <!-- Promotions -->
-        <div id="managePromotions" class="content">       
-        
-        <p>Select promotion:</p>    
-        <?php foreach ($promInfs as $promInf) : ?>
-            <form method="POST" >
-                <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
-                <p><?php echo $promInf['promoName']; ?> <button type="submit" name="change" formmethod="POST" formaction="../HTML/editPromotion.php" class="changeButton">Change</button> <button type="submit" class="changeButton" name="deletePromo">Delete</button></p><br>
-            </form>
-        <?php endforeach; ?>
-
-        <!-- Add promotion -->
+        <div id="managePromotions" class="content">  
+             <!-- Add promotion --> 
             <div class="addPromo">
-                <p>Add new promotion:</p>
-                
-                <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php'> 
-                    <fieldset>
-                        
-                        <label>Promotion Name:</label>
-                        <input type="text" name='pName'><br><br><br>
-                        <label>Promotion Code:</label>
-                        <input type="text" name='pCode'><br><br><br>
-                        <label>Promotion Description:</label>
-                        <input type="text" name='pDescription'><br><br><br>
-                        
-                        <input class = "bookMovie" type="submit" value="Submit">
-                    </fieldset>
-                </form>
-            </div> 
-        </div>
+                    <h2 class="select">Add new promotion:</h2>
+                    <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php'> 
+                        <fieldset>
+                            <label>Promotion Name:</label>
+                            <input type="text" name='pName'><br><br><br>
+                            <label>Promotion Code:</label>
+                            <input type="text" name='pCode'><br><br><br>
+                            <label>Promotion Description:</label>
+                            <input type="text" name='pDescription'><br><br>
+                            <input class = "manageButton" type="submit" value="Submit">
+                        </fieldset>
+                    </form>
+            </div>     
+            <h2 class="select">Select promotion:</h2>    
+            <?php foreach ($promInfs as $promInf) : ?>
+                <form method="POST" >
+                    <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
 
+                        <p class="promoName"><?php echo $promInf['promoName']; ?> &nbsp&nbsp&nbsp
+                        <button type="submit" class="manageButton" name="change" formmethod="POST" formaction="../HTML/editPromotion.php">Change</button> 
+                        <button type="submit" class="manageButton"name="deletePromo">Delete</button></p><br>
+                
+                </form>
+            <?php endforeach; ?>
+        </div>
 
         <!-- NEEDS TO SHOW SPECIFIC PROMOTION -->
         <div class="modal" id="promotion-screen">
@@ -148,31 +140,22 @@
                         <input type="text" value = "<?php echo $code; ?>" name='new_pCode'>
                         <p>Description</p>
                         <input type="text" value = "<?php echo $description; ?>" name='new_pDescription'>
-                        
-                        
+        
                         <input type="hidden" name="promotion_id" value = "<?php echo $promoInf['id']; ?>">
-                        <input type="submit" value="Submit" name="changePromoForm">
+                        <input type="submit" class="manageButton" value="Submit" name="changePromoForm">
                 </form>
             </div>
         </div>
         <!-- SPECIFIC PROMO -->
 
-        
-        
-        
-        <!--popup window to manage movies-->
+        <!--popup window to add movie-->
         <div id="movie-screen" class="modal">
-
             <!-- Add movie content -->
             <div class="modal-content">
                 <span class="close" onclick="closeWindow()">&times;</span>
-                <div class="imgAddMovie">
-                    <img src="https://www.lonestarpark.com/wp-content/uploads/2019/04/image-placeholder-500x500.jpg" alt="placeholder image">
-                </div>
-                
                 <div class="addMovieModal">
                 <form method='POST' action='../PHP/movieInformation.php' onsubmit="return movieCheck();">
-                    <fieldset><br><br>
+                    <fieldset class="mod">
                     <p id="titleValidity"> Title not entered</p>
                     <p id="categoryValidity"> Category not entered</p>
                     <p id="castValidity"> Cast not entered</p>
@@ -185,48 +168,46 @@
                     <p id="ratingValidity"> Rating not entered</p>
                     <p id="dateValidity"> Show Date not entered</p>
                     <p id="timeValidity"> Show Time not entered</p><br>
-                    <label>name:</label>
-                    <input type="text" name='mName' id='mName'>
+                    <label>Name</label>
+                    <input class="modInput" type="text" name='mName' id='mName'>
                     <label class='mand'>*</label><br><br>
                     <label>Category</plabel>
-                    <input type="text" name="mCategory" id='catName'>
+                    <input class="modInput" type="text" name="mCategory" id='catName'>
                     <label class='mand'>*</label><br><br>
                     <label>Cast</label>
-                    <input type="text" name="mCast" id='casName'>
+                    <input class="modInput" type="text" name="mCast" id='casName'>
                     <label class='mand'>*</label><br><br>
                     <label>director</label>
-                    <input type="text" name="mDirector" id='dirName'>
+                    <input class="modInput" type="text" name="mDirector" id='dirName'>
                     <label class='mand'>*</label><br><br>
                     <label>Producer</label>
-                    <input type="text" name="mProducer" id='proName'>
+                    <input class="modInput" type="text" name="mProducer" id='proName'>
                     <label class='mand'>*</label><br><br>
                     <label>synopsis</label>
-                    <input type="text" name="mSynopsis" id='synName'>
+                    <input class="modInput" type="text" name="mSynopsis" id='synName'>
                     <label class='mand'>*</label><br><br>
                     <label>reviews</label>
-                    <input type="text" name="mReviews" id='revName'>
+                    <input class="modInput" type="text" name="mReviews" id='revName'>
                     <label class='mand'>*</label><br><br>
                     <label>trailer link</label>
-                    <input type="text" name="mTrailerLink" id='trailName'>
+                    <input class="modInput" type="text" name="mTrailerLink" id='trailName'>
                     <label class='mand'>*</label><br><br>
                     <label>movie picture</label>
-                    <input type="text" name="mMoviePic" id='picName'>
+                    <input class="modInput" type="text" name="mMoviePic" id='picName'>
                     <label class='mand'>*</label><br><br>
                     <label>MPPA-US film rating code</label>
-                    <input type="text" name="mRating" id='ratCodName'>
+                    <input class="modInput" type="text" name="mRating" id='ratCodName'>
                     <label class='mand'>*</label><br><br>
                     <label>show date</label>
-                    <input type="text" name="mDate" id='dateName'>
+                    <input class="modInput" type="text" name="mDate" id='dateName'>
                     <label class='mand'>*</label><br><br>
                     <label>show time</label>
-                    <input type="text" name="mTime" id='timeName'>
+                    <input class="modInput" type="text" name="mTime" id='timeName'>
                     <label class='mand'>*</label><br><br>
                     <input id="check" type="checkbox" name="mComingSoon" value="1">
                     <label id="checkLabel" for="mComingSoon"> Coming Soon? </label>
                     <label class='mand'>*</label><br><br><br>
-                    <br>
-                    <br>
-                    <input type="submit" value="submit">
+                    <input class="manageButton" type="submit" value="submit">
                     </fieldset>
                     </form>
                 </div>
@@ -259,8 +240,6 @@ function openTab(evt, tabName) {
   }
 
   document.getElementById("defaultOpen").click();
-
-
 </script>
 
 
