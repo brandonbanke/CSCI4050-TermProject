@@ -51,7 +51,7 @@
                 <?php foreach ($movieInfs as $movieInf) : ?>
                 <div class="movie">
                     <img src="<?php echo $movieInf['picture']; ?>" alt="pic">                
-                    
+                    <p><?php echo$movieInf['title'];?> </p>
                     <form method='POST' action='../PHP/getMovieInformation.php'>
                         <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
                         <button type="submit" class="manageButton">Edit Information</button>
@@ -200,12 +200,6 @@
                     <label class='mand'>*</label><br><br>
                     <label>MPPA-US film rating code</label>
                     <input class="modInput" type="text" name="mRating" id='ratCodName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>show date</label>
-                    <input class="modInput" type="text" name="mDate" id='dateName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>show time</label>
-                    <input class="modInput" type="text" name="mTime" id='timeName'>
                     <label class='mand'>*</label><br><br>
                     <input id="check" type="checkbox" name="mComingSoon" value="1">
                     <label id="checkLabel" for="mComingSoon"> Coming Soon? </label>

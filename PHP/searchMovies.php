@@ -21,11 +21,29 @@
         }
     } else if (isset($_POST['date'])) {
 
-        #LEFT OFF HERE, NEEDS TO LOOK UP ALL MOVIES BASED ON DATE #
         $date = $_POST['date'];
-        $query = "SELECT * FROM movie WHERE id = 
-        (SELECT movieId FROM showinfo WHERE showId = 
-        (SELECT showId FROM showinfo WHERE date = '$date'))";
+        $query = "SELECT DISTINCT movieId FROM showinfo 
+                WHERE date LIKE '$date'";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $ids = $statement->fetchAll();
+        $rowCount = $statement->rowCount();
+        $statement->closeCursor();
+        #foreach($ids as $id){
+        #    echo $id['movieId'];
+        #}
+
+        $group = "(";
+        for ($x = 0; $x < $rowCount; $x++) {
+            $group .= $ids[$x]['movieId'];
+            if ($x != $rowCount-1) {
+
+                $group .= ", ";
+            }
+        }
+        $group .= ")";
+
+        $query = "SELECT DISTINCT * FROM movie WHERE id IN $group ";
         $statement = $db->prepare($query);
         $statement->execute();
         $information= $statement->fetchAll();

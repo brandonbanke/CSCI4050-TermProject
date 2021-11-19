@@ -68,7 +68,7 @@
                     echo "<div class = \"trailer\">";
                         echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                         echo "<p>".$movieInf['title']." </p>";
-                        echo "<form method='POST' action='../HTML/select-showtime.php'><input type='hidden' name='movieId' value='". $movieInf['id']."'>";
+                        echo "<form method='POST' action='../PHP/searchMovies.php'><input type='hidden' name='search' value='". $movieInf['title']."'>";
                         echo "<button name='bookMovie' class='bookMovie' type='submit'>Select Movie</button>";
                         echo "</form>";
                     echo "</div>";

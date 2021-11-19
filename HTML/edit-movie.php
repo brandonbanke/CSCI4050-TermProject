@@ -47,10 +47,7 @@
                     <input type="text" name="new_mMoviePic" value = "<?php echo $specificMovieInf['picture']; ?>" id="input"><br><br>
                     <label>MPPA-US film rating code</label>
                     <input type="text" name="new_mRating" value = "<?php echo $specificMovieInf['ratingCode']; ?>" id="input"><br><br>
-                    <label>show date</label>
-                    <input type="text" name="new_mDate" value = "<?php echo $specificMovieInf['showDate']; ?>" id="input"><br><br>
-                    <label>show time</label>
-                    <input type="text" name="new_mTime" value = "<?php echo $specificMovieInf['showTime']; ?>" id="input"><br><br>
+                 
                     <?php
                         $checked = "";
                         if ($specificMovieInf['comingSoon'] == 1) {

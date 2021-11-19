@@ -17,8 +17,6 @@ $query1 = "CREATE TABLE IF NOT EXISTS movie
     trailer VARCHAR(255) NOT NULL,
     picture VARCHAR(255) NOT NULL,
     ratingCode enum('G','PG','PG-13','R','NC-17') DEFAULT NULL,
-    showTime VARCHAR(255) NOT NULL,
-    showDate VARCHAR(255) NOT NULL,
     comingSoon BOOLEAN NOT NULL,
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
 )";
@@ -36,8 +34,8 @@ $reviews = filter_input(INPUT_POST, 'mReviews');
 $trailerLink = filter_input(INPUT_POST, 'mTrailerLink');
 $picture = filter_input(INPUT_POST, 'mMoviePic');
 $rating = filter_input(INPUT_POST, 'mRating');
-$date = filter_input(INPUT_POST, 'mDate');
-$time = filter_input(INPUT_POST, 'mTime');
+#$date = filter_input(INPUT_POST, 'mDate');
+#$time = filter_input(INPUT_POST, 'mTime');
 $cSoon = filter_input(INPUT_POST, 'mComingSoon');
 
 

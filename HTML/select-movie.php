@@ -2,7 +2,10 @@
     require("../PHP/getMovieInfo.php");
     require("../PHP/getUserInfo.php");
 
-
+    $query = "SELECT DISTINCT date FROM showinfo";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $showtimes = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +51,8 @@
             <form action="../PHP/searchMovies.php" method="POST">
                 <fieldset>
                     <p>Filter By Date</p>
-                    <?php foreach ($movieInfs as $info) {
-                        echo "<input type='submit' name='date' value=" .$info['showDate'] ." class='bookMovie'><br>";
+                    <?php foreach ($showtimes as $info) {
+                        echo "<input type='submit' name='date' value=" .$info['date'] ." class='bookMovie'><br>";
                     }  ?>
                 </fieldset>
             </form>
