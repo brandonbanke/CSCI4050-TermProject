@@ -37,7 +37,7 @@
             <button class="adminButton" onclick="openTab(event, 'manageMovies')" id="defaultOpen"> Manage Movies</button>
             <button class="adminButton" onclick="openTab(event, 'managePromotions')"> Manage Promotions</button>
             <button class="adminButton" onclick="openTab(event, 'manageUsers')"> Manage Users</button>  
-            <button ><a href="../HTML/admin-home.php">Go back</a></button>
+            <button ><a href="../HTML/home.php">Go back</a></button>
         </div>
            
         <!-- Manage movies tab-->
@@ -171,11 +171,15 @@
                     <p id="ratingValidity"> Rating not entered</p>
                     <p id="dateValidity"> Show Date not entered</p>
                     <p id="timeValidity"> Show Time not entered</p><br>
+                    <!--<p id="durationValidity"> Duration not entered</p><br> NEEDS TO BE IMPLEMENTED FOR ERROR CHECKING-->
                     <label>Name</label>
                     <input class="modInput" type="text" name='mName' id='mName'>
                     <label class='mand'>*</label><br><br>
                     <label>Category</plabel>
                     <input class="modInput" type="text" name="mCategory" id='catName'>
+                    <label class='mand'>*</label><br><br>
+                    <label>Duration</plabel>
+                    <input class="modInput" type="text" name="mDuration" id='mDuration'>
                     <label class='mand'>*</label><br><br>
                     <label>Cast</label>
                     <input class="modInput" type="text" name="mCast" id='casName'>

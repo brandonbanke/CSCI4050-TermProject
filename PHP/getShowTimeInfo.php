@@ -8,14 +8,16 @@
         $showMovieId = filter_input(INPUT_POST, "showmovie_id");
     }
     
-    $queryshowinfo = "SELECT * FROM showinfo WHERE movieId = '$showMovieId'";
 
+    # gets specific showtime based on movieId
+    $queryshowinfo = "SELECT * FROM showinfo WHERE movieId = '$showMovieId'";
     $prstates = $db->prepare($queryshowinfo);
     $prstates->execute();
     $specificShowInfs = $prstates->fetchAll();
     $rowCount = $prstates->rowCount();
     $prstates->closeCursor();
 
+    #selects title from specific movieId
     $query = "SELECT title FROM movie WHERE id = '$showMovieId'";
     $statement = $db->prepare($query);
     $statement->execute();
@@ -67,7 +69,7 @@
         
     } 
     
-    if (!isset($_POST['bookMovie'])) {
+    if (!isset($_POST['bookMovie']) ) {
         include("../HTML/manageShowtime.php");
     
     }

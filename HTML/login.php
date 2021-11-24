@@ -47,7 +47,7 @@
     </form>
     </main>
     <footer>
-        <a href="../HTML/admin-home.php">Continue to Admin Home</a>
+        <a href="../HTML/home.php">Continue to Admin Home</a>
     </footer>
 </body>
 </html>

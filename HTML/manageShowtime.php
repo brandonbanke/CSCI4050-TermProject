@@ -35,13 +35,21 @@
         
             <div>
                 <h3>Select Time(s) for <?php echo $movieName; ?>:</h3>    
-                <?php foreach ($specificShowInfs as $specificShowInf) :?>
+                <?php 
+                if ($rowCount == 0) {
+                    echo "<p>No showtimes for this movie</p>";
+                }
+                else {
+                     foreach ($specificShowInfs as $specificShowInf) :?>
                     <form method="POST" action="../PHP/getShowTimeInfo.php">
                         <input type="hidden" value="<?php echo $specificShowInf['showId'] ?>" name="showId">
                         <input type="hidden" name="showmovie_id" value = "<?php echo $specificShowInf['movieId']; ?>">
                         <p><?php echo $specificShowInf['time'].' '. $specificShowInf['date']; ?> <button type="submit" class="changeButton" name="changeForm">Change</button> <button type="submit" class="changeButton" name="deleteTime">Delete</button></p>
                     </form>
-                <?php endforeach; ?>
+                    <?php endforeach;
+                } 
+                ?>
+                
                 <br><br>
             </div>
 

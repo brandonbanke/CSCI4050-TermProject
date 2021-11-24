@@ -26,7 +26,7 @@
     <main>
     <div id="nav-menu">
         <ul class="one">
-            <li><a href="<?php if ($userOnCheck > 0 && $userInfs[0]['isAdmin'] == 1) echo "../HTML/admin-home.php"; else echo "../HTML/home.php";?>"> Home </a></li>
+            <li><a href="<?php if ($userOnCheck > 0 && $userInfs[0]['isAdmin'] == 1) echo "../HTML/home.php"; else echo "../HTML/home.php";?>"> Home </a></li>
 
             <li class="active"><a href="../HTML/select-movie.php"> Find Movie </a></li>
             <li><a href="../HTML/account.php"> Account </a></li>

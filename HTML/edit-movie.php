@@ -31,6 +31,8 @@
                     <input type="text" name="new_mName" value = "<?php echo $specificMovieInf['title']; ?>" id="input"><br><br>
                     <label>Category</plabel>
                     <input type="text" name="new_mCategory" value = "<?php echo $specificMovieInf['category']; ?>" id="input"><br><br>
+                    <label>Duration</plabel>
+                    <input type="text" name="new_mDuration" value = "<?php echo $specificMovieInf['duration']; ?>" id="input"><br><br>
                     <label>Cast</label>
                     <input type="text" name="new_mCast" value = "<?php echo $specificMovieInf['movieCast']; ?>" id="input"><br><br>
                     <label>director</label>

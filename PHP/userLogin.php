@@ -49,7 +49,7 @@
                 $loginstatement2 = $db->prepare($setactive);
                 $loginstatement2->bindValue(':user_iden', $uId);
                 $loginstatement2->execute();
-                include("../HTML/admin-home.php");
+                include("../HTML/home.php");
             }
             
         

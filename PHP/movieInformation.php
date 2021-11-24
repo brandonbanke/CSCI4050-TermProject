@@ -34,9 +34,8 @@ $reviews = filter_input(INPUT_POST, 'mReviews');
 $trailerLink = filter_input(INPUT_POST, 'mTrailerLink');
 $picture = filter_input(INPUT_POST, 'mMoviePic');
 $rating = filter_input(INPUT_POST, 'mRating');
-#$date = filter_input(INPUT_POST, 'mDate');
-#$time = filter_input(INPUT_POST, 'mTime');
 $cSoon = filter_input(INPUT_POST, 'mComingSoon');
+$duration = $_POST['mDuration'];
 
 
 if ($cSoon == NULL) {
@@ -45,9 +44,9 @@ if ($cSoon == NULL) {
 
 
 $query2 = "INSERT INTO movie
-(title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, showTime, showDate, comingSoon)
+(title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, comingSoon, duration)
 VALUE
-(:m_title, :category, :movieCast, :director, :producer, :synopsis, :reviews, :trailer, :picture, :ratingCode, :showTime, :showDate, :comingSoon)
+(:m_title, :category, :movieCast, :director, :producer, :synopsis, :reviews, :trailer, :picture, :ratingCode, :comingSoon, $duration)
 ";
 $insertinfo = $db->prepare($query2);
 $insertinfo->bindValue(':m_title', $name);
@@ -60,8 +59,6 @@ $insertinfo->bindValue(':reviews', $reviews);
 $insertinfo->bindValue(':trailer', $trailerLink);
 $insertinfo->bindValue(':picture', $picture);
 $insertinfo->bindValue(':ratingCode', $rating);
-$insertinfo->bindValue(':showTime', $time);
-$insertinfo->bindValue(':showDate', $date);
 $insertinfo->bindValue(':comingSoon', $cSoon);
 $insertinfo->execute();
 $insertinfo->closeCursor();

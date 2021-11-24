@@ -11,9 +11,8 @@
     $mTrailer = filter_input(INPUT_POST, 'new_mTrailerLink');
     $mPicture = filter_input(INPUT_POST, 'new_mMoviePic');
     $mRatingCode = filter_input(INPUT_POST, 'new_mRating');
-    $mShowTime = filter_input(INPUT_POST, 'new_mTime');  
-    $mShowDate = filter_input(INPUT_POST, 'new_mDate');
     $comeSoon = filter_input(INPUT_POST, 'new_mComingSoon');
+    $duration = $_POST['new_mDuration'];
     
     # if checked, prom = 1, 0 otherwise
     if($comeSoon == NULL){
@@ -26,6 +25,7 @@
     $changeTitle = "UPDATE movie
     SET title = '$mNameTitle',
     category = '$mCat',
+    duration = '$duration',
     movieCast = '$mCastMems',
     director = '$mDirec',
     producer = '$mProd',
@@ -34,8 +34,6 @@
     trailer = '$mTrailer',
     picture = '$mPicture',
     ratingCode = '$mRatingCode',
-    showTime = '$mShowTime',
-    showDate = '$mShowDate',
     comingSoon = '$comeSoon'
     WHERE id= '$movieIden'";
     $db->exec($changeTitle);
