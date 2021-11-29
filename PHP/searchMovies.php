@@ -7,7 +7,6 @@
         $querySearch = "SELECT * FROM movie 
                         WHERE title LIKE '%".$search."%' 
                         OR category LIKE '%".$search."%'
-                        OR showDate LIKE '%".$search."%'
                         GROUP BY title
                         ";
         $results = $db->query($querySearch);
