@@ -1,5 +1,5 @@
 <?php 
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     
     $promotionIden = filter_input(INPUT_POST, 'promotion_id');
     

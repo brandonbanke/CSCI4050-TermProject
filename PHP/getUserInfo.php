@@ -1,5 +1,5 @@
 <?php
-    include("../PHP/database.php");
+    require("../Modal/database.php");
     $queryacct = "SELECT * FROM user WHERE userId = (SELECT userId FROM user WHERE active=1)";
 
     $pstates = $db->prepare($queryacct);

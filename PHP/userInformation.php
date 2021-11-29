@@ -1,6 +1,6 @@
 <?php
 
-require("database.php");
+require("../Modal/database.php");
 require("../PHP/mail-setup.php");
 
 $query0 = "USE cinema_booking";

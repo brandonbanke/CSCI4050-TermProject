@@ -1,6 +1,6 @@
 <?php
     # ADDS A SHOWTIME #
-    require("database.php");
+    require("../Modal/database.php");
     require("getMovieInfo.php");
 
     $newDate = filter_input(INPUT_POST,'date');

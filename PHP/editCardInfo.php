@@ -1,5 +1,5 @@
 <?php 
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     require("../PHP/getCardInfo.php");
 
     #cardId for wanted card

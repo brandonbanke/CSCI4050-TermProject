@@ -1,6 +1,6 @@
 <?php
 
-require("database.php");
+require("../Modal/database.php");
 require("getUserInfo.php");
 
 $query0 = "USE cinema_booking";

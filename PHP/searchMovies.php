@@ -1,5 +1,5 @@
 <?php
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     require("../PHP/getMovieInfo.php");
 
     if (isset($_POST['search'])) {

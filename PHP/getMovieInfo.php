@@ -1,7 +1,7 @@
 <?php
     # THIS FILE GETS ALL THE MOVIES #
 
-    include("../PHP/database.php");
+    require("../Modal/database.php");
     $querymovie = "SELECT * FROM movie";
 
     $mstates = $db->prepare($querymovie);

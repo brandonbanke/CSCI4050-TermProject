@@ -1,5 +1,5 @@
 <?php 
-    require("database.php");
+    require("../Modal/database.php");
     require("../PHP/getUserInfo.php");
     
 

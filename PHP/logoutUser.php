@@ -1,5 +1,5 @@
 <?php
-  require("../PHP/database.php");
+  require("../Modal/database.php");
 
   $setinactive = "UPDATE user
                   SET active=0;";

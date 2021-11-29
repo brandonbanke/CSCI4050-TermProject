@@ -1,6 +1,6 @@
 <?php
 
-require("database.php");
+require("../Modal/database.php");
 require("getCustomer.php");
 require("getPromotion.php");
 require("../PHP/mail-setup.php");

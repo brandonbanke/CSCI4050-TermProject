@@ -1,5 +1,5 @@
 <?php
-    include("../PHP/database.php");
+    require("../Modal/database.php");
     $queryprom = "SELECT * FROM promotion";
 
     $prstates = $db->prepare($queryprom);

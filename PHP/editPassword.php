@@ -1,5 +1,5 @@
 <?php 
-    require("../PHP/database.php");
+    require("../Modal/database.php");
 
     $oldpass = filter_input(INPUT_POST, 'old_password');
 

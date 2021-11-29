@@ -1,5 +1,5 @@
 <?php
-    include("../PHP/database.php");
+    require("../Modal/database.php");
     $querycust = "SELECT * FROM user";
 
     $ustates = $db->prepare($querycust);

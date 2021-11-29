@@ -1,5 +1,5 @@
 <?php
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     
 
     $inputEmail = filter_input(INPUT_POST, 'input_email');

@@ -1,5 +1,5 @@
 <?php
-    require("../PHP/database.php");
+    require("../Modal/database.php");
 
     $movieId = filter_input(INPUT_POST, "movie_id");
     $querymovie = "SELECT * FROM movie WHERE id = '$movieId'";

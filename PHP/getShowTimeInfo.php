@@ -1,7 +1,7 @@
 <?php
     # GETS SHOWTIME FROM MOVIE ID #
 
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     require("../PHP/getMovieInfo.php");
 
     if (!isset($showMovieId)) {

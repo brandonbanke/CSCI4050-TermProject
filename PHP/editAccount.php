@@ -1,5 +1,5 @@
 <?php 
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     
 
     $changequery = "SELECT firstName FROM user

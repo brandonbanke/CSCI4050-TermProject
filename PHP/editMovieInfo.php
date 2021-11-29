@@ -1,5 +1,5 @@
 <?php 
-    require("../PHP/database.php");
+    require("../Modal/database.php");
     $mNameTitle = filter_input(INPUT_POST, 'new_mName');
     $movieIden = filter_input(INPUT_POST, 'movie_id');
     $mCat = filter_input(INPUT_POST, 'new_mCategory');

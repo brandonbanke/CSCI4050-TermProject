@@ -1,5 +1,5 @@
 <?php
-    include("../PHP/database.php");
+    require("../Modal/database.php");
     $querycard = "SELECT billingAddress, expirationDate, 
     CAST(AES_DECRYPT(cardNumber, 'cebs1234') AS CHAR(200)) AS cardNumber,  
     CAST(AES_DECRYPT(cvv, 'cebs1234') AS CHAR(50)) AS cvv,
