@@ -46,3 +46,9 @@ footer a {
     border-radius: 25px;
     padding: .75rem 1.5rem;
 }
+.num {
+	color: #e7e7e7;
+	margin-top: 2rem;
+	font-family: 'Roboto', sans-serif;
+    font-size: 30pt;
+}

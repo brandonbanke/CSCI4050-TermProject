@@ -27,13 +27,17 @@
         <!-- insert arrays of seats   -->
     <script>
             function seats() {
-                for(i=0; i < 16; i++) {
-                    for (n=0; n < 16; n++) {
-                    let btn = document.createElement("button");
-                    btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
-                    btn.style.border = "none";
-                    btn.onclick = "window.location.href = \"order-summary.html\";"
-                    document.body.appendChild(btn);
+                for(i=0; i < 7; i++) {
+                    for (n=0; n < 15; n++) {
+                        let btn = document.createElement("button");
+                        btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
+                        btn.style.border = "none";
+                        btn.onclick = "window.location.href = \"order-summary.html\";"
+                        document.body.appendChild(btn);
+                        if (n == 14) {
+                            let br = document.createElement("br");
+                            document.body.appendChild(br);
+                        }
                     }
                 }
             }       
