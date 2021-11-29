@@ -22,46 +22,67 @@ $query1 = "CREATE TABLE IF NOT EXISTS movie
 )";
 $db->exec($query1);
 
+if(isset($_POST['addMovie'])) {
+    # gets the info
+    $name = filter_input(INPUT_POST, 'mName');
+    $category = filter_input(INPUT_POST, 'mCategory');
+    $director = filter_input(INPUT_POST, 'mDirector');
+    $cast = filter_input(INPUT_POST, 'mCast');
+    $producer = filter_input(INPUT_POST, 'mProducer');
+    $synopsis = filter_input(INPUT_POST, 'mSynopsis');
+    $reviews = filter_input(INPUT_POST, 'mReviews');
+    $trailerLink = filter_input(INPUT_POST, 'mTrailerLink');
+    $picture = filter_input(INPUT_POST, 'mMoviePic');
+    $rating = filter_input(INPUT_POST, 'mRating');
+    $cSoon = filter_input(INPUT_POST, 'mComingSoon');
+    $duration = $_POST['mDuration'];
 
-# gets the info
-$name = filter_input(INPUT_POST, 'mName');
-$category = filter_input(INPUT_POST, 'mCategory');
-$director = filter_input(INPUT_POST, 'mDirector');
-$cast = filter_input(INPUT_POST, 'mCast');
-$producer = filter_input(INPUT_POST, 'mProducer');
-$synopsis = filter_input(INPUT_POST, 'mSynopsis');
-$reviews = filter_input(INPUT_POST, 'mReviews');
-$trailerLink = filter_input(INPUT_POST, 'mTrailerLink');
-$picture = filter_input(INPUT_POST, 'mMoviePic');
-$rating = filter_input(INPUT_POST, 'mRating');
-$cSoon = filter_input(INPUT_POST, 'mComingSoon');
-$duration = $_POST['mDuration'];
+    if ($cSoon == NULL) {
+        $cSoon = 0;
+    }
 
+    $query2 = "INSERT INTO movie
+    (title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, comingSoon, duration)
+    VALUE
+    (:m_title, :category, :movieCast, :director, :producer, :synopsis, :reviews, :trailer, :picture, :ratingCode, :comingSoon, $duration)
+    ";
+    $insertinfo = $db->prepare($query2);
+    $insertinfo->bindValue(':m_title', $name);
+    $insertinfo->bindValue(':category', $category);
+    $insertinfo->bindValue(':movieCast', $cast);
+    $insertinfo->bindValue(':director', $director);
+    $insertinfo->bindValue(':producer', $producer);
+    $insertinfo->bindValue(':synopsis', $synopsis);
+    $insertinfo->bindValue(':reviews', $reviews);
+    $insertinfo->bindValue(':trailer', $trailerLink);
+    $insertinfo->bindValue(':picture', $picture);
+    $insertinfo->bindValue(':ratingCode', $rating);
+    $insertinfo->bindValue(':comingSoon', $cSoon);
+    $insertinfo->execute();
+    $insertinfo->closeCursor();
 
-if ($cSoon == NULL) {
-    $cSoon = 0;
+    
+} else if (isset($_POST['deleteMovie'])) {
+    $movieID = filter_input(INPUT_POST, 'deleteMovieID');
+
+    //delete movie not working, need to delete show times first!!!!
+    $query4 = "DELETE FROM showinfo WHERE showId = '$movieID'";
+    $statement = $db->prepare($query4);
+    $statement->execute();
+    $statement->closeCursor();
+
+    $query3 = "DELETE FROM movie WHERE id = '$movieID'";
+    $statement = $db->prepare($query3);
+    $statement->execute();
+    $statement->closeCursor();
 }
 
-
-$query2 = "INSERT INTO movie
-(title, category, movieCast, director, producer, synopsis, reviews, trailer, picture, ratingCode, comingSoon, duration)
-VALUE
-(:m_title, :category, :movieCast, :director, :producer, :synopsis, :reviews, :trailer, :picture, :ratingCode, :comingSoon, $duration)
-";
-$insertinfo = $db->prepare($query2);
-$insertinfo->bindValue(':m_title', $name);
-$insertinfo->bindValue(':category', $category);
-$insertinfo->bindValue(':movieCast', $cast);
-$insertinfo->bindValue(':director', $director);
-$insertinfo->bindValue(':producer', $producer);
-$insertinfo->bindValue(':synopsis', $synopsis);
-$insertinfo->bindValue(':reviews', $reviews);
-$insertinfo->bindValue(':trailer', $trailerLink);
-$insertinfo->bindValue(':picture', $picture);
-$insertinfo->bindValue(':ratingCode', $rating);
-$insertinfo->bindValue(':comingSoon', $cSoon);
-$insertinfo->execute();
-$insertinfo->closeCursor();
-
 include("../HTML/adminMenu.php")
+
+
+
+
+
 ?>
+
+

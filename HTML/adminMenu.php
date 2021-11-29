@@ -3,6 +3,7 @@
     require("../PHP/getMovieInfo.php");
     require("../PHP/getPromotion.php");
     require("../PHP/getCustomer.php");   
+    
 
 ?>
 
@@ -60,6 +61,10 @@
                         <input type="hidden" name="showmovie_id" value="<?php echo $movieInf['id']; ?>">
                         <button type="submit" class="manageButton" name="editTime">Edit Time</button>
                     </form>
+                    <form method='POST' action='../PHP/movieInformation.php'>
+                        <input type="hidden" name="deleteMovieID" value="<?php echo $movieInf['id']; ?>">
+                        <button type="submit" class="manageButton" name="deleteMovie">Delete</button>
+                    </form>
                 </div>
                 <?php endforeach; ?>
                 
@@ -84,18 +89,10 @@
                                 </form>
                             
                             ";
-                        } ?>                      
-
-                    <!-- different for blocked and not blocked, still needs to add the submit-->
-                    <?php 
-                        if ($info['isAdmin'] != 1) {
-                            
-                        }
-                        
-            
-                    ?>
+                } ?>   
                 </div>
             <?php endforeach; ?>
+
         </div>
 
         <!-- Promotions -->
@@ -208,7 +205,7 @@
                     <input id="check" type="checkbox" name="mComingSoon" value="1">
                     <label id="checkLabel" for="mComingSoon"> Coming Soon? </label>
                     <label class='mand'>*</label><br><br><br>
-                    <input class="manageButton" type="submit" value="submit">
+                    <input class="manageButton" type="submit" value="submit" name="addMovie">
                     </fieldset>
                     </form>
                 </div>
