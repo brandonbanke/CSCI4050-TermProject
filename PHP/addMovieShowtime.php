@@ -57,13 +57,19 @@
             $hoursToMins = $hoursToMins * 60;
             $startTime = $minutes + $hoursToMins;
             $finalTime = $duration + $startTime;
-            if (($newStartTime >= $startTime && $newStartTime <= $finalTime) && ($newFinalTime >= $startTime && $newFinalTime <= $finalTime) && $newDate == $date) { #still wrongs
-                include("getShowTimeInfo.php");
-                echo "<p style='padding-left:34%'>Time conflict detected.</p>";
+            if ((($newStartTime >= $startTime && $newStartTime <= $finalTime) || ($newFinalTime >= $startTime && $newFinalTime <= $finalTime) || 
+            (($newStartTime >= $startTime && $newStartTime <= $finalTime) && ($newFinalTime >= $startTime && $newFinalTime <= $finalTime)) || 
+            ($newStartTime <= $startTime && $newFinalTime >= $finalTime)) && ($newDate == $date)) { #still wrongs
                 $bool = FALSE;
+                break;
             }
 
         }   
+    }
+
+    if(!$bool) {
+        include("getShowTimeInfo.php");
+        echo "<p style='padding-left:34%'>Time conflict detected.</p>";
     }
 
     # if no showtime found, inster it
