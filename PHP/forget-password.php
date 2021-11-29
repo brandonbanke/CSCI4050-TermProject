@@ -1,5 +1,6 @@
 <?php
     require("../PHP/database.php");
+    
 
     $inputEmail = filter_input(INPUT_POST, 'input_email');
 
@@ -18,22 +19,27 @@
         
     } else {
         foreach($infoEmail as $info) {
-        $pass = $info['pass'];
-        
+            $pass = $info['pass'];
         }
 
-    
+        require("../PHP/mail-setup.php");
         # EMAIL #
         $subject = 'CBS Forgot Password';
         $message = '<p>This is an email for forget password to: ' .$inputEmail .'</p>';
-        #$message .= '<p>Password: ' .$pass .'</p>';
         $message .= '<p> click here to reset your password: <a href=\'http://localhost/CSCI4050-TermProject/HTML/change-forget-password.php\'>Here</a></p>';
-        $headers = "From: cbsmailserver9@gmail.com\r\n";
-        $headers .= "Reply To: cbsmailserver9@gmail.com\r\n";
-        $headers .= "Content-type: text/html\r\n";
-        mail($inputEmail, $subject, $message, $headers);
-    
-        
+
+        try {
+            $mail->addAddress($inputEmail, '');    // email of user
+            $mail->isHTML(TRUE);
+            $mail->Subject = $subject;
+            $mail->Body = $message;
+            $mail->Send();
+
+        } 
+        catch (Exception $e) {
+            #continue;
+            echo"";
+        }
     }
     include("../HTML/login.php");
 ?>

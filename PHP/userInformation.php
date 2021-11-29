@@ -1,6 +1,7 @@
 <?php
 
 require("database.php");
+require("../PHP/mail-setup.php");
 
 $query0 = "USE cinema_booking";
 $db->exec($query0);
@@ -88,10 +89,18 @@ $insertinfo->closeCursor();
 $subject = 'CBS Email Confirmation';
 $message = '<p>This is an email confirmation for: ' . $fName . ' ' . $lName . '</p>';
 $message .= '</P><p>username: ' . $userIdentification . '</p>';
-$headers = "From: cbsmailserver9@gmail.com\r\n";
-$headers .= "Reply To: cbsmailserver9@gmail.com\r\n";
-$headers .= "Content-type: text/html\r\n";
-mail($userEmail, $subject, $message, $headers);
+
+try {
+    $mail->addAddress($userEmail, $fName); # email of user
+    $mail->isHTML(TRUE);
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+    $mail->Send();
+} 
+catch (Exception $e) {
+    echo "";
+}
+
 
 include("../HTML/registration-confirmation.html")
 

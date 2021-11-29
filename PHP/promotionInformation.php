@@ -3,6 +3,7 @@
 require("database.php");
 require("getCustomer.php");
 require("getPromotion.php");
+require("../PHP/mail-setup.php");
 
 $query0 = "USE cinema_booking";
 $db->exec($query0);
@@ -41,16 +42,24 @@ $emailInfo = $x->fetchAll();
 
 # EMAIL PROMOTION #
 foreach ($emailInfo as $info) {
+    $inputEmail = $info['email'];
     $subject = 'New Promotion';
     $message = '<p>Dear' .$info['firstName']. ',</p>';
     $message .= '<p>We just added a new promotion. The code is: ' .$promoCode. '</p>';
     $message .= '<p>The name of the promotion is ' .$name. ' and here is the description:</p>';
     $message .= '<p>' .$description. '.</p>';
-    
-    $headers = "From: cbsmailserver9@gmail.com\r\n";
-    $headers .= "Reply To: cbsmailserver9@gmail.com\r\n";
-    $headers .= "Content-type: text/html\r\n";
-    mail($info['email'], $subject, $message, $headers);
+
+    try {
+        $mail->addAddress($inputEmail, $info['firstName']);    // email of user
+        $mail->isHTML(TRUE);
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->Send();
+    } 
+    catch (Exception $e) {
+        continue;
+    }
+
 }
 
 
