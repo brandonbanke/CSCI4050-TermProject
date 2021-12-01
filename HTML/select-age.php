@@ -30,43 +30,50 @@
                     var seniorCount = 0;
                     function addAdult(){
                         adultCount++;
-                        document.getElementById('displayAdult').innerHTML = adultCount;
+                        div = document.getElementById('displayAdult');
+                        div.innerHTML = '<p class="text">'+adultCount+'</p>'
                     }
                     function subAdult(){
                         if (adultCount != 0) {
                             adultCount--;
                         }
-                        document.getElementById('displayAdult').innerHTML = adultCount;
+                        div = document.getElementById('displayAdult');
+                        div.innerHTML = '<p class="text">'+adultCount+'</p>'
                     }
                     function addChild(){
                         childCount++;
-                        document.getElementById('displayChild').innerHTML = childCount;
+                        div = document.getElementById('displayChild');
+                        div.innerHTML = '<p class="text">'+childCount+'</p>'
                     }
                     function subChild(){
                         if (childCount != 0) {
                             childCount--;
                         }
-                        document.getElementById('displayChild').innerHTML = childCount;
+                        div = document.getElementById('displayChild');
+                        div.innerHTML = '<p class="text">'+childCount+'</p>'
                     }
                     function addSenior(){
                         seniorCount++;
-                        document.getElementById('displaySenior').innerHTML = seniorCount;
+                        div = document.getElementById('displaySenior');
+                        div.innerHTML = '<p class="text">'+seniorCount+'</p>'
                     }
                     function subSenior(){
                         if (seniorCount != 0) {
                             seniorCount--;
                         }
-                        document.getElementById('displaySenior').innerHTML = seniorCount;
+                        div = document.getElementById('displaySenior');
+                        div.innerHTML = '<p class="text">'+seniorCount+'</p>'
                     }
                     
                 </script>
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subAdult()">-</button> &emsp;Adult&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addAdult()">+</button></h3> 
-                <div id="displayAdult"><script type="text/javascript">document.write('<p>' + adultCount + '</p>');</script></div>
+                <div id="displayAdult"><p> 0</p></div>
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subChild()">-</button> &emsp;Child&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addChild()">+</button></h3> 
-                <div id="displayChild"><script type="text/javascript">document.write('<p>' + childCount + '</p>');</script></div>
+                <div id="displayChild"><p>0</p></div>
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subSenior()">-</button> &emsp;Senior&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addSenior()">+</button></h3> 
-                <div id="displaySenior"><script type="text/javascript">document.write('<p>' + seniorCount + '</p>');</script></div>
+                <div id="displaySenior"><p>0</p></div>
             </div>
+            <p class="text"> test</p>
         </main>
         <footer>
             <a href="select-seat.html">Continue</a>

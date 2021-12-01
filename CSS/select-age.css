@@ -52,3 +52,9 @@ footer a {
 	font-family: 'Roboto', sans-serif;
     font-size: 30pt;
 }
+
+.text {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #b8b8b8;
+}
