@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/nav-bar.css">
     <link rel="stylesheet" href="../CSS/select-age.css">
+    <script src="../JS/selectingSeats.js"></script>
 </head>
     <body>
         <header> 
@@ -29,6 +30,7 @@
             </div>
             <h1>Number of Tickets</h1>
             <div class="tickets">
+            <!--
                 <script type="text/javascript">
                     var adultCount = 0;
                     var childCount = 0;
@@ -73,6 +75,7 @@
                         return adultCount + childCount + seniorCount;
                     }
                 </script>
+                -->
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subAdult()">-</button> &emsp;Adult&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addAdult()">+</button></h3> 
                 <div id="displayAdult"><p> 0</p></div>
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subChild()">-</button> &emsp;Child&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addChild()">+</button></h3> 
@@ -86,7 +89,7 @@
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
                 
-                <input type="submit" value="continue" class="input" >
+                <input type="submit" value="continue" onclick="ticketNum()" class="input" >
                 <!-- <a href="select-seat.php">Continue</a> -->
             </form>
         </footer>
