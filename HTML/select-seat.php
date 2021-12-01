@@ -24,23 +24,28 @@
             </form>  
         </div>
         <h1>Select Seats Now</h1>
+        <div id="seats" style="padding-left: 35%;"></div>
         <!-- insert arrays of seats   -->
     <script>
             function seats() {
                 var seatId = 0;
+                var div = document.getElementById("seats");
                 for(i=0; i < 7; i++) {
                     for (n=0; n < 15; n++) {
+                        
                         let btn = document.createElement("button");
                         btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
                         btn.style.border = "none";
-                        btn.onclick = "window.location.href = \"order-summary.html\";"
-                        document.body.appendChild(btn);
+                        btn.onclick = "window.location.href = \"order-summary.php\";"
+                        div.appendChild(btn);
+                        //document.body.appendChild(btn);
                         // let num = document.createTextNode(seatId);
                         // document.body.appendChild(num);
                         seatId++;
                         if (n == 14) {
                             let br = document.createElement("br");
-                            document.body.appendChild(br);
+                            div.appendChild(br);
+                            //document.body.appendChild(br);
                         }
                     }
                 }
