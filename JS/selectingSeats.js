@@ -19,8 +19,10 @@ function myFunc() {
                     checkboxes[i].disabled = true;
                 }
             }
-        } else {
-            checkboxes[i].disabled = false;
+        } else if (counter < 4) {
+            for (let i = 0; i < 105; i++) {
+                checkboxes[i].disabled = false;
+            }
         }
     }
 }
