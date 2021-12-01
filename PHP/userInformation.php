@@ -102,6 +102,6 @@ catch (Exception $e) {
 }
 
 
-include("../HTML/registration-confirmation.html")
+include("../HTML/registration-confirmation.php")
 
 ?>
