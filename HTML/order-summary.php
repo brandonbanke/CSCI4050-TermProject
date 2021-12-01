@@ -1,6 +1,10 @@
+<?php
+        $showMovieId = $_POST['movieId'];
+        $showInfo = $_POST['showId'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title> Cinema E Booking Website! </title>
@@ -71,11 +75,17 @@
                     </tr>
                 </tbody>
             </table>
-            <div id="continue">
-                <a href="../PHP/checkoutProxy.php"><button type="button" class="continueButton">Continue</button></a>
-            </div>
+            
         </div>
-
+    </main>
+    
+    <footer>
+    <form action="../PHP/checkoutProxy.php" method="POST" id="continue">
+        <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+        <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+        <input class="continue" type="submit" value="Continue">
+        </form>
+    </footer>
 </body>
 
 </html>

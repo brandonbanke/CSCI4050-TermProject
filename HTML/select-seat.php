@@ -1,3 +1,8 @@
+<?php
+        $showMovieId = $_POST['movieId'];
+        $showInfo = $_POST['showId'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +56,14 @@
                 }
             }       
     </script>
-    <input class="continue" type="button" onclick="window.location.href='../HTML/order-summary.php';" value="Continue">
+    
     </main>
+    <footer>
+        <form action="order-summary.php" method="POST">
+            <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+            <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+            <input class="continue" type="submit" value="Continue">
+        </form>
+    </footer>
 </body>
 </html>

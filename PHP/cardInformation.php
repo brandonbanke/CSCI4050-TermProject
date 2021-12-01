@@ -6,21 +6,6 @@ require("getUserInfo.php");
 $query0 = "USE cinema_booking";
 $db->exec($query0);
 
-
-$query1 = "CREATE TABLE IF NOT EXISTS payment_card
-(
-billingAddress VARCHAR(255),
-expirationDate VARCHAR(255),
-cardNumber VARCHAR(255) NOT NULL,
-cvv INT(11) NOT NULL,
-fullName VARCHAR(255) NOT NULL,
-cardId INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-#userId VARCHAR(255) NOT NULL,
-#FOREIGN KEY (userId) REFERENCES user(userId)
-)
-";
-#$db->exec($query1);
-
 $billingAdd = filter_input(INPUT_POST, 'cBillingAddress');
 $expDate = filter_input(INPUT_POST, 'cExpDate');
 $cardNum = filter_input(INPUT_POST, 'cCardNum');
@@ -46,6 +31,7 @@ $insertinfo->execute();
 $insertinfo->closeCursor();
 
 
-include("../HTML/edit-card.php");
+if (isset($_POST['addCard'])) header("Location: ../HTML/checkout.php");
+else include("../HTML/edit-card.php");
 
 ?>

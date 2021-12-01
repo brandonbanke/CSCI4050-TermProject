@@ -1,4 +1,7 @@
 <?php 
+
+    $showMovieId = $_POST['movieId'];
+    $showInfo = $_POST['showId'];
     require("../PHP/getCustomer.php");
     $isOn = false;
     foreach($custInfs as $info) {
@@ -9,6 +12,6 @@
     }
     
     // if user is not on, go to login, else checkout
-    if ($isOn) header("Location: ../HTML/checkout.php");
-    else header("Location: ../HTML/login-checkout.php");
+    if ($isOn) include("../HTML/checkout.php");
+    else include("../HTML/login-checkout.php");
 ?>

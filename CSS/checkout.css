@@ -4,7 +4,7 @@
 	padding: 0;
     background-color: #24272B;
 }
-p {
+.main-container.p {
 	color: #d6d5d6;
 	font-size: 20pt;
     font-family: 'Bebas Neue', cursive;
@@ -42,15 +42,11 @@ h4 {
     font-family: 'Bebas Neue', cursive;
 }
 
-input {
-    font-size: 15pt;
-}
-
-
 .main-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .cancelButton {
@@ -69,8 +65,6 @@ input {
     text-align: center;
 }
 
-
-
 .purchaseButton {
     color: white;
     text-decoration: none;
@@ -84,4 +78,21 @@ input {
 }
 
 
+label {
+    font-family: 'Roboto', sans-serif;
+    color:#d6d5d6;
+    text-align: right;
+    float: center;
+    width: 7em;
+    text-align: right;
+    margin-left: -1em;
+}
+
+input {
+    width: 15em;
+    margin-left: 0.75em;
+    border: 2px solid #B7B7B7;
+	background-color: #d6d5d6;
+    
+}
 

@@ -51,15 +51,19 @@
         <h3 style="text-align: center;"> SELECT SHOWTIME</h3>
 
         <div class="button-section">
+        <form action="select-age.php" method="POST"> 
+        <input type="hidden" value="<?php echo $showMovieId; ?>" name="movieId">
             <?php 
             if ($rowCount == 0) echo"<p>No showtimes yet!</p>";
             foreach ($specificShowInfs as $info) :?>
-                <a href="../HTML/select-age.html"><button type='button' class="dateButtons" id="today" onClick='window.location="#1"'>
-                    <?php echo $info['date'] ." ". $info['time'];?>
-                </button></a>
+                <input type="hidden" value="<?php echo $info['showId']?>" name="showInfoId"> 
+                <button type='submit' class="dateButtons">
+                <?php echo $info['date'] ." ". $info['time'];?>
+                </button>
+                
             <?php endforeach; ?>
         </div>
-
+        </form>
         
     </main>
 

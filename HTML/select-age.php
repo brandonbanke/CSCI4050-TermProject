@@ -1,3 +1,8 @@
+<?php 
+    $showMovieId = $_POST['movieId'];
+    $showInfo = $_POST['showInfoId'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,8 +81,14 @@
                 <div id="displaySenior"><p>0</p></div>
             </div>
         </main>
-        <footer>
-            <a href="select-seat.html">Continue</a>
+        <footer style="text-align: center;">
+            <form action="select-seat.php" method="POST">
+                <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+                <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+                
+                <input type="submit" value="continue" class="input" >
+                <!-- <a href="select-seat.php">Continue</a> -->
+            </form>
         </footer>
     </body>
 </html>
