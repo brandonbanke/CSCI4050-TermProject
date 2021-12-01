@@ -27,6 +27,7 @@
         <!-- insert arrays of seats   -->
     <script>
             function seats() {
+                var seatId = 0;
                 for(i=0; i < 7; i++) {
                     for (n=0; n < 15; n++) {
                         let btn = document.createElement("button");
@@ -34,6 +35,9 @@
                         btn.style.border = "none";
                         btn.onclick = "window.location.href = \"order-summary.html\";"
                         document.body.appendChild(btn);
+                        // let num = document.createTextNode(seatId);
+                        // document.body.appendChild(num);
+                        seatId++;
                         if (n == 14) {
                             let br = document.createElement("br");
                             document.body.appendChild(br);
@@ -42,7 +46,7 @@
                 }
             }       
     </script>
-    <input class="continue" type="button" onclick="window.location.href='../HTML/order-summary.html';" value="Continue">
+    <input class="continue" type="button" onclick="window.location.href='../HTML/order-summary.php';" value="Continue">
     </main>
 </body>
 </html>
