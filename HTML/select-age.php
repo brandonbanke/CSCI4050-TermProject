@@ -83,6 +83,22 @@
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subSenior()">-</button> &emsp;Senior&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addSenior()">+</button></h3> 
                 <div id="displaySenior"><p>0</p></div>
             </div>
+
+            <!-- <form action="../PHP/ticketInformation.php" method="POST">
+            
+                    <label>Category</label>
+                    <input class="modInput" type="text" name="showtime" >
+                    
+                    <label>Duration</plabel>
+                    <input class="modInput" type="text" name="age" >
+                    
+                    <label>Cast</label>
+                    <input class="modInput" type="text" name="ticketNum" >
+                    
+                    
+              
+            </form> -->
+            
         </main>
         <footer style="text-align: center;">
             <form action="select-seat.php" method="POST">
