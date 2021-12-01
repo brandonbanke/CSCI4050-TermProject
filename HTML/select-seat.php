@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/nav-bar.css">
     <link rel="stylesheet" href="../CSS/select-seat.css">
+    <script src="../JS/selectingSeats.js"></script>
 </head>
 
 <body onload="seats();">
@@ -34,9 +35,8 @@
                     for (n=0; n < 15; n++) {
                         
                         let btn = document.createElement("button");
-                        btn.innerHTML = "<img src=\"../Assets/Avalible-Seat.png\" alt=\"Avalible-Seat\">";
+                        btn.innerHTML = "<label class=\"container\"><input class=\"checkboxes\"type=\"checkbox\" id=seatId onclick=myFunc() name=\"seat\"><span class=\"checkmark\"></span></label>";
                         btn.style.border = "none";
-                        btn.onclick = "window.location.href = \"order-summary.php\";"
                         div.appendChild(btn);
                         //document.body.appendChild(btn);
                         // let num = document.createTextNode(seatId);

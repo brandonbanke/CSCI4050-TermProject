@@ -64,7 +64,9 @@
                         div = document.getElementById('displaySenior');
                         div.innerHTML = '<p class="text">'+seniorCount+'</p>'
                     }
-                    
+                    function getTicketNum() {
+                        return adultCount + childCount + seniorCount;
+                    }
                 </script>
                 <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subAdult()">-</button> &emsp;Adult&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addAdult()">+</button></h3> 
                 <div id="displayAdult"><p> 0</p></div>
