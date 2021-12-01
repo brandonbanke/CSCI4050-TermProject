@@ -1,11 +1,12 @@
+<?php require("../PHP/getCardInfo.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title> Cinema E Booking Website! </title>
-    <link rel="shortcut icon" href="">
-    <link rel="stylesheet" href="../CSS/nav-bar.css">
     <link rel="stylesheet" href="../CSS/checkout.css">
+    <link rel="stylesheet" href="../CSS/nav-bar.css">
 </head>
 <body>
     <header> 
@@ -22,9 +23,10 @@
             <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
         </form>  
     </div>
+    <h1>Checkout</h1>
     <div class="main-container">
     <div class="checkout">
-        <h1>Checkout</h1>
+        <h2>New card</h2>
         <form name="checkoutForm" action="" method="POST">
             <h4>Contact Info</h4>
             <input type="text" id="email" placeholder="Email">
@@ -49,14 +51,28 @@
             <input type="text" id="expYear" placeholder="Exp. Year">
             <input type="text" id="zip" placeholder="Zip Code">
         </form>
-        <div id="btn">
-            <a href="home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
-        
-            <a href="order-confirmation.html"><button type="button" class="purchaseButton">Purchase Tickets</button></a>
+    </div>
+        <div>
+            <p>this</p>
+            <h2 class="p">Select cards</h2>
+            <?php 
+                if ($cardCount > 0) {
+                    $counter = 1;
+                    foreach($paymentCards as $card) {
+                        echo "<p style='color:white;'>". $counter. " ". $card['cardNumber']. "</p>"; #echo a checkbox 
+                        $counter++;
+                    } 
+                } else {
+                    echo "<p style='color:white;'> no cards saved </p>";
+                }
+                
+            ?>
         </div>
     </div>
-   
-</div>
-    </main>    
+<div id="btn">
+            <a href="home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
+            <a href="order-confirmation.php"><button type="button" class="purchaseButton">Purchase Tickets</button></a>
+        </div>
+</main>    
 </body>
 </html>

@@ -32,34 +32,26 @@
             include("../HTML/login.php");
             echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Account is blocked. Cannot login<h5> ";
         } else if ($password == $pass) {
-            
-            if($adminVal == 0){
-                $setactive = "UPDATE user
-                                SET active=1
-                                WHERE userId=:user_iden;";
-                $loginstatement2 = $db->prepare($setactive);
-                $loginstatement2->bindValue(':user_iden', $uId);
-                $loginstatement2->execute();
-                include("../HTML/home.php");
-            }
-            else if($adminVal == 1) {
-                $setactive = "UPDATE user
-                                SET active=1
-                                WHERE userId=:user_iden;";
-                $loginstatement2 = $db->prepare($setactive);
-                $loginstatement2->bindValue(':user_iden', $uId);
-                $loginstatement2->execute();
-                include("../HTML/home.php");
-            }
-            
-        
+
+            $setactive = "UPDATE user
+                            SET active=1
+                            WHERE userId=:user_iden;";
+            $loginstatement2 = $db->prepare($setactive);
+            $loginstatement2->bindValue(':user_iden', $uId);
+            $loginstatement2->execute();
+            include("../HTML/home.php");
+
+            if (isset($_POST['checkout'])) header("Location: ../HTML/checkout.php");
         } else {
-            include("../HTML/login.php");
+            if (isset($_POST['checkout'])) header("Location: ../HTML/login-checkout.php");
+            else include("../HTML/login.php");
             echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
         }
     } else {
-        include("../HTML/login.php");
+        if (isset($_POST['checkout'])) header("Location: ../HTML/login-checkout.php");
+        else include("../HTML/login.php");
         echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
     }
 
+    
 ?>

@@ -72,7 +72,7 @@
                 </tbody>
             </table>
             <div id="continue">
-                <a href="checkout.html"><button type="button" class="continueButton">Continue</button></a>
+                <a href="../PHP/checkoutProxy.php"><button type="button" class="continueButton">Continue</button></a>
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 <?php
     require("../PHP/getUserInfo.php");
+    require("../PHP/getCustomer.php");
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@
             <!-- <input  type="hidden" name='uAdm' value= "<?php #echo $userInf['isAdmin']; ?>"><br><br> -->
             <!-- <?php #echo $userInf['isAdmin']; ?> -->
             <?php endforeach ?>
-            <a href="../HTML/home.php"><input type='submit' class='loginButton' type='submit' value='Submit'> </input></a>
+            <a href="../HTML/checkout.php"><input type='submit' class='loginButton' type='submit' value='Submit' name="checkout"> </input></a>
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
             <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
             <p id="userValidity"> User is invalid</p>
@@ -46,6 +47,5 @@
             <p id="loginValidity"> User/Password do not match our records</p>
     </form>
     </main>
- 
 </body>
 </html>

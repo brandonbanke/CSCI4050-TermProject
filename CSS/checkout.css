@@ -4,6 +4,12 @@
 	padding: 0;
     background-color: #24272B;
 }
+p {
+	color: #d6d5d6;
+	font-size: 20pt;
+    font-family: 'Bebas Neue', cursive;
+}
+
 main {
 	padding: 1rem 3%;
 }
