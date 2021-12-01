@@ -8,7 +8,14 @@
 
 
     $query = "INSERT INTO booking (ticketNumber, promotionId, cardId, userId, movieId)
-    VALUE ()";
+    VALUE (:ticketNumber, :promotionId, :cardId, :userId, :movieId)";   
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':cardId', $card);
+    $statement->bindValue(':userId',$userId);
+    $statement->bindValue(':movieId',$movieId);
+    $statement->execute();
+    $statement->closeCursor();
     
 
 ?>
