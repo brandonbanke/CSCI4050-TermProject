@@ -21,7 +21,7 @@
         <div id="nav-menu">
             <ul class="one">
                 <li><a href="../HTML/home.php"> Home </a></li>
-                <li><a href="../HTML/select-movie.html"> Find Movie </a></li>
+                <li><a href="../HTML/select-movie.php"> Find Movie </a></li>
                 <li><a href="../HTML/account.php"> Account </a></li>
             </ul>
             <form id="search-form" action="search.php" method="GET">
@@ -46,7 +46,7 @@
                         <td>
                             <p>Seat</p>
                         </td>
-                        <td><a href="select-seat.html"><button type="button" name="edit"
+                        <td><a href="select-seat.php"><button type="button" name="edit"
                                     class="editbtn">Edit</button></a></td>
                     </tr>
                     <tr>
@@ -83,7 +83,7 @@
     <form action="../PHP/checkoutProxy.php" method="POST" id="continue">
         <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
         <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
-        <input class="continue" type="submit" value="Continue">
+        <input class="continueButton" type="submit" value="Continue">
         </form>
     </footer>
 </body>
