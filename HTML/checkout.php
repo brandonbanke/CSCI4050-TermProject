@@ -111,7 +111,7 @@
                 
             ?>
             <div id="btn">
-                <a href="home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
+                <a href="../HTML/home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
                 <input type="submit" class="purchaseButton" value="purchase tickets" name="getTickets">
                 </form>
             </div>

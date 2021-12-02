@@ -16,6 +16,7 @@
     $statement->bindValue(':movieId',$movieId);
     $statement->execute();
     $statement->closeCursor();
-    
+
+    include("../HTML/booking-confirmation.php");
 
 ?>
