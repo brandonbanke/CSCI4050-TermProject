@@ -84,7 +84,9 @@
                 <div id="displaySenior"><p>0</p></div>
             </div>
 
-            <!-- <form action="../PHP/ticketInformation.php" method="POST">
+            <p id="test"></p>
+
+            <form action="../PHP/ticketInformation.php" method="POST">
             
                     <label>Category</label>
                     <input class="modInput" type="text" name="showtime" >
@@ -95,13 +97,13 @@
                     <label>Cast</label>
                     <input class="modInput" type="text" name="ticketNum" >
                     
-                    
+                    <a href="../HTML/select-age.php"><input type='submit' class='bookMovie' type='submit' value='Add ticket'> </input></a>
               
-            </form> -->
+            </form>
             
         </main>
         <footer style="text-align: center;">
-            <form action="select-seat.php" method="POST">
+            <form action="../PHP/ticketInformation.php" method="POST">
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
                 

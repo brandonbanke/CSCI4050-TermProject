@@ -52,6 +52,12 @@ function ticketNum() {
     localStorage.setItem("ticketNumber",ticketNumber);
 }
 
+function getAdultCount() {
+    sessionStorage.setItem("adultNumber",adultCount);
+    var x = sessionStorage.getItem("adultNumber");
+    document.getElementById("test").innerHTML = x;
+}
+
 
 function myFunc() {
     var numberOfTickets = localStorage.getItem("ticketNumber");

@@ -4,13 +4,12 @@ require("../Modal/database.php");
 
 $query0 = "USE cinema_booking";
 $db->exec($query0);
-
 $query1 = "CREATE TABLE IF NOT EXISTS ticket
 (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     showTime VARCHAR(255) DEFAULT NULL,
     AgeType enum('adult','senior','child') DEFAULT NULL,
-    ticketNumber INT(11) NOT NULL,  
+    ticketNumber INT(11) NOT NULL
 )";
 $db->exec($query1);
 
@@ -35,8 +34,8 @@ $db->exec($query1);
     $insertinfo->closeCursor();
 
     
-include("../HTML/select-age.php")
 
+    include("../HTML/select-age.php");
 
 
 

@@ -55,7 +55,7 @@
             <label class='mand'>*</label><br><br><br>
             <input id="check" type="checkbox" name="uPromo" value="1">
             <label id="checkLabel" for="uPromo"> Recieve Promotions? </label><br><br><br>
-            <a href="registration-confirmation.html"><input type='submit' class='bookMovie' type='submit' value='Create Account'> </input></a>
+            <a href="../HTML/registration-confirmation.php"><input type='submit' class='bookMovie' type='submit' value='Create Account'> </input></a>
         </fieldset>
         </form>
     </main>
