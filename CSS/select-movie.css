@@ -36,35 +36,34 @@ p {
 }
 
 #content {
-	display: block;
-	width: 100%;
-	/* justify-content: center; */
+
+	text-align: center;
+    overflow-y: auto;
+   	
 }
 
+.disp {
+	display: flex;
+    
+   
+}
 
+/* .trailerList {
 
-.trailerList {
-	display: block;
-	/* text-align: center; */
-	/* align-items: center; */
-    overflow-y: scroll;
+	text-align: center;
+    overflow-y: auto;
 	
-    padding-bottom: .75rem;
-}
+    margin-top: 2rem;
+    width: 70%
+} */
 
 .info {
-
-	display: flex;
-	flex-direction:column;
+	
 	justify-content: right;
-	
-	
 	
 }
 
 .trailer {
-	/* display: table; */
-	
 	padding: 10px;
 }
 

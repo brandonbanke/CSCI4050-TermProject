@@ -56,7 +56,7 @@
         <div id= "content">
       
         <section class="trailerList">
-            <div style="display: flex; padding-top:47px;">
+            <div class="disp" style="padding-top:47px;">
             <?php 
                 foreach ($information as $movieInf) {
                     

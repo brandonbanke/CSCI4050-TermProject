@@ -61,7 +61,7 @@
         <div id= "content">
       
         <section class="trailerList">
-            <div style="display: flex;">
+            <div class="disp">
                 <?php 
                      foreach ($movieInfs as $movieInf) {
                             echo "<div class = \"trailer\">"; 
