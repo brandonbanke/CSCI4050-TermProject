@@ -29,63 +29,9 @@
                 </form>  
             </div>
             <h1>Number of Tickets</h1>
-            <div class="tickets">
-            <!--
-                <script type="text/javascript">
-                    var adultCount = 0;
-                    var childCount = 0;
-                    var seniorCount = 0;
-                    function addAdult(){
-                        adultCount++;
-                        div = document.getElementById('displayAdult');
-                        div.innerHTML = '<p class="text">'+adultCount+'</p>'
-                    }
-                    function subAdult(){
-                        if (adultCount != 0) {
-                            adultCount--;
-                        }
-                        div = document.getElementById('displayAdult');
-                        div.innerHTML = '<p class="text">'+adultCount+'</p>'
-                    }
-                    function addChild(){
-                        childCount++;
-                        div = document.getElementById('displayChild');
-                        div.innerHTML = '<p class="text">'+childCount+'</p>'
-                    }
-                    function subChild(){
-                        if (childCount != 0) {
-                            childCount--;
-                        }
-                        div = document.getElementById('displayChild');
-                        div.innerHTML = '<p class="text">'+childCount+'</p>'
-                    }
-                    function addSenior(){
-                        seniorCount++;
-                        div = document.getElementById('displaySenior');
-                        div.innerHTML = '<p class="text">'+seniorCount+'</p>'
-                    }
-                    function subSenior(){
-                        if (seniorCount != 0) {
-                            seniorCount--;
-                        }
-                        div = document.getElementById('displaySenior');
-                        div.innerHTML = '<p class="text">'+seniorCount+'</p>'
-                    }
-                    function getTicketNum() {
-                        return adultCount + childCount + seniorCount;
-                    }
-                </script>
-                -->
-                <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subAdult()">-</button> &emsp;Adult&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addAdult()">+</button></h3> 
-                <div id="displayAdult"><p> 0</p></div>
-                <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subChild()">-</button> &emsp;Child&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addChild()">+</button></h3> 
-                <div id="displayChild"><p>0</p></div>
-                <h3> <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="subSenior()">-</button> &emsp;Senior&emsp; <button style = "color: #e7e7e7; margin-top: 2rem; font-family: 'Roboto', sans-serif; font-size: 30pt; border: none;" onclick="addSenior()">+</button></h3> 
-                <div id="displaySenior"><p>0</p></div>
-            </div>
 
             <p id="test"></p>
-
+        <!--
             <form action="../PHP/ticketInformation.php" method="POST">
             
                     <label>Category</label>
@@ -100,13 +46,21 @@
                     <a href="../HTML/select-age.php"><input type='submit' class='bookMovie' type='submit' value='Add ticket'> </input></a>
               
             </form>
+            -->
             
         </main>
         <footer style="text-align: center;">
             <form action="../PHP/ticketInformation.php" method="POST">
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
-                
+                <label>Ticket Num</label>
+                <input type="text" name='ticketNum'>
+                <label>Adult</label>
+                <input type="text" name='numAdult1'>
+                <label>Child</label>
+                <input type="text" name='numChild1'>
+                <label>Senior</label>
+                <input type="text" name='numSenior1'>
                 <input type="submit" value="continue" onclick="ticketNum()" class="input" >
                 <!-- <a href="select-seat.php">Continue</a> -->
             </form>

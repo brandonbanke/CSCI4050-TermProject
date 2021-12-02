@@ -1,6 +1,8 @@
 <?php
+        require("../PHP/getTicketInfo.php"); 
         $showMovieId = $_POST['movieId'];
-        $showInfo = $_POST['showId'];
+        $showInfo = $_POST['showId'];  
+    
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +34,11 @@
         <h1>Select Seats Now</h1>
         <div id="seats" style="padding-left: 35%;"></div>
         <!-- insert arrays of seats   -->
+    <?php
+        foreach($ticketInfs as $ticketInfo) {
+            $ticketTotal = $ticketInfo['numAdult'] + $ticketInfo['numChild'] + $ticketInfo['numSenior'];
+        }
+    ?>
     <script>
             function seats() {
                 var seatId = 0;
@@ -54,12 +61,35 @@
                         }
                     }
                 }
-            }       
+            } 
+            
+            function myFunc() {
+                var numberOfTickets = "<?php echo $ticketTotal; ?>";
+                var counter = 0;
+                var checkboxes = document.getElementsByName('seat');
+                for (var checkbox of checkboxes)
+                {
+                    if (checkbox.checked) {
+                        counter++;
+                    }
+                    if (counter >= numberOfTickets) {
+                        for (let i = 0; i < 105; i++) {
+                            if (!checkboxes[i].checked) {
+                                checkboxes[i].disabled = true;
+                            }
+                        }
+                    } else if (counter < numberOfTickets) {
+                        for (let i = 0; i < 105; i++) {
+                            checkboxes[i].disabled = false;
+                        }
+                    }
+                }
+            }
     </script>
-    
+
     </main>
     <footer>
-        <form action="order-summary.php" method="POST">
+        <form action="../HTML/order-summary.php" method="POST">
             <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
             <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
             <input class="continue" type="submit" value="Continue">

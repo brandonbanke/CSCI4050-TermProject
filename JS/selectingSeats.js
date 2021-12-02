@@ -57,27 +57,3 @@ function getAdultCount() {
     var x = sessionStorage.getItem("adultNumber");
     document.getElementById("test").innerHTML = x;
 }
-
-
-function myFunc() {
-    var numberOfTickets = localStorage.getItem("ticketNumber");
-    var counter = 0;
-    var checkboxes = document.getElementsByName('seat');
-    for (var checkbox of checkboxes)
-    {
-        if (checkbox.checked) {
-            counter++;
-        }
-        if (counter >= numberOfTickets) {
-            for (let i = 0; i < 105; i++) {
-                if (!checkboxes[i].checked) {
-                    checkboxes[i].disabled = true;
-                }
-            }
-        } else if (counter < numberOfTickets) {
-            for (let i = 0; i < 105; i++) {
-                checkboxes[i].disabled = false;
-            }
-        }
-    }
-}

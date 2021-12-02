@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 05:34 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost
+-- Generation Time: Dec 02, 2021 at 06:30 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -107,6 +107,14 @@ CREATE TABLE `payment_card` (
   `userId` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `payment_card`
+--
+
+INSERT INTO `payment_card` (`billingAddress`, `expirationDate`, `cardNumber`, `cvv`, `fullName`, `cardId`, `userId`) VALUES
+('', '', 0x3d4c27374091779abb58a50b7d3f6e39, 0x3d4c27374091779abb58a50b7d3f6e39, '', 29, ''),
+('ffff', '10/23', 0xb0d4f4c750172f6816cd81912b04925a, 0x296a40b94fc65430ab558014f30c0eb1, 'ho', 30, 'ho');
+
 -- --------------------------------------------------------
 
 --
@@ -185,10 +193,19 @@ CREATE TABLE `theater` (
 
 CREATE TABLE `ticket` (
   `id` int(11) NOT NULL,
-  `showTime` varchar(255) DEFAULT NULL,
-  `AgeType` enum('adult','senior','child') DEFAULT NULL,
-  `ticketNumber` int(11) NOT NULL
+  `ticketNumber` int(11) NOT NULL,
+  `numAdult` int(11) DEFAULT NULL,
+  `numChild` int(11) DEFAULT NULL,
+  `numSenior` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`id`, `ticketNumber`, `numAdult`, `numChild`, `numSenior`) VALUES
+(23, 1, 1, 1, 1),
+(24, 2, 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -213,7 +230,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`, `isBlocked`) VALUES
-('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 1, 0, 1, 0);
+('ho', 0xdca4199542abd27fec564dcbe8334371, 'ho', 'ho', 'holdenmax3@aol.com', 0, 0, 0, 0),
+('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 0, 0, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -230,7 +248,6 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`bookingNumber`),
-  ADD KEY `ticketNumber` (`ticketNumber`),
   ADD KEY `promotionId` (`promotionId`),
   ADD KEY `cardId` (`cardId`),
   ADD KEY `userId` (`userId`);
@@ -284,8 +301,7 @@ ALTER TABLE `theater`
 -- Indexes for table `ticket`
 --
 ALTER TABLE `ticket`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `ticketNumber` (`ticketNumber`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -307,7 +323,7 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
-  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `promotion`
@@ -331,7 +347,7 @@ ALTER TABLE `showroom`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
