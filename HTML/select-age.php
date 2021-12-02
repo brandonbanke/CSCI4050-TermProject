@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../CSS/select-age.css">
     <script src="../JS/selectingSeats.js"></script>
 </head>
-    <body>
+    <body onload="stylePage();">
         <header> 
             <h1 class = "title">Booking Website!</h1>
         </header>
@@ -50,18 +50,19 @@
             
         
         <div class="formAge">
-            <form action="../PHP/ticketInformation.php" method="POST" class="selectAge">
+            <form action="../PHP/ticketInformation.php" method="POST" class="selectAge" onsubmit="return isEmpty();">
                 
                 <label>Adult</label>
-                <input type="text" name='numAdult1'> <br><br>
+                <input type="text" name='numAdult1' id='inputAdult'> <br><br>
                 <label>Child</label>
-                <input type="text" name='numChild1'><br><br>
+                <input type="text" name='numChild1' id='inputChild'><br><br>
                 <label>Senior</label>
-                <input type="text" name='numSenior1'><br><br>
+                <input type="text" name='numSenior1' id='inputSenior'><br><br>
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
                 <input type="submit" value="continue" onclick="ticketNum()" class="input" >
-                <!-- <a href="select-seat.php">Continue</a> -->
+                <p id="inputZeroValidity"> All ticket numbers cannot be 0</p>
+                <p id="inputValidity"> Missing ticket number</p>
             </form>
         </div>
         </main>

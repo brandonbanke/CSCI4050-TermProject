@@ -57,3 +57,28 @@ function getAdultCount() {
     var x = sessionStorage.getItem("adultNumber");
     document.getElementById("test").innerHTML = x;
 }
+
+function stylePage() {
+    document.getElementById("inputZeroValidity").style.display = "none";
+    document.getElementById("inputValidity").style.display = "none";
+}
+
+function isEmpty() {
+    var inA = document.getElementById('inputAdult');
+    var inC = document.getElementById('inputChild');
+    var inS = document.getElementById('inputSenior');
+    if (inA.value == "") {
+        document.getElementById("inputValidity").style.display = "block";
+        return false;
+    } 
+    if (inC.value == "") {
+        document.getElementById("inputValidity").style.display = "block";
+        return false;
+    }
+    if (inS.value == "") {
+        document.getElementById("inputValidity").style.display = "block";
+        return false; 
+    } 
+}
+
+

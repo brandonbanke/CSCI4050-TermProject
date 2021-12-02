@@ -76,15 +76,18 @@
                         for (let i = 0; i < 105; i++) {
                             if (!checkboxes[i].checked) {
                                 checkboxes[i].disabled = true;
+                                document.getElementById("contButton").style.display = "block";
                             }
                         }
                     } else if (counter < numberOfTickets) {
                         for (let i = 0; i < 105; i++) {
                             checkboxes[i].disabled = false;
+                            document.getElementById("contButton").style.display = "none";
                         }
                     }
                 }
             }
+
     </script>
 
     </main>
@@ -92,7 +95,7 @@
         <form action="../HTML/order-summary.php" method="POST">
             <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
             <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
-            <input class="continue" type="submit" value="Continue">
+            <input style="display: none; float: right; margin-right: 3rem;"class="continue" type="submit" id="contButton" value="Continue">
         </form>
     </footer>
 </body>
