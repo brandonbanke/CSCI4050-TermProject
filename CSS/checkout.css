@@ -4,10 +4,14 @@
 	padding: 0;
     background-color: #24272B;
 }
-.main-container.p {
+.main-container.selectCard {
 	color: #d6d5d6;
 	font-size: 20pt;
     font-family: 'Bebas Neue', cursive;
+}
+
+.selectCard {
+    display: inline-block;
 }
 
 main {
@@ -29,6 +33,16 @@ main h2 {
 	font-family: 'Bebas Neue', cursive;
 	font-size: 30pt;
 }
+
+
+
+fieldset {
+    border: 0.75px solid #d6d5d6;
+    padding: 2rem;
+    display: block;
+    text-align: center;
+}
+
 
 select {
     color: #d6d5d6;
@@ -74,9 +88,23 @@ h4 {
     background-color: #D0CDD7;
     border-radius: 25px;
     padding: .75rem 1.5rem;
+    display: block;
+    
     
 }
 
+.submitBtn {
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem;
+    display: inline-block;
+    
+}
 
 label {
     font-family: 'Roboto', sans-serif;
@@ -86,6 +114,7 @@ label {
     width: 7em;
     text-align: right;
     margin-left: -1em;
+   display: inline-block;
 }
 
 input {

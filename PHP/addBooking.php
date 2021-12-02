@@ -42,6 +42,7 @@
     }
 
 
-    include("../HTML/booking-confirmation.php");
+    // include("../HTML/booking-confirmation.php");
+    include("../HTML/order-summary.php");
 
 ?>

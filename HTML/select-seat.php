@@ -92,7 +92,7 @@
 
     </main>
     <footer>
-        <form action="../HTML/order-summary.php" method="POST">
+        <form action="../HTML/order-total.php" method="POST">
             <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
             <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
             <input style="display: none; float: right; margin-right: 3rem;"class="continue" type="submit" id="contButton" value="Continue">

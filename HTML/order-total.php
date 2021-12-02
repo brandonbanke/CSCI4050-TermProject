@@ -1,5 +1,5 @@
 <?php
-        require("../PHP/getOrderSummary.php");
+   
         $showMovieId = $_POST['movieId'];
         $showInfo = $_POST['showId'];
 
@@ -32,26 +32,32 @@
         </div>
         <div class="content">
             <h1>Tickets</h1>
-              <?php
-                foreach ($summaryInfs as $summaryInf) {
-                    
-                }
-              ?>
+             
             <table>
                 <tbody>
-                    <tr>
-                        <td><p>Movie</p></td>
-                     
-                    </tr>
-                    <tr>
-                        <td><p>Showtime</p></td>
-                       
+                <tr>
+                        <td>
+                            <p>Adult Ticket</p>
+                        </td>
+                        <td>
+                            <p></p>
+                        </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Booking Number</p>
+                            <p>Child Ticket</p>
                         </td>
-                       
+                        <td>
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Senior Ticket</p>
+                        </td>
+                        <td>
+                            <p></p>
+                        </td>
                     </tr>
                     <tr>
                         <td>

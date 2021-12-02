@@ -54,9 +54,9 @@
             
             <?php
                 if ($cardCount < 3) {
-                    echo "<input type='submit' class='bookMovie' name='addCard' >";
+                    echo "<input type='submit' class='submitBtn' name='addCard' >";
                 } else {
-                    echo "<input type='submit' class='bookMovie' name='addCard' disabled>";
+                    echo "<input type='submit' class='submitBtn' name='addCard' disabled>";
                 }
             ?>
             <p id="billingValidity"> Billing Address is invalid</p>
@@ -67,8 +67,8 @@
             </fieldset>
         </form>
     </div>
-        <div>
-            <h2 class="p">Select cards</h2>
+        <div id="formDiv">
+            <h2 class="selectCard">Select cards</h2>
             <form action='../PHP/addBooking.php' method='POST'>
             <input type='hidden' name='movieId' value='".$showMovieId."'>
             <input type='hidden' name='showId' value='".$showInfo."'>
@@ -77,9 +77,9 @@
                     $counter = 1;
                     foreach($paymentCards as $card) {
                         echo "
-                        <h4 style='display:inline;'>". $counter ."</h4>
-                        <p style='color:white; display:inline; padding-left:10px; padding-right:10px;'>".  $card['cardNumber']. "</p>"
-                        ."<input type='hidden' name='cardId".$counter."' value=". $card['cardId'] ."><input type='submit' name='submit".$counter."' value='checkout'><br>"; 
+                        <h4 style='display:inline-block; text-align: left; '>". $counter ."</h4>
+                        <p style='color:white; display:inline-block; padding-left:10px; padding-right:10px; font-size: 14pt;'>".  $card['cardNumber']. "</p>"
+                        ."<input type='hidden' name='cardId".$counter."' value=". $card['cardId'] ."><input class='purchaseButton' type='submit' name='submit".$counter."' value='checkout'><br>"; 
                         $counter++;
                     } 
                 } else {
