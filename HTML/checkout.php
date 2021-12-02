@@ -30,31 +30,7 @@
     <h1>Checkout</h1>
     <div class="main-container">
     <div class="checkout" style="padding-right: 5%;">
-        <h2>New card</h2>
-        <!--<form name="checkoutForm" action="" method="POST">
-            <h4>Contact Info</h4>
-            <input type="text" id="email" placeholder="Email">
-            <h4>Payment Info</h4>
-            <input type="text" id="cardNum" placeholder="Card Number">
-            <input type="text" id="CVV" placeholder="CVV"><br>
-            <select>
-                <option value="" selected="selected">Exp. Month</option>
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-            </select> 
-            <input type="text" id="expYear" placeholder="Exp. Year">
-            <input type="text" id="zip" placeholder="Zip Code">
-        </form> -->
+    <h2>New card</h2>
     <form action='../PHP/cardInformation.php' method='POST' onsubmit="return addCard();"> 
             <fieldset>
             <label>Billing Address:</label>
@@ -93,16 +69,17 @@
     </div>
         <div>
             <h2 class="p">Select cards</h2>
-            <form action="../PHP/addBooking.php" method="POST">
-            <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
-            <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+            <form action='../PHP/addBooking.php' method='POST'>
+            <input type='hidden' name='movieId' value='".$showMovieId."'>
+            <input type='hidden' name='showId' value='".$showInfo."'>
             <?php 
                 if ($cardCount > 0) {
                     $counter = 1;
                     foreach($paymentCards as $card) {
-                        echo "<h4 style='display:inline;'>". $counter ."</h4>"
-                        ."<p style='color:white; display:inline; padding-left:10px; padding-right:10px;'>".  $card['cardNumber']. "</p>"
-                        ."<input type='checkbox' name='checkBox' value=". $card['cardId'] ."><br>"; 
+                        echo "
+                        <h4 style='display:inline;'>". $counter ."</h4>
+                        <p style='color:white; display:inline; padding-left:10px; padding-right:10px;'>".  $card['cardNumber']. "</p>"
+                        ."<input type='hidden' name='cardId".$counter."' value=". $card['cardId'] ."><input type='submit' name='submit".$counter."' value='checkout'><br>"; 
                         $counter++;
                     } 
                 } else {
@@ -110,15 +87,18 @@
                 }
                 
             ?>
-            <div id="btn">
-                <a href="../HTML/home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
-                <input type="submit" class="purchaseButton" value="purchase tickets" name="getTickets">
-                </form>
-            </div>
+            </form>
+            
 
         </div>
+        
     </div>
-    
+    <footer>
+    <div id="btn">
+        <a href="../HTML/home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
+        <!--<input type="submit" class="purchaseButton" value="purchase tickets" name="getTickets">-->   
+    </div>
+    </footer>
 </main>    
 </body>
 </html>
