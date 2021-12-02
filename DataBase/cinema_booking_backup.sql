@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 08:15 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost
+-- Generation Time: Dec 02, 2021 at 06:30 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,16 +24,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `userId` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `booking`
 --
 
 CREATE TABLE `booking` (
-  `bookingNumber` int(11) NOT NULL,
+  `bookingNumber` varchar(255) NOT NULL,
   `ticketNumber` int(11) NOT NULL,
+  `movieTitle` varchar(255) NOT NULL,
+  `showDate` varchar(255) NOT NULL,
+  `showTime` varchar(255) NOT NULL,
   `promotionId` int(11) DEFAULT NULL,
   `cardId` int(11) DEFAULT NULL,
-  `userId` varchar(255) NOT NULL,
-  `movieId` int(11) NOT NULL
+  `userId` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `userId` varchar(255) DEFAULT NULL,
+  `cardId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -170,6 +193,7 @@ CREATE TABLE `theater` (
 
 CREATE TABLE `ticket` (
   `id` int(11) NOT NULL,
+  `ticketNumber` int(11) NOT NULL,
   `numAdult` int(11) DEFAULT NULL,
   `numChild` int(11) DEFAULT NULL,
   `numSenior` int(11) DEFAULT NULL
@@ -179,10 +203,9 @@ CREATE TABLE `ticket` (
 -- Dumping data for table `ticket`
 --
 
-INSERT INTO `ticket` (`id`, `numAdult`, `numChild`, `numSenior`) VALUES
-(23, 1, 1, 1),
-(24, 2, 2, 2),
-(25, 1, 1, 1);
+INSERT INTO `ticket` (`id`, `ticketNumber`, `numAdult`, `numChild`, `numSenior`) VALUES
+(23, 1, 1, 1, 1),
+(24, 2, 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -215,15 +238,26 @@ INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD KEY `userId` (`userId`);
+
+--
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`bookingNumber`),
-  ADD KEY `ticketNumber` (`ticketNumber`),
   ADD KEY `promotionId` (`promotionId`),
   ADD KEY `cardId` (`cardId`),
+  ADD KEY `userId` (`userId`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
   ADD KEY `userId` (`userId`),
-  ADD KEY `movieId` (`movieId`);
+  ADD KEY `cardId` (`cardId`);
 
 --
 -- Indexes for table `movie`
@@ -280,12 +314,6 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `booking`
---
-ALTER TABLE `booking`
-  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
@@ -319,21 +347,32 @@ ALTER TABLE `showroom`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
+
+--
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `cardId` FOREIGN KEY (`cardId`) REFERENCES `payment_card` (`cardId`),
-  ADD CONSTRAINT `movieId` FOREIGN KEY (`movieId`) REFERENCES `movie` (`id`),
-  ADD CONSTRAINT `promoId` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`id`),
-  ADD CONSTRAINT `ticketNumber` FOREIGN KEY (`ticketNumber`) REFERENCES `ticket` (`id`),
-  ADD CONSTRAINT `userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`ticketNumber`) REFERENCES `ticket` (`ticketNumber`),
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`id`),
+  ADD CONSTRAINT `booking_ibfk_7` FOREIGN KEY (`userId`) REFERENCES `customer` (`userId`);
+
+--
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
+  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`cardId`) REFERENCES `payment_card` (`cardId`);
 
 --
 -- Constraints for table `showinfo`

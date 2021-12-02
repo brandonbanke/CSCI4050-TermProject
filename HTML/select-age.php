@@ -48,22 +48,22 @@
             </form>
             -->
             
-        </main>
-        <footer style="text-align: center;">
-            <form action="../PHP/ticketInformation.php" method="POST">
+        
+        <div class="formAge">
+            <form action="../PHP/ticketInformation.php" method="POST" class="selectAge">
+                
+                <label>Adult</label>
+                <input type="text" name='numAdult1'> <br><br>
+                <label>Child</label>
+                <input type="text" name='numChild1'><br><br>
+                <label>Senior</label>
+                <input type="text" name='numSenior1'><br><br>
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
-                <label>Ticket Num</label>
-                <input type="text" name='ticketNum'>
-                <label>Adult</label>
-                <input type="text" name='numAdult1'>
-                <label>Child</label>
-                <input type="text" name='numChild1'>
-                <label>Senior</label>
-                <input type="text" name='numSenior1'>
                 <input type="submit" value="continue" onclick="ticketNum()" class="input" >
                 <!-- <a href="select-seat.php">Continue</a> -->
             </form>
-        </footer>
+        </div>
+        </main>
     </body>
 </html>
