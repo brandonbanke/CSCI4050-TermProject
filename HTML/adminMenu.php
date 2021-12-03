@@ -111,7 +111,9 @@
                             <input type="text" name='pCode' id='pCode'><br><br><br>
                             <label>Promotion Description:</label>
                             <input type="text" name='pDescription' id='pDescription'><br><br>
-                            <input class = "manageButton" type="submit" value="Submit">
+                            <label>Promotion Discount:</label>
+                            <input type="text" name='pDiscount' id='pDescription'><br><br>
+                            <input class = "manageButton sub" type="submit" value="Submit">
                         </fieldset>
                     </form>
             </div>     
