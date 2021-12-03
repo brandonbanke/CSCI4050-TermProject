@@ -109,22 +109,39 @@
                             <p>$ <?php echo $newTotalCost?></p>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                        <label>Enter Promotion</label>
+                        </td>
+                        <td>
+                        <form action="order-total.php" method="POST">  
+                             <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+                            <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+                             <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+                             <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+                            <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
+                             <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
+                            <input type="hidden" name="total" value="<?php echo $newTotalCost; ?>">
+                             <input type="text" name="promotionCode">
+                        </form>
+                    </td>
+                    </tr>
                 </tbody>
             </table>
             </div>
-            <div class="promo">
+            <!-- <div class="promo">
             <form action="order-total.php" method="POST">  
                 <label>Enter Promotion</label>
-                <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
-                <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
-                <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
-                <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
-                <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
-                <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
-                <input type="hidden" name="total" value="<?php echo $newTotalCost; ?>">
+                <input type="hidden" name="movieId" value="<?php #echo $showMovieId; ?>">
+                <input type="hidden" name="showId" value="<?php #echo $showInfo; ?>">
+                <input type="hidden" name="numAdult" value="<?php #echo $numAdult; ?>">
+                <input type="hidden" name="numChild" value="<?php #echo $numChild; ?>">
+                <input type="hidden" name="numSenior" value="<?php #echo $numSenior; ?>">
+                <input type="hidden" name="promoId" value="<?php #echo $promoId; ?>">
+                <input type="hidden" name="total" value="<?php #echo $newTotalCost; ?>">
                 <input type="text" name="promotionCode">
             </form>
-        </div>
+        </div> -->
         </div>
 
         

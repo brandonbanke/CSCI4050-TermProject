@@ -25,6 +25,7 @@
             </form>
         </div>
         
+        <div id="summaryContent">
         <div class="orderSummary">
             <h2>Summary</h2>
             <p>Movie: <?php echo $title;?></p>
@@ -33,12 +34,13 @@
             <p>Booking #: <?php echo $bookingNumber;?></p>
             <p>Total: <?php echo $total;?></p>
         </div>
-
+    </div>
     </main>
     
     <footer>
+       
     <form action="../HTML/order-confirmation.php" method="POST" id="continue">
-        <input class="continueButton" type="submit" value="Continue">
+        <input class="continueButton" id="summaryCont" type="submit" value="Continue">
         </form>
     </footer>
 </body>
