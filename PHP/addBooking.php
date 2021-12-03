@@ -33,8 +33,8 @@
     $ticketInfo = $statement->fetchAll();
     $ticketNumber = $ticketInfo[0]['LAST_INSERT_ID()'];
 
-    $query = "INSERT INTO booking (ticketNumber, promotionId, cardId, userId, movieId)
-    VALUES ($ticketNumber, $promotionId, $card, '$userId', $movieId)";   
+    $query = "INSERT INTO booking (ticketNumber, promotionId, cardId, userId, movieId, showinfoId)
+    VALUES ($ticketNumber, $promotionId, $card, '$userId', $movieId, $showId)";   
     $statement = $db->prepare($query);
     $statement->execute();
     $statement->closeCursor();

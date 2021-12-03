@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 05:27 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost
+-- Generation Time: Dec 03, 2021 at 07:13 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,18 +33,17 @@ CREATE TABLE `booking` (
   `promotionId` int(11) DEFAULT NULL,
   `cardId` int(11) DEFAULT NULL,
   `userId` varchar(255) NOT NULL,
-  `movieId` int(11) NOT NULL
+  `movieId` int(11) NOT NULL,
+  `showinfoId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`bookingNumber`, `ticketNumber`, `promotionId`, `cardId`, `userId`, `movieId`) VALUES
-(4, 62, 12, 31, 'q', 4),
-(5, 63, 12, 31, 'q', 4),
-(6, 64, 12, 31, 'q', 4),
-(7, 69, NULL, 32, 'q', 6);
+INSERT INTO `booking` (`bookingNumber`, `ticketNumber`, `promotionId`, `cardId`, `userId`, `movieId`, `showinfoId`) VALUES
+(11, 75, NULL, 33, 's', 6, 5),
+(12, 76, NULL, 33, 's', 4, 9);
 
 -- --------------------------------------------------------
 
@@ -102,7 +101,9 @@ INSERT INTO `payment_card` (`billingAddress`, `expirationDate`, `cardNumber`, `c
 ('', '', 0x3d4c27374091779abb58a50b7d3f6e39, 0x3d4c27374091779abb58a50b7d3f6e39, '', 29, ''),
 ('ffff', '10/23', 0xb0d4f4c750172f6816cd81912b04925a, 0x296a40b94fc65430ab558014f30c0eb1, 'ho', 30, 'ho'),
 ('test', '12/12', 0xf4b8312b3d55d89a85721a6b733f699b, 0x296a40b94fc65430ab558014f30c0eb1, 'Juan', 31, 'q'),
-('another', '00/00', 0x23349b23fe4b415e0195b5e9c5635fb2, 0x92e92b03bf5a5284e61397d06b13601f, 'Juan', 32, 'q');
+('another', '00/00', 0x23349b23fe4b415e0195b5e9c5635fb2, 0x92e92b03bf5a5284e61397d06b13601f, 'Juan', 32, 'q'),
+('1323 blue st', '12/22', 0xde97b888feb344a206989fde6501372b, 0x296a40b94fc65430ab558014f30c0eb1, 'saachi', 33, 's'),
+('2298 red st ', '2/24', 0x63ad8bbef5ec7facb9dbd5f26035d814, 0xc49bd448c87817c2fd75ecdeb24ae76e, 's', 34, 's');
 
 -- --------------------------------------------------------
 
@@ -240,7 +241,14 @@ INSERT INTO `ticket` (`id`, `numAdult`, `numChild`, `numSenior`, `total`) VALUES
 (66, 1, 1, 1, 22.24),
 (67, 1, 1, 1, 22.24),
 (68, 2, 2, 2, 42.48),
-(69, 1, 1, 1, 22.24);
+(69, 1, 1, 1, 22.24),
+(70, 1, 1, 1, 22.24),
+(71, 2, 3, 1, 40.64),
+(72, 1, 2, 3, 39.72),
+(73, 1, 2, 3, 39.72),
+(74, 2, 3, 1, 40.64),
+(75, 2, 3, 1, 40.64),
+(76, 1, 2, 1, 26.84);
 
 -- --------------------------------------------------------
 
@@ -266,7 +274,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`, `isBlocked`) VALUES
 ('ho', 0xdca4199542abd27fec564dcbe8334371, 'ho', 'ho', 'holdenmax3@aol.com', 0, 0, 0, 0),
-('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 1, 0, 1, 0);
+('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 0, 0, 1, 0),
+('s', 0xaad6cb4682f959aa9b0dc7e3baf982b9, 's', 's', 's', 1, 1, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -281,7 +290,8 @@ ALTER TABLE `booking`
   ADD KEY `promotionId` (`promotionId`),
   ADD KEY `cardId` (`cardId`),
   ADD KEY `userId` (`userId`),
-  ADD KEY `movieId` (`movieId`);
+  ADD KEY `movieId` (`movieId`),
+  ADD KEY `showinfoId` (`showinfoId`);
 
 --
 -- Indexes for table `movie`
@@ -341,7 +351,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `movie`
@@ -353,7 +363,7 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
-  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `promotion`
@@ -377,7 +387,7 @@ ALTER TABLE `showroom`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- Constraints for dumped tables
@@ -387,6 +397,7 @@ ALTER TABLE `ticket`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`showinfoId`) REFERENCES `showinfo` (`showId`),
   ADD CONSTRAINT `cardId` FOREIGN KEY (`cardId`) REFERENCES `payment_card` (`cardId`),
   ADD CONSTRAINT `movieId` FOREIGN KEY (`movieId`) REFERENCES `movie` (`id`),
   ADD CONSTRAINT `promoId` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`id`),
