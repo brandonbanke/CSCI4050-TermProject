@@ -212,6 +212,10 @@ input[type=checkbox] {
     height: 1rem;
 
 }
+.modLabel {
+    text-align: left;
+    margin: 0;
+}
 
 /* user's box*/
 

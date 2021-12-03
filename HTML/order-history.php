@@ -52,7 +52,7 @@
                     $counter = 1;
                     foreach ($bookingInfs as $bookingInf) : ?>
                         <h4>Order <?php echo $counter;?></h4>
-                        <p>Title: <?php echo $bookingInf['title'];?></p>
+                        <p><?php echo $bookingInf['title'];?></p>
                          <p>Show Date: <?php echo $bookingInf['date'];?></p>
                          <p>Show Time: <?php echo $bookingInf['time'];?></p>
                         <p>Booking Number: <?php echo $bookingInf['bookingNumber'];?></p>

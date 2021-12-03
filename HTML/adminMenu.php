@@ -175,42 +175,42 @@
                     <p id="dateValidity"> Show Date not entered</p>
                     <p id="timeValidity"> Show Time not entered</p><br>
                     <!--<p id="durationValidity"> Duration not entered</p><br> NEEDS TO BE IMPLEMENTED FOR ERROR CHECKING-->
-                    <label>Name</label>
-                    <input class="modInput" type="text" name='mName' id='mName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>Category</plabel>
-                    <input class="modInput" type="text" name="mCategory" id='catName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>Duration</plabel>
-                    <input class="modInput" type="text" name="mDuration" id='mDuration'>
-                    <label class='mand'>*</label><br><br>
-                    <label>Cast</label>
-                    <input class="modInput" type="text" name="mCast" id='casName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>director</label>
-                    <input class="modInput" type="text" name="mDirector" id='dirName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>Producer</label>
-                    <input class="modInput" type="text" name="mProducer" id='proName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>synopsis</label>
-                    <input class="modInput" type="text" name="mSynopsis" id='synName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>reviews</label>
-                    <input class="modInput" type="text" name="mReviews" id='revName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>trailer link</label>
-                    <input class="modInput" type="text" name="mTrailerLink" id='trailName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>movie picture</label>
-                    <input class="modInput" type="text" name="mMoviePic" id='picName'>
-                    <label class='mand'>*</label><br><br>
-                    <label>MPPA-US film rating code</label>
-                    <input class="modInput" type="text" name="mRating" id='ratCodName'>
-                    <label class='mand'>*</label><br><br>
+                    <label class="modLabel">Name*</label>
+                    <input class="modInput" type="text" name='mName' id='mName'><br><br>
+          
+                    <label class="modLabel">Category*</label>
+                    <input class="modInput" type="text" name="mCategory" id='catName'><br><br>
+                    
+                    <label class="modLabel">Duration*</label>
+                    <input class="modInput" type="text" name="mDuration" id='mDuration'><br><br>
+                  
+                    <label class="modLabel">Cast*</label>
+                    <input class="modInput" type="text" name="mCast" id='casName'><br><br>
+                   
+                    <label class="modLabel">Director*</label>
+                    <input class="modInput" type="text" name="mDirector" id='dirName'><br><br>
+                 
+                    <label class="modLabel">Producer*</label>
+                    <input class="modInput" type="text" name="mProducer" id='proName'><br><br>
+                 
+                    <label class="modLabel">Synopsis*</label>
+                    <input class="modInput" type="text" name="mSynopsis" id='synName'><br><br>
+                    
+                    <label class="modLabel">Reviews*</label>
+                    <input class="modInput" type="text" name="mReviews" id='revName'><br><br>
+            
+                    <label class="modLabel">Trailer Link*</label>
+                    <input class="modInput" type="text" name="mTrailerLink" id='trailName'><br><br>
+      
+                    <label class="modLabel">Movie Picture*</label>
+                    <input class="modInput" type="text" name="mMoviePic" id='picName'><br><br>
+
+                    <label class="modLabel">MPPA-US Film Rating Code*</label>
+                    <input class="modInput" type="text" name="mRating" id='ratCodName'><br><br>
+         
                     <input id="check" type="checkbox" name="mComingSoon" value="1">
-                    <label id="checkLabel" for="mComingSoon"> Coming Soon? </label>
-                    <label class='mand'>*</label><br><br><br>
+                    <label id="checkLabel" for="mComingSoon"> Coming Soon? </label><br><br>
+               
                     <input class="manageButton" type="submit" value="submit" name="addMovie">
                     </fieldset>
                     </form>
