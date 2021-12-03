@@ -38,9 +38,9 @@
         <div id="seats" style="padding-left: 35%;"></div>
         <!-- insert arrays of seats   -->
     <?php
-        foreach($ticketInfs as $ticketInfo) {
-            $ticketTotal = $ticketInfo['numAdult'] + $ticketInfo['numChild'] + $ticketInfo['numSenior'];
-        }
+        
+        $ticketTotal = $numAdult + $numChild + $numSenior;
+        
     ?>
     <script>
             function seats() {
