@@ -8,7 +8,6 @@
     $promoId = $_POST['promoId'];
     $total = $_POST['total'];
 
-    echo $total;
     require("../PHP/getCustomer.php");
     $isOn = false;
     foreach($custInfs as $info) {

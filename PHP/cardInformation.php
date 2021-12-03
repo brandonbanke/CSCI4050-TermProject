@@ -31,7 +31,16 @@ $insertinfo->execute();
 $insertinfo->closeCursor();
 
 
-if (isset($_POST['addCard'])) header("Location: ../HTML/checkout.php");
+if (isset($_POST['addCard'])){
+    $showMovieId = $_POST['movieId'];
+    $showInfo = $_POST['showId'];  
+    $numAdult = $_POST['numAdult'];
+    $numChild = $_POST['numChild'];
+    $numSenior = $_POST['numSenior'];
+    $promoId = $_POST['promoId'];
+    $total = $_POST['total'];
+    include("../HTML/checkout.php");
+} 
 else include("../HTML/edit-card.php");
 
 ?>

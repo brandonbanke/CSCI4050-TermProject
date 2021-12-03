@@ -48,6 +48,13 @@
             <input id = "cardVV" type="text" name='cCVV'><br><br><br>
             <label>Full Name:</label>
             <input id = "cardFlName" type="text" name='cFullName'><br><br><br>
+            <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+            <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+            <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+            <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+            <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
+            <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
+            <input type="hidden" name="total" value="<?php echo $total; ?>">
             <?php 
                 
             foreach($userInfs as $info) {
