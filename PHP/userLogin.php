@@ -2,6 +2,16 @@
     require("../Modal/database.php");
     require("../PHP/getUserInfo.php");
     
+    if (isset($_POST['checkout'])) {
+        $showMovieId = $_POST['movieId'];
+        $showInfo = $_POST['showId'];
+        $numAdult = $_POST['numAdult'];
+        $numChild = $_POST['numChild'];
+        $numSenior = $_POST['numSenior'];  
+        $promoId = $_POST['promoId'];
+        $total = $_POST['total'];
+    }
+    
 
     $query0 = "USE cinema_booking";
     $db->exec($query0);
@@ -39,16 +49,18 @@
             $loginstatement2 = $db->prepare($setactive);
             $loginstatement2->bindValue(':user_iden', $uId);
             $loginstatement2->execute();
-            include("../HTML/home.php");
+            
 
-            if (isset($_POST['checkout'])) header("Location: ../HTML/checkout.php");
+            if (isset($_POST['checkout'])) include("../HTML/checkout.php");
+            else include("../HTML/home.php");
+
         } else {
-            if (isset($_POST['checkout'])) header("Location: ../HTML/login-checkout.php");
+            if (isset($_POST['checkout'])) include("../HTML/login-checkout.php");
             else include("../HTML/login.php");
             echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
         }
     } else {
-        if (isset($_POST['checkout'])) header("Location: ../HTML/login-checkout.php");
+        if (isset($_POST['checkout'])) include("../HTML/login-checkout.php");
         else include("../HTML/login.php");
         echo "<h5 style='color:red; font-size:16px; margin-left:47%'>Invalid credentials<h5> ";
     }

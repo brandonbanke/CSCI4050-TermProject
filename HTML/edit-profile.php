@@ -40,6 +40,7 @@
                 <ul class="one">
                     <li class="active"><a href="../HTML/edit-profile.php"> Edit Profile </a></li>
                     <li><a href="../HTML/edit-card.php"> Edit Billing Info </a></li>
+                    <li><a href="../HTML/order-history.php">Order History</a></li>
                     <li><a href="../PHP/logoutUser.php"> Logout </a></li>
                 </ul>
             </div>

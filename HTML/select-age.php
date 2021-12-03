@@ -50,14 +50,14 @@
             
         
         <div class="formAge">
-            <form action="../PHP/ticketInformation.php" method="POST" class="selectAge" onsubmit="return isEmpty();">
+            <form action="../HTML/select-seat.php" method="POST" class="selectAge" onsubmit="return isEmpty();">
                 
                 <label>Adult</label>
-                <input type="text" name='numAdult1' id='inputAdult'> <br><br>
+                <input type="text" name='numAdult' id='inputAdult'> <br><br>
                 <label>Child</label>
-                <input type="text" name='numChild1' id='inputChild'><br><br>
+                <input type="text" name='numChild' id='inputChild'><br><br>
                 <label>Senior</label>
-                <input type="text" name='numSenior1' id='inputSenior'><br><br>
+                <input type="text" name='numSenior' id='inputSenior'><br><br>
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
                 <input type="submit" value="continue" onclick="ticketNum()" class="input" >

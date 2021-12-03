@@ -2,6 +2,13 @@
 
     $showMovieId = $_POST['movieId'];
     $showInfo = $_POST['showId'];
+    $numAdult = $_POST['numAdult'];
+    $numChild = $_POST['numChild'];
+    $numSenior = $_POST['numSenior'];
+    $promoId = $_POST['promoId'];
+    $total = $_POST['total'];
+
+    echo $total;
     require("../PHP/getCustomer.php");
     $isOn = false;
     foreach($custInfs as $info) {

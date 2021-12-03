@@ -1,7 +1,10 @@
 <?php
-        require("../PHP/getTicketInfo.php"); 
-        $showMovieId = $_POST['movieId'];
-        $showInfo = $_POST['showId'];  
+    require("../PHP/getTicketInfo.php"); 
+    $showMovieId = $_POST['movieId'];
+    $showInfo = $_POST['showId'];  
+    $numAdult = $_POST['numAdult'];
+    $numChild = $_POST['numChild'];
+    $numSenior = $_POST['numSenior'];
     
 ?>
 
@@ -82,7 +85,7 @@
                     } else if (counter < numberOfTickets) {
                         for (let i = 0; i < 105; i++) {
                             checkboxes[i].disabled = false;
-                            document.getElementById("contButton").style.display = "none";
+                            document.getElementById("contButton").style.display = "block";
                         }
                     }
                 }
@@ -95,6 +98,9 @@
         <form action="../HTML/order-total.php" method="POST">
             <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
             <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+            <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+            <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+            <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
             <input style="display: none; float: right; margin-right: 3rem;"class="continue" type="submit" id="contButton" value="Continue">
         </form>
     </footer>

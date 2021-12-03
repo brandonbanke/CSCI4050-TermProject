@@ -1,6 +1,11 @@
 <?php 
     require("../PHP/getCardInfo.php"); 
     require("../PHP/getUserInfo.php");
+    #$showMovieId = $_POST['movieId'];
+    #$showInfo = $_POST['showId'];
+    #$numAdult = $_POST['numAdult'];
+    #$numChild = $_POST['numChild'];
+    #$numSenior = $_POST['numSenior'];
 ?>
 
 <!DOCTYPE html>
@@ -69,9 +74,14 @@
     </div>
         <div id="formDiv">
             <h2 class="selectCard">Select cards</h2>
-            <form action='../PHP/addBooking.php' method='POST'>
-            <input type='hidden' name='movieId' value='".$showMovieId."'>
-            <input type='hidden' name='showId' value='".$showInfo."'>
+        <form action='../PHP/addBooking.php' method='POST'>
+            <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+            <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+            <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+            <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+            <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
+            <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
+            <input type="hidden" name="total" value="<?php echo $total; ?>">
             <?php 
                 if ($cardCount > 0) {
                     $counter = 1;
@@ -79,7 +89,8 @@
                         echo "
                         <h4 style='display:inline-block; text-align: left; '>". $counter ."</h4>
                         <p style='color:white; display:inline-block; padding-left:10px; padding-right:10px; font-size: 14pt;'>".  $card['cardNumber']. "</p>"
-                        ."<input type='hidden' name='cardId".$counter."' value=". $card['cardId'] ."><input class='purchaseButton' type='submit' name='submit".$counter."' value='checkout'><br>"; 
+                        ."<input type='hidden' name='cardId".$counter."' value=". $card['cardId'] .">
+                        <input class='purchaseButton' type='submit' name='submit".$counter."' value='checkout'><br>"; 
                         $counter++;
                     } 
                 } else {
@@ -87,7 +98,7 @@
                 }
                 
             ?>
-            </form>
+        </form>
             
 
         </div>

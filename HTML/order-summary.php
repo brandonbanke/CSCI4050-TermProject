@@ -1,9 +1,3 @@
-<?php
-        require("../PHP/getOrderSummary.php");
-        $showMovieId = $_POST['movieId'];
-        $showInfo = $_POST['showId'];
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,63 +24,20 @@
                 <input type="search" id="search-bar" name="searchTerm" placeholder="What are you watching?">
             </form>
         </div>
-        <div class="content">
-            <h1>Tickets</h1>
-              <?php
-                foreach ($summaryInfs as $summaryInf) {
-                    
-                }
-              ?>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><p>Movie</p></td>
-                     
-                    </tr>
-                    <tr>
-                        <td><p>Showtime</p></td>
-                       
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Booking Number</p>
-                        </td>
-                       
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Convenience Fees</p>
-                        </td>
-                        <td>
-                            <p>$</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Taxes</p>
-                        </td>
-                        <td>
-                            <p>$</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Total</p>
-                        </td>
-                        <td>
-                            <p>$</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
+        
+        <div class="orderSummary">
+            <h2>Summary</h2>
+            <p>Movie: <?php echo $title;?></p>
+            <p>Date: <?php echo $movieDate;?></p>
+            <p>Time: <?php echo $movieTime;?></p>
+            <p>Booking #: <?php echo $bookingNumber;?></p>
+            <p>Total: <?php echo $total;?></p>
         </div>
+
     </main>
     
     <footer>
-    <form action="../PHP/checkoutProxy.php" method="POST" id="continue">
-        <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
-        <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+    <form action="../HTML/order-confirmation.php" method="POST" id="continue">
         <input class="continueButton" type="submit" value="Continue">
         </form>
     </footer>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 08:15 PM
+-- Generation Time: Dec 03, 2021 at 05:27 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -35,6 +35,16 @@ CREATE TABLE `booking` (
   `userId` varchar(255) NOT NULL,
   `movieId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`bookingNumber`, `ticketNumber`, `promotionId`, `cardId`, `userId`, `movieId`) VALUES
+(4, 62, 12, 31, 'q', 4),
+(5, 63, 12, 31, 'q', 4),
+(6, 64, 12, 31, 'q', 4),
+(7, 69, NULL, 32, 'q', 6);
 
 -- --------------------------------------------------------
 
@@ -90,7 +100,9 @@ CREATE TABLE `payment_card` (
 
 INSERT INTO `payment_card` (`billingAddress`, `expirationDate`, `cardNumber`, `cvv`, `fullName`, `cardId`, `userId`) VALUES
 ('', '', 0x3d4c27374091779abb58a50b7d3f6e39, 0x3d4c27374091779abb58a50b7d3f6e39, '', 29, ''),
-('ffff', '10/23', 0xb0d4f4c750172f6816cd81912b04925a, 0x296a40b94fc65430ab558014f30c0eb1, 'ho', 30, 'ho');
+('ffff', '10/23', 0xb0d4f4c750172f6816cd81912b04925a, 0x296a40b94fc65430ab558014f30c0eb1, 'ho', 30, 'ho'),
+('test', '12/12', 0xf4b8312b3d55d89a85721a6b733f699b, 0x296a40b94fc65430ab558014f30c0eb1, 'Juan', 31, 'q'),
+('another', '00/00', 0x23349b23fe4b415e0195b5e9c5635fb2, 0x92e92b03bf5a5284e61397d06b13601f, 'Juan', 32, 'q');
 
 -- --------------------------------------------------------
 
@@ -102,17 +114,19 @@ CREATE TABLE `promotion` (
   `promoName` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `promDescription` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `discount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `promotion`
 --
 
-INSERT INTO `promotion` (`promoName`, `code`, `promDescription`, `id`) VALUES
-('test', 'q', 'test', 8),
-('test', 'q', 'test', 10),
-('another another promo', '12345', 'another promo', 11);
+INSERT INTO `promotion` (`promoName`, `code`, `promDescription`, `id`, `discount`) VALUES
+('test', 'q', 'test', 8, 0),
+('test', 'q', 'test', 10, 0),
+('another another promo', '12345', 'another promo', 11, 0),
+('works', '1234', 'works', 12, 4);
 
 -- --------------------------------------------------------
 
@@ -172,17 +186,61 @@ CREATE TABLE `ticket` (
   `id` int(11) NOT NULL,
   `numAdult` int(11) DEFAULT NULL,
   `numChild` int(11) DEFAULT NULL,
-  `numSenior` int(11) DEFAULT NULL
+  `numSenior` int(11) DEFAULT NULL,
+  `total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ticket`
 --
 
-INSERT INTO `ticket` (`id`, `numAdult`, `numChild`, `numSenior`) VALUES
-(23, 1, 1, 1),
-(24, 2, 2, 2),
-(25, 1, 1, 1);
+INSERT INTO `ticket` (`id`, `numAdult`, `numChild`, `numSenior`, `total`) VALUES
+(23, 1, 1, 1, 0),
+(24, 2, 2, 2, 0),
+(25, 1, 1, 1, 0),
+(26, 0, 0, 0, 0),
+(27, 1, 0, 0, 0),
+(28, 0, 0, 0, 0),
+(29, 10, 10, 10, 30),
+(30, 10, 10, 10, 30),
+(31, 10, 10, 10, 30),
+(32, 10, 10, 10, 30),
+(33, 10, 10, 10, 30),
+(34, 10, 10, 10, 30),
+(35, 10, 10, 10, 30),
+(36, 10, 10, 10, 30),
+(37, 10, 10, 10, 30),
+(38, 2, 2, 2, 38.48),
+(39, 2, 2, 2, 38.48),
+(40, 2, 2, 2, 38.48),
+(41, 2, 2, 2, 38.48),
+(42, 2, 2, 2, 38.48),
+(43, 2, 2, 2, 38.48),
+(44, 2, 2, 2, 38.48),
+(45, 2, 2, 2, 38.48),
+(46, 2, 2, 2, 38.48),
+(48, 2, 2, 2, 38.48),
+(49, 2, 2, 2, 38.48),
+(50, 2, 2, 2, 38.48),
+(51, 2, 2, 2, 38.48),
+(52, 2, 2, 2, 38.48),
+(53, 2, 2, 2, 38.48),
+(54, 2, 2, 2, 38.48),
+(55, 2, 2, 2, 38.48),
+(56, 2, 2, 2, 38.48),
+(57, 3, 3, 3, 62.72),
+(58, 3, 3, 3, 62.72),
+(59, 1, 1, 1, 1),
+(60, 3, 3, 3, 62.72),
+(61, 3, 3, 3, 62.72),
+(62, 1, 1, 1, 18.24),
+(63, 1, 1, 1, 18.24),
+(64, 1, 1, 1, 18.24),
+(65, 1, 1, 1, 22.24),
+(66, 1, 1, 1, 22.24),
+(67, 1, 1, 1, 22.24),
+(68, 2, 2, 2, 42.48),
+(69, 1, 1, 1, 22.24);
 
 -- --------------------------------------------------------
 
@@ -208,7 +266,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`, `isBlocked`) VALUES
 ('ho', 0xdca4199542abd27fec564dcbe8334371, 'ho', 'ho', 'holdenmax3@aol.com', 0, 0, 0, 0),
-('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 0, 0, 1, 0);
+('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 1, 0, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -283,7 +341,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `movie`
@@ -295,13 +353,13 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `payment_card`
 --
 ALTER TABLE `payment_card`
-  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `cardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `showinfo`
@@ -319,7 +377,7 @@ ALTER TABLE `showroom`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- Constraints for dumped tables

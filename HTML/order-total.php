@@ -1,8 +1,33 @@
 <?php
-   
-        $showMovieId = $_POST['movieId'];
-        $showInfo = $_POST['showId'];
+    require("../PHP/getTicketInfo.php"); 
+    $showMovieId = $_POST['movieId'];
+    $showInfo = $_POST['showId'];  
+    $numAdult = $_POST['numAdult'];
+    $numChild = $_POST['numChild'];
+    $numSenior = $_POST['numSenior'];
 
+    #CALCULATE TOTAL HERE + TAX + PROMOTION
+    $convFee = 2.00;
+    $totalCost = .92* (10*$numAdult + 5*$numChild + 7*$numSenior);
+    $newTotalCost = round($totalCost, 2);
+    $tax = .08 * $totalCost;
+    $tax = round($tax, 2);
+    $newTotalCost += $convFee;
+
+    $promoId = NULL;
+    #promo checking
+    if (isset($_POST['promotionCode'])) {
+        $promoCode = $_POST['promotionCode'];
+        require("../PHP/getPromotion.php");
+        
+        foreach($promInfs as $info) {
+            if ($info['code'] == $promoCode) {
+                $promoId = $info['id'];
+                $newTotalCost -= $info['discount'];
+                break;
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -31,32 +56,33 @@
             </form>
         </div>
         <div class="content">
+            <div>
             <h1>Tickets</h1>
              
             <table>
                 <tbody>
                 <tr>
                         <td>
-                            <p>Adult Ticket</p>
+                            <p>Adult Ticket </p>
                         </td>
                         <td>
-                            <p></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Child Ticket</p>
-                        </td>
-                        <td>
-                            <p></p>
+                            <p><?php echo $numAdult;?> x $10</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Senior Ticket</p>
+                            <p>Child Ticket </p>
                         </td>
                         <td>
-                            <p></p>
+                            <p><?php echo $numChild;?> x $5</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Senior Ticket </p>
+                        </td>
+                        <td>
+                            <p><?php echo $numSenior;?> x $7</p>
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +90,7 @@
                             <p>Convenience Fees</p>
                         </td>
                         <td>
-                            <p>$</p>
+                            <p>$ <?php echo $convFee?></p>
                         </td>
                     </tr>
                     <tr>
@@ -72,27 +98,47 @@
                             <p>Taxes</p>
                         </td>
                         <td>
-                            <p>$</p>
+                            <p>$ <?php echo $tax?></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Total</p>
+                            <p>Total </p>
                         </td>
                         <td>
-                            <p>$</p>
+                            <p>$ <?php echo $newTotalCost?></p>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            
+            </div>
+            <div class="promo">
+            <form action="order-total.php" method="POST">  
+                <label>Enter Promotion</label>
+                <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+                <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+                <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+                <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+                <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
+                <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
+                <input type="hidden" name="total" value="<?php echo $newTotalCost; ?>">
+                <input type="text" name="promotionCode">
+            </form>
         </div>
+        </div>
+
+        
     </main>
     
     <footer>
     <form action="../PHP/checkoutProxy.php" method="POST" id="continue">
         <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
         <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+        <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+        <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+        <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
+        <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
+        <input type="hidden" name="total" value="<?php echo $newTotalCost; ?>">
         <input class="continueButton" type="submit" value="Continue">
         </form>
     </footer>

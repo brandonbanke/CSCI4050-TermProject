@@ -1,6 +1,11 @@
 <?php
     require("../PHP/getUserInfo.php");
     require("../PHP/getCustomer.php");
+    #$showMovieId = $_POST['movieId'];
+    #$showInfo = $_POST['showId'];
+    #$numAdult = $_POST['numAdult'];
+    #$numChild = $_POST['numChild'];
+    #$numSenior = $_POST['numSenior'];
 ?>
 
 <!DOCTYPE html>
@@ -30,21 +35,28 @@
         </form>  
     </div>
     <form action='../PHP/userLogin.php' method='POST' class = "loginForm" onsubmit="return login();"> 
-            <h2> Login </h2>
-            <label>Username:</label><br>
-            <input id="loguser" type="text" name='userIdent'><br><br>
-            <label>Password:</label><br>
-            <input id="logpass" type="text" name='uPasswor' style="-webkit-text-security: circle;" ><br><br>
-            <?php foreach ($userInfs as $userInf) : ?>
-            <!-- <input  type="hidden" name='uAdm' value= "<?php #echo $userInf['isAdmin']; ?>"><br><br> -->
-            <!-- <?php #echo $userInf['isAdmin']; ?> -->
-            <?php endforeach ?>
-            <a href="../HTML/checkout.php"><input type='submit' class='loginButton' type='submit' value='Submit' name="checkout"> </input></a>
-            <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
-            <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
-            <p id="userValidity"> User is invalid</p>
-            <p id="passValidity"> Password is invalid</p>
-            <p id="loginValidity"> User/Password do not match our records</p>
+        <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
+        <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
+        <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
+        <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
+        <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
+        <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
+        <input type="hidden" name="total" value="<?php echo $total; ?>">
+        <h2> Login </h2>
+        <label>Username:</label><br>
+        <input id="loguser" type="text" name='userIdent'><br><br>
+        <label>Password:</label><br>
+        <input id="logpass" type="text" name='uPasswor' style="-webkit-text-security: circle;" ><br><br>
+        <?php foreach ($userInfs as $userInf) : ?>
+        <!-- <input  type="hidden" name='uAdm' value= "<?php #echo $userInf['isAdmin']; ?>"><br><br> -->
+        <!-- <?php #echo $userInf['isAdmin']; ?> -->
+        <?php endforeach ?>
+        <a href="../HTML/checkout.php"><input type='submit' class='loginButton' type='submit' value='Submit' name="checkout"> </input></a>
+        <input class = "loginButton" type="button" onclick="window.location.href='../HTML/registration.php';" value="Create Account">
+        <input class = "loginButton" type="button" onclick="window.location.href='../HTML/forget-password.php';" value="Forgot Password">
+        <p id="userValidity"> User is invalid</p>
+        <p id="passValidity"> Password is invalid</p>
+        <p id="loginValidity"> User/Password do not match our records</p>
     </form>
     </main>
 </body>
