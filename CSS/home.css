@@ -33,17 +33,22 @@ p {
 }
 
 .bookMovie {
-	background-color: #D0CDD7;
+	background-color:  #D0CDD7;
 	text-align: center;
-	padding: .5rem 1rem;
-	margin-top: .5rem;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
-	border-radius: 2rem;
-	box-shadow: .5px .5px 3px .5px #0d0e0f;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: #24272B;
+	font-size: 17px;
+	padding: .4rem .9rem;
+	margin-left: .5rem;
+	margin-top: 1rem;
+	
 }
 
 .bookMovie:hover {
 	background-color: #c3c9e9;
 }
+
 

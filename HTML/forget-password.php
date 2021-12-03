@@ -27,9 +27,8 @@
             <fieldset>
                 <legend>Forgot Password</legend>
                 <p>Please enter your email. We will send an email with your password in it</p><br>
-                <label>Email:</label>
-                <input type="text" name="input_email"><br><br>
-                <input class="bookMovie" type="submit" value="submit">
+                <input class="passInput" type="text" name="input_email"><br><br>
+                <input class="forgetPassSubmit" type="submit" value="submit">
             </fieldset>
         </form>
 

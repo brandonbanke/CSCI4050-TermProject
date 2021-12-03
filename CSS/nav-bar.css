@@ -67,10 +67,11 @@ header #search-form {
 }
 
 #search-bar {
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-size: 25px;
 	width: 30%;
 	margin: 0 5%;
-	padding: 1em;
+	padding: .5rem;
     background-repeat: no-repeat;
    	background-position: left;  
 	background-size: 45px 25px;
@@ -78,6 +79,5 @@ header #search-form {
 	padding-left: 10px;
 	text-align: center;
 	border: none;
-	border-radius: 20px;
-	padding-bottom: 10px;
+	border-radius: 1rem;
 }

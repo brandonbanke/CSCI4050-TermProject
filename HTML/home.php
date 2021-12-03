@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="../CSS/nav-bar.css">
     <link rel="stylesheet" href="../CSS/home.css">
-    <!--<link rel="stylesheet" href="../CSS/admin-home.css">-->
+    <link rel="stylesheet" href="../CSS/admin-home.css">
     
 </head>
 
@@ -37,13 +37,11 @@
         <form id="search-form" action="../PHP/searchMovies.php" method="POST">
             <input type="search" id="search-bar" name="search" placeholder="What are you watching?">
         </form>    
-
-        <?php if ($userOnCheck && $isAdmin) :?>
+    </div>
+    <?php if ($userOnCheck && $isAdmin) :?>
         <h2 class = "adminTitle">Admin View</h2>
         <a href="../HTML/adminMenu.php" class="manage">Manage Movies and Promotions</a>
         <?php endif;?>
-
-    </div>
         <h2>Current Movies</h2>
         <section class="trailerList">
            

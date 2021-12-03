@@ -38,7 +38,6 @@
     <?php #endforeach; ?>
     <h1>Book a Movie</h1>
         <div id="filter"> 
-            <p>Filter Search</p><br>
             <form action="../PHP/searchMovies.php" method="POST">
                 <fieldset>
                     <p>Filter by Category</p>
@@ -67,16 +66,16 @@
                             echo "<div class = \"trailer\">"; 
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                             // echo "<div class = \"info\">";
-                            echo "<p class = \"info\"> Title: ".$movieInf['title']." </p>";
-                            echo "<p class = \"info\"> Category: ".$movieInf['category']." </p>";
+                            echo "<p class = \"info title\">".$movieInf['title']." </p>";
+                            echo "<p class = \"info minorInfo\">".$movieInf['category']." </p>";
                             if($movieInf['comingSoon'] == 0) {
-                                echo "<p class = \"info\">Released</p>";
+                                echo "<p class = \"info minorInfo\">Released</p>";
                             } else {
-                                echo "<p class = \"info\">Coming Soon</p>";
+                                echo "<p class = \"info minorInfo\">Coming Soon</p>";
                             }
-                            echo "<p class = \"info\"> Cast: ".$movieInf['movieCast']." </p>";
-                            echo "<p class = \"info\"> Director: ".$movieInf['director']." </p>";
-                            echo "<p class = \"info\"> Rating: ".$movieInf['ratingCode']." </p>";
+                            echo "<p class = \"info minorInfo\"> Cast: ".$movieInf['movieCast']." </p>";
+                            echo "<p class = \"info minorInfo\"> Director: ".$movieInf['director']." </p>";
+                            echo "<p class = \"info minorInfo\"> Rating: ".$movieInf['ratingCode']." </p>";
                             echo "<form method='POST' action='../HTML/select-showtime.php'><input type='hidden' name='movieId' value='". $movieInf['id']."'>";
                             echo "<button name='bookMovie' class='bookMovie' type='submit'>Book Movie </button>";
                             echo "</form>";

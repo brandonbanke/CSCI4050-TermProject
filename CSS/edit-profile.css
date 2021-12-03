@@ -57,22 +57,34 @@ fieldset {
     text-align: center;
 
 }
-
 label {
-    font-family: 'Roboto', sans-serif;
+	margin: 0 .5rem .5rem 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
     color:#d6d5d6;
     text-align: right;
-    float: center;
-    width: 7em;
-    text-align: right;
-    margin-left: -1em;
+    width: 9em;
+    text-align: right;	
+	display: inline-block;
 }
 
 input {
-    width: 15em;
-    margin-left: 0.75em;
-    border: 2px solid #B7B7B7;
+	margin-bottom: .5rem;
+    font-family: 'Roboto', sans-serif;
+	font-size: 20px;
 	background-color: #d6d5d6;
+	color: #24272B;
+}
+
+input[type=text] {
+	margin-top: .5rem;
+	border-radius: .75rem;
+	height: 2rem;
+	padding: .20rem .5rem;
+}
+input[type=checkbox] {
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 #logoutButton {
@@ -80,7 +92,6 @@ input {
 	display: flex;
 	justify-content: center;
 }
-
 
 .bookMovie {
 	background-color: #B7B7B7;
@@ -92,25 +103,38 @@ input {
 	border-radius: 2rem;
 	box-shadow: .5px .5px 3px .5px #0d0e0f;
 	text-decoration: none;
+}
 
+.forgetPassSubmit{
+	background-color:  #D0CDD7;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: #24272B;
+	font-size: 17px;
+	padding: .4rem .9rem;
+	margin-left: .5rem;
+	margin-top: 1rem;
+}
+
+.passInput {
+	width: 20rem;
 }
 
 .bookMovie:hover {
 	background-color: #c3c9e9;
 }
 
-label {
-	display: inline-block;
-	width: 8%;
-}
-
 #check {
 	width: 2rem;
-	margin-right: 2rem;
+	margin-left: 4rem;
 }
 
 #checkLabel {
-	width: 10rem;
+	width: 13rem;
+	margin-left: 3rem;
 }
  
 #logoutButton a {
@@ -123,4 +147,10 @@ label {
 
 #formDiv {
 	width: 100%;
+}
+
+p {
+	color: #a2a5b8;
+	font-size: 30px;
+    font-family: 'Bebas Neue', cursive;
 }

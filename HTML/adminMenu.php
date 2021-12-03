@@ -55,15 +55,15 @@
                     <p><?php echo$movieInf['title'];?> </p>
                     <form method='POST' action='../PHP/getMovieInformation.php'>
                         <input type="hidden" name="movie_id" value="<?php echo $movieInf['id']; ?>">
-                        <button type="submit" class="manageButton">Edit Information</button>
+                        <button type="submit" class="manageButton editButton">Edit Information</button>
                     </form>
                     <form method='POST' action='../PHP/getShowTimeInfo.php'>
                         <input type="hidden" name="showmovie_id" value="<?php echo $movieInf['id']; ?>">
-                        <button type="submit" class="manageButton" name="editTime">Edit Time</button>
+                        <button type="submit" class="manageButton editButton" name="editTime">Edit Time</button>
                     </form>
                     <form method='POST' action='../PHP/movieInformation.php'>
                         <input type="hidden" name="deleteMovieID" value="<?php echo $movieInf['id']; ?>">
-                        <button type="submit" class="manageButton" name="deleteMovie">Delete</button>
+                        <button type="submit" class="manageButton editButton" name="deleteMovie">Delete</button>
                     </form>
                 </div>
                 <?php endforeach; ?>
@@ -72,9 +72,11 @@
         </div>
         <!-- manage users tab -->
         <div id="manageUsers" class="content">
+        <h3 class="selectTime">Manage Users</h3><br>
             <!-- gets all the users in the db -->
             <?php foreach($custInfs as $info) :?>
                 <div id="box">
+                
                     <?php 
                         if ($info['isAdmin'] != 1) {
                             if ($info['isBlocked'] == 0) {
@@ -85,7 +87,7 @@
                             
                             echo "
                                 <form method='POST' action='../PHP/changeIsBlocked.php'>
-                                    <p>" .$info['userId'].  "&nbsp&nbsp&nbsp<button type='submit' name='userBlockButton' value='" .$info['userId']. "' class='manageButton'>" .$value. "</button></p>
+                                    <p class=\"pTime\">" .$info['userId'].  "&nbsp&nbsp&nbsp<button type='submit' name='userBlockButton' value='" .$info['userId']. "' class='manageButton timeButton'>" .$value. "</button></p>
                                 </form>
                             
                             ";
@@ -99,16 +101,16 @@
         <div id="managePromotions" class="content">  
              <!-- Add promotion --> 
             <div class="addPromo">
-                    <h2 class="select">Add new promotion:</h2>
+                    <h3 class="selectTime">Add new promotion:</h3>
                     <form class = "promotionForm" method='POST' action='../PHP/promotionInformation.php' onsubmit="return promoCheck();"> 
                         <fieldset>
                             <p id="pNameValidity"> Name not entered</p>
                             <p id="pCodeValidity"> Code not entered</p>
                             <p id="pDescValidity"> Description not entered</p>
                             <label>Promotion Name:</label>
-                            <input type="text" name='pName' id='pName'><br><br><br>
+                            <input type="text" name='pName' id='pName'><br><br>
                             <label>Promotion Code:</label>
-                            <input type="text" name='pCode' id='pCode'><br><br><br>
+                            <input type="text" name='pCode' id='pCode'><br><br>
                             <label>Promotion Description:</label>
                             <input type="text" name='pDescription' id='pDescription'><br><br>
                             <label>Promotion Discount:</label>
@@ -116,18 +118,20 @@
                             <input class = "manageButton sub" type="submit" value="Submit">
                         </fieldset>
                     </form>
-            </div>     
-            <h2 class="select">Select promotion:</h2>    
-            <?php foreach ($promInfs as $promInf) : ?>
-                <form method="POST" >
-                    <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
+            </div>    
+            <div class="selectPromo"> 
+                <h3 class="selectTime">Current Promotion(s):</h3><br>  
+                <?php foreach ($promInfs as $promInf) : ?>
+                    <form method="POST" >
+                        <input type="hidden" value="<?php echo $promInf['id'] ?>" name="promId">
 
-                        <p class="promoName"><?php echo $promInf['promoName']; ?> &nbsp&nbsp&nbsp
-                        <button type="submit" class="manageButton" name="change" formmethod="POST" formaction="../HTML/editPromotion.php">Change</button> 
-                        <button type="submit" class="manageButton"name="deletePromo">Delete</button></p><br>
-                
-                </form>
-            <?php endforeach; ?>
+                        <p class="pTime"><?php echo $promInf['promoName']; ?> &nbsp&nbsp&nbsp
+                            <button type="submit" class="manageButton timeButton" name="change" formmethod="POST" formaction="../HTML/editPromotion.php">Change</button> 
+                            <button type="submit" class="manageButton timeButton"name="deletePromo">Delete</button></p><br>
+                    
+                    </form>
+                <?php endforeach; ?>
+            </div>
         </div>
 
         <!-- NEEDS TO SHOW SPECIFIC PROMOTION -->
