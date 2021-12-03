@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2021 at 07:13 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Dec 03, 2021 at 05:26 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,8 @@ CREATE TABLE `booking` (
 
 INSERT INTO `booking` (`bookingNumber`, `ticketNumber`, `promotionId`, `cardId`, `userId`, `movieId`, `showinfoId`) VALUES
 (11, 75, NULL, 33, 's', 6, 5),
-(12, 76, NULL, 33, 's', 4, 9);
+(12, 76, NULL, 33, 's', 4, 9),
+(13, 77, NULL, 33, 's', 6, 5);
 
 -- --------------------------------------------------------
 
@@ -72,10 +73,15 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`title`, `category`, `movieCast`, `director`, `producer`, `synopsis`, `reviews`, `trailer`, `picture`, `ratingCode`, `comingSoon`, `id`, `duration`) VALUES
-('Test', 'Action', 'person1, person2, person3', 'Person1', 'person1', 'new marvel movie', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.vitalthrills.com/wp-content/uploads/2021/11/eternals2poster.jpg', 'PG-13', 1, 4, 100),
-('Batman', 'Romance', 'robert pattinson', 'person1', 'person1', 'batman is a hero', '10/10', 'https://www.youtube.com/embed/mqqft2x_Aa4', 'https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg', 'PG-13', 1, 6, 0),
+('Eternals', 'Action', 'Richard Madden, Gemma Chan', 'Chloe Zhao', 'Chloe Zhao', 'The Eternals, a race of immortal beings with superhuman powers who have secretly lived on Earth for thousands of years, reunite to battle the evil Deviants.', '10/10', 'https://www.youtube.com/embed/x_me3xsvDgk', 'https://www.vitalthrills.com/wp-content/uploads/2021/11/eternals2poster.jpg', 'PG-13', 0, 4, 100),
+('Batman', 'Romance', 'robert pattinson', 'Matt Reeves', 'Matt Reeves', 'The Riddler plays a dangerous game of cat and mouse with Batman and Commissioner Gordon in Gotham City.', '10/10', 'https://www.youtube.com/embed/mqqft2x_Aa4', 'https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg', 'PG-13', 1, 6, 0),
 ('Paw Patrol', 'Kids', 'holden smith', 'person1', 'person1', 'hes lame', '0/10', 'https://www.youtube.com/embed/LRMTr2VZcr8', 'https://m.media-amazon.com/images/M/MV5BNzY2OTYwNjItYzczMC00YjYzLThmY2MtZGFhNmVmMzUzN2QyXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg', 'R', 1, 7, 0),
-('Spider-man', 'Marvel', 'person', 'person', 'Perons', 'test', 'good', '', 'https://m.media-amazon.com/images/M/MV5BNTMxOGI4OGMtMTgwMy00NmFjLWIyOTUtYjQ0OGQ4Mjk0YjNjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg', 'R', 1, 9, 0);
+('House of Gucci', 'Drama', 'Lady Gaga, Adam Driver, Jared Leto', 'Ridley Scott', 'Ridley Scott', 'The true story of how Patrizia Reggiani plotted to kill her husband Maurizio Gucci, the grandson of renowned fashion designer Guccio Gucci.', '83/100', 'https://www.youtube.com/embed/pGi3Bgn7U5U', 'https://m.media-amazon.com/images/M/MV5BZThjMTA5YjgtZmViZi00YjY0LTk5MzQtMjUwMGEzZGVlYzFjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg', 'R', 0, 10, 164),
+('Encanto', 'Disney', 'Stephanie Beatriz, Maria Cecilia', 'Byron Howard ', 'Byron Howard', 'The tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto.', 'N/A', 'https://www.youtube.com/embed/CaimKeDcudo', 'https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg?region=0%2C0%2C540%2C810', 'PG', 0, 11, 99),
+('Diary of a Wimpy Kid', 'Comedy', 'Brady Noon, Ethan William Cildress', 'Swinton Scott', 'Swinton Scott', 'The story of Greg Heffley, a middle-school scrawny boy with an unlimited ambition to be famous when he\'s older and an overactive imagination.', 'N/A', 'https://www.youtube.com/embed/VKhCPUa-glo', 'https://mlpnk72yciwc.i.optimole.com/cqhiHLc.WqA8~2eefa/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2021/09/Diary-Of-A-Whipy-Kid.-Credit-Disney.jpeg', 'PG', 1, 12, 57),
+('West Side Story', 'Musical', 'Ansel Elgort, Rachel Zegler', 'Steven Spielberg', 'Steven Spielberg', 'Two youngsters from rival New York City gangs fall in love, but tensions between their respective friends build toward tragedy.', 'N/A', 'https://www.youtube.com/embed/A5GJLwWiYSg', 'https://upload.wikimedia.org/wikipedia/commons/0/0b/West_Side_Story_1961_film_poster.jpg', 'PG-13', 1, 13, 156),
+('Ghostbusters: Afterlife', 'Action', 'Finn Wolfhard, McKenna Grace', 'Jason Reitman', 'Jason Reitman', 'When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.', '77/100', 'https://www.youtube.com/embed/HR-WxNVLZhQ', 'https://m.media-amazon.com/images/M/MV5BMmZiMjdlN2UtYzdiZS00YjgxLTgyZGMtYzE4ZGU5NTlkNjhhXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg', 'PG', 0, 14, 105),
+('Tick Tick Boom', 'Netflix', 'Andrew Garfield, Alexandra Shipp, Vanessa Hudgens', 'Lin Manuel Miranda', 'Lin Manuel Miranda', 'On the cusp of his 30th birthday, a promising young theater composer navigates love, friendship, and the pressures of life as an artist in New York City.', '86/100', 'https://www.youtube.com/embed/YJserno8tyU', 'https://deadline.com/wp-content/uploads/2021/10/TTB_Main_Vertical_27x40_RGB_EN-US.jpg', 'PG-13', 0, 15, 115);
 
 -- --------------------------------------------------------
 
@@ -153,7 +159,8 @@ INSERT INTO `showinfo` (`movieId`, `showRoomId`, `showId`, `date`, `time`) VALUE
 (4, NULL, 7, '3000-11-18', '22:10:05'),
 (4, NULL, 8, '2021-11-19', '02:20:20'),
 (4, NULL, 9, '3000-11-18', '23:10:05'),
-(7, NULL, 10, '2021-11-19', '18:00:00');
+(7, NULL, 10, '2021-11-19', '18:00:00'),
+(10, NULL, 11, '2021-12-03', '16:00:00');
 
 -- --------------------------------------------------------
 
@@ -248,7 +255,8 @@ INSERT INTO `ticket` (`id`, `numAdult`, `numChild`, `numSenior`, `total`) VALUES
 (73, 1, 2, 3, 39.72),
 (74, 2, 3, 1, 40.64),
 (75, 2, 3, 1, 40.64),
-(76, 1, 2, 1, 26.84);
+(76, 1, 2, 1, 26.84),
+(77, 1, 0, 0, 11.2);
 
 -- --------------------------------------------------------
 
@@ -274,8 +282,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `pass`, `firstName`, `lastName`, `email`, `active`, `receiveProm`, `isAdmin`, `isBlocked`) VALUES
 ('ho', 0xdca4199542abd27fec564dcbe8334371, 'ho', 'ho', 'holdenmax3@aol.com', 0, 0, 0, 0),
-('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 0, 0, 1, 0),
-('s', 0xaad6cb4682f959aa9b0dc7e3baf982b9, 's', 's', 's', 1, 1, 0, 0);
+('q', 0xca0cd70313c247a0b63d42bd2e65a723, 'q', 'q', 'q', 1, 0, 1, 0),
+('s', 0xaad6cb4682f959aa9b0dc7e3baf982b9, 's', 's', 's', 0, 1, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -351,13 +359,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `bookingNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `payment_card`
@@ -375,7 +383,7 @@ ALTER TABLE `promotion`
 -- AUTO_INCREMENT for table `showinfo`
 --
 ALTER TABLE `showinfo`
-  MODIFY `showId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `showId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `showroom`
@@ -387,7 +395,7 @@ ALTER TABLE `showroom`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- Constraints for dumped tables
