@@ -85,7 +85,7 @@
                     } else if (counter < numberOfTickets) {
                         for (let i = 0; i < 105; i++) {
                             checkboxes[i].disabled = false;
-                            document.getElementById("contButton").style.display = "block";
+                            document.getElementById("contButton").style.display = "none";
                         }
                     }
                 }
@@ -101,7 +101,7 @@
             <input type="hidden" name="numAdult" value="<?php echo $numAdult; ?>">
             <input type="hidden" name="numChild" value="<?php echo $numChild; ?>">
             <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
-            <input style="display: none; float: right; margin-right: 3rem;"class="continue" type="submit" id="contButton" value="Continue">
+            <input style="display: none; float: right; margin-right: 3rem;"class="manageButton" type="submit" id="contButton" value="Continue">
         </form>
     </footer>
 </body>

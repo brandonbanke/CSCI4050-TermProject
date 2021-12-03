@@ -51,7 +51,6 @@
         
         <div class="formAge">
             <form action="../HTML/select-seat.php" method="POST" class="selectAge" onsubmit="return isEmpty();">
-                
                 <label>Adult</label>
                 <input type="text" name='numAdult' id='inputAdult'> <br><br>
                 <label>Child</label>
@@ -60,7 +59,7 @@
                 <input type="text" name='numSenior' id='inputSenior'><br><br>
                 <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
                 <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
-                <input type="submit" value="continue" onclick="ticketNum()" class="input" >
+                <input type="submit" value="continue" onclick="ticketNum()" class="manageButton" >
                 <p id="inputZeroValidity"> All ticket numbers cannot be 0</p>
                 <p id="inputValidity"> Missing ticket number</p>
             </form>

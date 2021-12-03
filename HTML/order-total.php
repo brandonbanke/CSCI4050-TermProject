@@ -156,7 +156,7 @@
         <input type="hidden" name="numSenior" value="<?php echo $numSenior; ?>">
         <input type="hidden" name="promoId" value="<?php echo $promoId; ?>">
         <input type="hidden" name="total" value="<?php echo $newTotalCost; ?>">
-        <input class="continueButton" type="submit" value="Continue">
+        <input class="manageButton" type="submit" value="Continue">
         </form>
     </footer>
 </body>

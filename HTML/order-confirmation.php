@@ -15,7 +15,7 @@
         <div class="content">
             <h1>ENJOY YOUR MOVIE!</h1>
 
-           <a href="home.php"><button class="backHome">Home</button></a>
+           <a href="home.php"><button class="manageButton">Home</button></a>
         </div>
 
     </div>

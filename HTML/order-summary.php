@@ -32,7 +32,7 @@
             <p>Date: <?php echo $movieDate;?></p>
             <p>Time: <?php echo $movieTime;?></p>
             <p>Booking #: <?php echo $bookingNumber;?></p>
-            <p>Total: <?php echo $total;?></p>
+            <p>Total: $<?php echo $total;?></p>
         </div>
     </div>
     </main>
@@ -40,7 +40,7 @@
     <footer>
        
     <form action="../HTML/order-confirmation.php" method="POST" id="continue">
-        <input class="continueButton" id="summaryCont" type="submit" value="Continue">
+        <input class="manageButton" id="summaryCont" type="submit" value="Continue">
         </form>
     </footer>
 </body>

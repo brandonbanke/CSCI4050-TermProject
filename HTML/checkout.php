@@ -66,9 +66,9 @@
             
             <?php
                 if ($cardCount < 3) {
-                    echo "<input type='submit' class='submitBtn' name='addCard' >";
+                    echo "<input type='submit' class='manageButton' name='addCard' >";
                 } else {
-                    echo "<input type='submit' class='submitBtn' name='addCard' disabled>";
+                    echo "<input type='submit' class='manageButton' name='addCard' disabled>";
                 }
             ?>
             <p id="billingValidity"> Billing Address is invalid</p>
@@ -80,7 +80,7 @@
         </form>
     </div>
         <div id="formDiv">
-            <h2 class="selectCard">Select cards</h2>
+            <h2 class="selectCard">Select cards</h2><br><br>
         <form action='../PHP/addBooking.php' method='POST'>
             <input type="hidden" name="movieId" value="<?php echo $showMovieId; ?>">
             <input type="hidden" name="showId" value="<?php echo $showInfo; ?>">
@@ -97,7 +97,7 @@
                         <h4 style='display:inline-block; text-align: left; '>". $counter ."</h4>
                         <p style='color:white; display:inline-block; padding-left:10px; padding-right:10px; font-size: 14pt;'>".  $card['cardNumber']. "</p>"
                         ."<input type='hidden' name='cardId".$counter."' value=". $card['cardId'] .">
-                        <input class='purchaseButton' type='submit' name='submit".$counter."' value='checkout'><br>"; 
+                        <input class='manageButton' type='submit' name='submit".$counter."' value='checkout'><br><br>"; 
                         $counter++;
                     } 
                 } else {
@@ -113,7 +113,7 @@
     </div>
     <footer>
     <div id="btn">
-        <a href="../HTML/home.php"><button type="button" class="cancelButton">Cancel Order</button></a>
+        <a href="../HTML/home.php"><button type="button" class="manageButton">Cancel Order</button></a>
         <!--<input type="submit" class="purchaseButton" value="purchase tickets" name="getTickets">-->   
     </div>
     </footer>

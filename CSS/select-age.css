@@ -17,6 +17,14 @@ main h1 {
     text-align: center;
 }
 
+h2 {
+    color: #d6d5d6;
+	margin-top: 1rem;
+	font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+    text-align: center;
+}
+
 main h3 {
 	color: #e7e7e7;
 	margin-top: 2rem;
@@ -37,24 +45,33 @@ p{
     padding-left: 30%;
 }
 
-.selectAge input {
-    color: white;
-    text-decoration: none;
-    margin-top: 5rem;
-    margin-right: 3rem;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 30pt;
-    width: auto;
-    background-color: #D0CDD7;
-    border-radius: 25px;
-    padding: .75rem 1.5rem;
+label {
+	margin-right: 1rem;
+	font-family: 'Roboto', sans-serif;
+	font-size: 35px;
+    color:#d6d5d6;
+    text-align: right;	
+    display: inline-block;
+    width: 15rem;
+    margin-left: 5rem;
 }
 
-.selectAge label {
+input {
+	margin-bottom: .5rem;
     font-family: 'Roboto', sans-serif;
-    color: #e7e7e7;
-    display: inline;
-    font-size: 20pt;
+	font-size: 20px;
+	background-color: #d6d5d6;
+    color: #24272B;
+}
+
+input[type=text] {
+	margin-top: .5rem;
+	border-radius: .75rem;
+	height: 2rem;
+    padding: .20rem .5rem;
+    width: 6rem;
+    text-align: center;
+    font-size: 30px;
 }
 
 .num {
@@ -68,4 +85,22 @@ p{
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
     color: #b8b8b8;
+}
+
+.manageButton{
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20pt;
+    width: auto;
+    background-color: #D0CDD7;
+    border-radius: 25px;
+    padding: .75rem 1.5rem; 
+    float: right;
+    margin-right: 15rem;
+    margin-top: 8rem;
+}
+
+.manageButton:hover {
+	background-color: #c3c9e9;
 }

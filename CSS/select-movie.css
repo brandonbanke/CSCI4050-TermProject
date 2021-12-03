@@ -34,6 +34,7 @@ fieldset p {
 
 p {
 	font-family: 'Bebas Neue', cursive;
+	color: #d6d5d6;
 }
 
 #filter {
@@ -52,14 +53,6 @@ p {
 	display: flex;
 }
 
-/* .trailerList {
-
-	text-align: center;
-    overflow-y: auto;
-	
-    margin-top: 2rem;
-    width: 70%
-} */
 
 .info {
 	justify-content: right;
