@@ -70,7 +70,7 @@ header #search-form {
 	font-family: 'Roboto', sans-serif;
 	font-size: 25px;
 	width: 30%;
-	margin: 0 5%;
+	margin-left: 10%;
 	padding: .5rem;
     background-repeat: no-repeat;
    	background-position: left;  
@@ -79,5 +79,5 @@ header #search-form {
 	padding-left: 10px;
 	text-align: center;
 	border: none;
-	border-radius: 1rem;
+	border-radius: .9rem;
 }

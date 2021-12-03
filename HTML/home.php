@@ -18,14 +18,6 @@
 <body>
     <header> 
         <h1 class = "title">Booking Website!</h1>
-        <?php 
-        if ($userOnCheck == 1) {
-        foreach($userInfs as $userInfo) {
-            $name = $userInfo['firstName'];
-        } 
-            
-        echo "<p style=\"align-text: center; padding-left:60px; color: #d6d5d6;\">Welcome back, " .$name ."</p>";
-        } ?>
     </header>
     <main>
     <div id="nav-menu">
@@ -40,6 +32,13 @@
     </div>
     <?php if ($userOnCheck && $isAdmin) :?>
         <h2 class = "adminTitle">Admin View</h2>
+        <?php 
+        if ($userOnCheck == 1) {
+        foreach($userInfs as $userInfo) {
+            $name = $userInfo['firstName'];
+        } 
+        echo "<p style=\" color: #d6d5d6;\">Welcome back, " .$name ."</p>";
+        } ?>
         <a href="../HTML/adminMenu.php" class="manage">Manage Movies and Promotions</a>
         <?php endif;?>
         <h2>Current Movies</h2>

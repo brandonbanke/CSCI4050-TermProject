@@ -1,11 +1,8 @@
 
 .adminTitle {
 	text-align: center;
+	font-size: 35pt;
 }
-main h2 {
-	margin-bottom: 1rem;
-}
-
 p {
 	color: #d6d5d6;
 	font-size: 20pt;

@@ -10,18 +10,20 @@ main {
 }
 
 main h1 {
-    color: #d6d5d6;;
-	margin-top: 1rem;
+    color: #d6d5d6;
     font-family: 'Bebas Neue', cursive;
-    font-size: 50pt;
+    font-size: 50px;
     text-align: center;
 }
 
 main h2 {
-	color: #d6d5d6;;
+	color: #d6d5d6;
 	margin-top: 1rem;
 	font-family: 'Bebas Neue', cursive;
-	font-size: 30pt;
+	font-size: 35pt;
+}
+.bookMovieTitle {
+	text-align: center;
 }
 
 fieldset p {
@@ -63,7 +65,7 @@ p {
 	justify-content: right;
 }
 
-.title {
+.movieTitle {
 	font-size: 40px;
 }
 

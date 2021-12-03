@@ -36,7 +36,7 @@
         </form>  
     </div>
     <?php #endforeach; ?>
-    <h1>Book a Movie</h1>
+    <h2 class = "bookMovieTitle">Book a Movie</h2>
         <div id="filter"> 
             <form action="../PHP/searchMovies.php" method="POST">
                 <fieldset>
@@ -66,7 +66,7 @@
                             echo "<div class = \"trailer\">"; 
                             echo "<iframe width=\"350\" height=\"250\" src = " .$movieInf['trailer']. "> </iframe><br>";
                             // echo "<div class = \"info\">";
-                            echo "<p class = \"info title\">".$movieInf['title']." </p>";
+                            echo "<p class = \"info movieTitle\">".$movieInf['title']." </p>";
                             echo "<p class = \"info minorInfo\">".$movieInf['category']." </p>";
                             if($movieInf['comingSoon'] == 0) {
                                 echo "<p class = \"info minorInfo\">Released</p>";
